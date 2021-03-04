@@ -11,13 +11,12 @@
 
 .menu-container {
   margin-top: 45px;
-  display: flex;
   align-items: center;
   width: 100%;
 }
 
 nav {
-  width: 100%;
+  display: flex;
 }
 
 .logo {
@@ -54,4 +53,14 @@ nav {
   color: $color_white;
   margin-left: auto;
   display: inline-block;
+
+  &:hover {
+    color: $color_orange;
+  }
+}
+
+.main-search {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 113px;
 }
