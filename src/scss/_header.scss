@@ -11,6 +11,8 @@
 
 .menu-container {
   margin-top: 45px;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
@@ -21,13 +23,29 @@
   line-height: 33px;
   display: block;
   color: $color_white;
+  margin-left: 7px;
 
   &-link {
     text-decoration: none;
+    display: flex;
+    align-items: center;
     color: $color_grey;
 
     &:hover svg {
       fill: $color_orange;
     }
   }
+}
+
+.sign-in {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $color_white;
+  margin-left: auto;
 }
