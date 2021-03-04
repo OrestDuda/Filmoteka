@@ -20,10 +20,14 @@
   font-size: 28px;
   line-height: 33px;
   display: block;
+  color: $color_white;
 
-  &-icon {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
+  &-link {
+    text-decoration: none;
+    color: $color_grey;
+
+    &:hover svg {
+      fill: $color_orange;
+    }
   }
 }
