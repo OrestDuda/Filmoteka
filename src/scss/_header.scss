@@ -1,0 +1,11 @@
+.header_main {
+  display: flex;
+  background-color: $color_black;
+  background-image: linear-gradient(#2f303a66, rgba(0, 0, 0, 0.56)),
+    url(../images/header_default_bg.jpg),
+    url(../images/header_default_bg_2x.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100%;
+  height: 230px;
+}
