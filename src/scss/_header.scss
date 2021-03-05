@@ -60,22 +60,35 @@ nav {
 }
 
 .main-search {
+  margin-top: 44px;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 44px;
-  display: block;
+  width: 306px;
 }
 
 .search-form {
   color: $color_white;
-  position: relative;
 
   & input {
     background-color: rgba(0, 0, 0, 0.1);
     border: 0;
     border-bottom: 1px solid;
     border-bottom-color: $color_white;
-    width: 336px;
+    width: 306px;
+    padding-right: 20px;
+    transition: 1s;
+    padding-left: 10px;
+    border-radius: 4px;
+    color: $color_white;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: rgba(184, 181, 181, 0.3);
+    }
 
     &::placeholder {
       font-family: Roboto;
@@ -88,6 +101,7 @@ nav {
   }
   & svg {
     position: absolute;
-    right: 2px;
+    right: 4px;
+    top: 7px;
   }
 }
