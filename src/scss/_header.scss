@@ -1,5 +1,4 @@
 .header_main {
-  display: flex;
   background-color: $color_black;
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(../images/header_default_bg.jpg);
@@ -11,6 +10,7 @@
 
 .menu-container {
   margin-top: 45px;
+  display: flex;
   align-items: center;
   width: 100%;
 }
@@ -62,5 +62,32 @@ nav {
 .main-search {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 113px;
+  margin-top: 44px;
+  display: block;
+}
+
+.search-form {
+  color: $color_white;
+  position: relative;
+
+  & input {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 0;
+    border-bottom: 1px solid;
+    border-bottom-color: $color_white;
+    width: 336px;
+
+    &::placeholder {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 16px;
+      color: $color_white;
+    }
+  }
+  & svg {
+    position: absolute;
+    right: 2px;
+  }
 }
