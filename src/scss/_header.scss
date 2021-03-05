@@ -148,7 +148,7 @@ nav {
 
 .user-name {
   display: block;
-  margin-top: 10%;
+  margin-top: 13%;
 
   &::before {
     content: '';
@@ -160,21 +160,35 @@ nav {
 
 .menu-list-container {
   position: absolute;
+  width: 146px;
+  background: rgba(202, 200, 200, 0.3);
+  top: 0px;
+  padding-top: 74px;
+  padding-bottom: 15px;
 }
 
 .menu-list-link {
   text-decoration: none;
+  transition: 500ms;
+
+  &:hover {
+    font-weight: 700;
+    border-bottom: solid 3px $color_orange;
+    color: $color_white;
+  }
+}
+
+.menu-list-item {
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
   color: $color_white;
-  transition: 500ms;
+  text-transform: uppercase;
+  text-decoration: none;
 
-  &:hover {
-    font-weight: 700;
-    text-decoration: underline;
-    text-decoration-color: $color_orange;
+  &:not(:first-child) {
+    margin-top: 20px;
   }
 }
