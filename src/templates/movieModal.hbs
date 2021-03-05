@@ -1,0 +1,34 @@
+<div class='movieModalContainer'>
+
+  <div class='movieModalContainerPoster'>
+    <img src='https://www.themoviedb.org/t/p/original/{{poster_path}}' alt='{{title}}' class='movieModalContainerPosterIMG'>
+  </div>
+
+  <div class='movieModalContainerData'>
+    <h1 class='movieModalContainerDataH1'>{{title}}</h1>
+    <table class="movieModalContainerDataStat">
+      <tr>
+        <td class='movieModalContainerDataStatItemName'>Vote / Votes</td>
+        <td class='movieModalContainerDataStatItemResult'><span class='movieVotes'>{{vote_average}}</span> / <span class='movieVotes'>{{vote_count}}</span></td>
+      </tr>
+      <tr>
+        <td class='movieModalContainerDataStatItemName'>Popularity</td>
+        <td class='movieModalContainerDataStatItemResult'>{{popularity}}</td>
+      </tr>
+      <tr>
+        <td class='movieModalContainerDataStatItemName'>Original Title</td>
+        <td class='movieModalContainerDataStatItemResult'>{{original_title}}</td>
+      </tr>
+      <tr>
+        <td class='movieModalContainerDataStatItemName'>Genre</td>
+        <td class='movieModalContainerDataStatItemResult'>{{#each genres}} {{this.name}} {{/each}}</td>
+      </tr>
+    </table>
+    <p class='movieModalContainerDataAboutHeader'>ABOUT</p>
+    <p class='movieModalContainerDataAbout'>{{overview}}</p>
+
+    <button type="button" class="btn btn-primary movieModalContainerDataBtn ">ADD TO WATCH</button>
+    <button type="button" class="btn btn-primary movieModalContainerDataBtn">ADD TO QUEUE</button>
+  </div>
+</div>
+
