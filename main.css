@@ -1,0 +1,136 @@
+.list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.conteiner {
+  width: 1024%;
+  padding-left: 71px;
+  padding-right: 71px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+  /* @include for-size(mobile) {
+    width: 480px;
+  }
+
+  @include for-size(tablet) {
+    width: 768px;
+  }
+
+  @include for-size(desktop) {
+    width: 1200px;
+  } */
+}
+
+.products {
+  width: 1024px;
+  background-color: #e7e7e7;
+  padding-top: 60px;
+  padding-bottom: 46px;
+
+  display: flex;
+  justify-content: center;
+
+  /* @media screen and (min-width: 320px) and (max-width: 768px-1px) {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  @media screen and (min-width: 768px) {
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+  @media screen and (min-width: 1024px) {
+    padding-top: 60px;
+    padding-bottom: 46px;
+  } */
+}
+
+/* $mobile_s: 320px;
+$mobile_l: 480px;
+$tablet: 768px;
+$desktop: 1280px; */
+
+.imgFilm {
+  width: 274px;
+  /* @media screen and (min-width: 320px) and (max-width: 768px-1px) {
+    width: 280px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 293px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 274px;
+  } */
+}
+
+.name {
+  font-family: Roboto;
+  color: #000000;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 30px;
+  margin-bottom: 9px;
+}
+.text {
+  font-family: Roboto;
+  color: #ff6b08;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14.06px;
+  margin: 0px;
+}
+.reyting {
+  font-family: Roboto;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 0px;
+}
+
+.features {
+  display: flex;
+  /* justify-content: center; */
+  /* flex-wrap: wrap; */
+  /* margin: -15px; */
+  justify-content: space-between;
+
+  /* @media screen and (min-width: 320px) and (max-width: 767px) { */
+  /* display: flex;
+    justify-content: center; */
+  /* }
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: -15px;
+  }
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    justify-content: space-between;
+  } */
+}
+
+.person {
+  margin-right: 30px;
+
+  /* not(:last-child) {
+      margin-bottom: 30px;
+    } */
+}
+.person:last-child {
+  margin-right: 0px;
+}

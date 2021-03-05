@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Animals</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./main.css" />
+    <style>
+      a {
+        text-decoration: none;
+        /* Отменяем подчеркивание у ссылки */
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          class="form-control"
+          name="query"
+          autocomplete="off"
+          placeholder="Поиск фильмов"
+        />
+      </form>
+    </header>
+
+    <section class="products">
+      <div class="conteiner">
+        <ul class="list features">
+          <li class="person">
+            <img
+              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
+              class="imgFilm"
+              src="./images/film1.jpg"
+              alt="Film"
+            />
+            <h3 class="name">GREYHOUND</h3>
+            <p class="text">Drama, Action | 2020</p>
+            <p class="reyting">Рейтинг</p>
+          </li>
+          <li class="person">
+            <img
+              srcset="./images/film2.jpg 1x, ./images/film2.jpg 2x"
+              class="imgFilm"
+              src="./images/film2.jpg"
+              alt="Film"
+            />
+            <h3 class="name">AQUARELA</h3>
+            <p class="text">Documentary, Drama, Other | 2019</p>
+            <p class="reyting">Рейтинг</p>
+          </li>
+          <li class="person">
+            <img
+              srcset="./images/film3.jpg 1x, ./images/film3.jpg 2x"
+              class="imgFilm"
+              src="./images/film3.jpg"
+              alt="Film"
+            />
+
+            <h3 class="name">ONCE UPON A TIME... IN HOLLYWOOD</h3>
+            <p class="text">Drama, Comedy | 2019</p>
+            <p class="reyting">Рейтинг</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </body>
+</html>
