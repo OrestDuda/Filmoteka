@@ -13,6 +13,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  justify-content: space-between;
 }
 
 nav {
@@ -78,7 +79,8 @@ nav {
     width: 306px;
     padding-right: 20px;
     transition: 1s;
-    padding-left: 10px;
+    padding-left: 20px;
+    padding-top: 20px;
     border-radius: 4px;
     color: $color_white;
 
@@ -102,6 +104,77 @@ nav {
   & svg {
     position: absolute;
     right: 4px;
-    top: 7px;
+    top: 26px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.menu-user-link {
+  display: inline-block;
+  text-align: center;
+  border-radius: 4px;
+  width: 146px;
+  height: 48px;
+  text-decoration: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: $color_white;
+  letter-spacing: 0.035em;
+  transition: 500ms;
+
+  &:hover {
+    background: rgba(202, 200, 200, 0.6);
+    color: $color_white;
+    font-weight: 700;
+  }
+
+  & svg {
+    fill: $color_orange;
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.user-name {
+  display: block;
+  margin-top: 10%;
+
+  &::before {
+    content: '';
+    background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z' clip-rule='evenodd'/></svg>");
+    background-repeat: no-repeat;
+    background-size: 20px;
+  }
+}
+
+.menu-list-container {
+  position: absolute;
+}
+
+.menu-list-link {
+  text-decoration: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: $color_white;
+  transition: 500ms;
+
+  &:hover {
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: $color_orange;
   }
 }
