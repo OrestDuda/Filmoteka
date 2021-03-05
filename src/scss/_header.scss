@@ -108,12 +108,14 @@ nav {
   }
 }
 
-.hidden {
+.is-hidden {
   display: none;
 }
 
 .menu-user-link {
-  display: inline-block;
+  z-index: 10;
+  display: flex;
+  align-items: center;
   text-align: center;
   border-radius: 4px;
   width: 146px;
@@ -148,14 +150,11 @@ nav {
 
 .user-name {
   display: block;
-  margin-top: 13%;
+}
 
-  &::before {
-    content: '';
-    background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z' clip-rule='evenodd'/></svg>");
-    background-repeat: no-repeat;
-    background-size: 20px;
-  }
+.icon-user {
+  padding-left: 4px;
+  margin-right: 8px;
 }
 
 .menu-list-container {
@@ -165,11 +164,14 @@ nav {
   top: 0px;
   padding-top: 74px;
   padding-bottom: 15px;
+  border-radius: 4px;
 }
 
 .menu-list-link {
   text-decoration: none;
-  transition: 500ms;
+  transition: 400ms;
+  color: $color_white;
+  padding: 5px;
 
   &:hover {
     font-weight: 700;
