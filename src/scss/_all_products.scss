@@ -52,14 +52,6 @@ svg {
   line-height: 1.14;
   margin: 0px;
 }
-// .reyting {
-//   font-family: $font_roboto;
-//   color: $color_white;
-//   font-weight: 500;
-//   font-size: 12px;
-//   line-height: 1.14;
-//   margin: 0px;
-// }
 
 .products-film {
   @media screen and (max-width: $tablet - 1px) {
@@ -89,6 +81,7 @@ svg {
   width: 100%;
   margin: 0px;
   padding: 0px;
+
   @media screen and (max-width: $tablet - 1px) {
     display: flex;
     justify-content: center;
@@ -99,9 +92,27 @@ svg {
     justify-content: space-between;
     flex-wrap: wrap;
   }
-  @media screen and (min-width: $desktop) {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
 }
+
+// Разметка для рейтинга
+
+// .reyting {
+//   font-family: $font_roboto;
+//   color: $color_white;
+//   font-weight: 500;
+//   font-size: 12px;
+//   line-height: -2;
+//   margin: 0px 0px 0px 10px;
+
+//   width: 36px;
+//   height: 16px;
+//   border: none;
+//   border-radius: 5px;
+//   text-align: center;
+//   background-color: $color_orange;
+// }
+
+// .reyting-align {
+//   display: flex;
+//   align-items: center;
+// }
