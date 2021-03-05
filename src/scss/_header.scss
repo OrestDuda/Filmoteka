@@ -61,7 +61,7 @@ nav {
 }
 
 .main-search {
-  margin-top: 44px;
+  margin-top: 6px;
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -193,4 +193,15 @@ nav {
   &:not(:first-child) {
     margin-top: 20px;
   }
+}
+.error-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: $color_red;
+  text-align: center;
+  margin-top: 18px;
+  letter-spacing: 0.03em;
 }
