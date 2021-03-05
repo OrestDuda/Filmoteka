@@ -150,6 +150,13 @@ nav {
   justify-content: center;
   align-items: center;
   position: relative;
+
+  &-highlited {
+    background: rgba(202, 200, 200, 0.6);
+    height: 48px;
+    border-radius: 4px;
+    margin-bottom: 25px;
+  }
 }
 
 .user-name {
@@ -161,12 +168,18 @@ nav {
   margin-right: 8px;
 }
 
+.circle-icon {
+  display: block;
+  background-color: $color_white;
+  width: 20px;
+  height: 20px;
+}
+
 .menu-list-container {
   position: absolute;
   width: 160px;
   background: #645f5f;
   top: 0px;
-  padding-top: 74px;
   padding-bottom: 15px;
   border-radius: 4px;
 
