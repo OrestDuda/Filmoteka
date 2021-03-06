@@ -20,9 +20,9 @@ body.movieModalOpened {
 
 .movieModal {
   background: $color_white;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-  0px 2px 1px rgba(0, 0, 0, 0.2);
-  border: 1px solid $color_black;
+  //box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+  //0px 2px 1px rgba(0, 0, 0, 0.2);
+  //border: 1px solid $color_black;
   position: absolute;
   left: 50%;
   top: 0;
@@ -39,12 +39,60 @@ body.movieModalOpened {
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1024px) {
     width: 882px;
-    height: 568px;
+    height: 588px;
     padding: 50px 30px 40px 30px;
   }
 
+}
+
+.movieModalVideoContainer{
+  background: $color_white;
+  margin-right: -20px;
+  margin-left: -20px;
+  margin-top: 10px;
+  @media screen and (min-width: 768px) {
+    margin-right: -30px;
+    margin-left: -30px;
+  }
+  @media screen and (min-width: 1024px) {
+    margin-right: -30px;
+    margin-left: -30px;
+  }
+}
+.accordion-button:focus {
+  border-color: transparent;
+  outline: 0;
+  box-shadow: none;
+}
+.accordion-button:not(.collapsed) {
+  color: $color_white;
+  background-color: $color_orange;
+}
+
+.accordion-button:not(.collapsed)::after {
+  content: none;
+}
+.accordion-button::after {
+  content: none;
+}
+.accordion-button{
+  display: inline-block;
+  text-align: center;
+}
+.accordion-body {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.trailer{
+  width: 80%;
+  margin: auto;
+  display: block;
+
+  @media screen and (min-width: 1024px) {
+    height: 300px;
+  }
 }
 
 .btn-close-movieModal {
@@ -61,7 +109,7 @@ body.movieModalOpened {
 }
 
 .movieModalX{
-font-size: 23px;
+  font-size: 23px;
   color: $color_black;
   &:hover {
     color: $color_orange;
@@ -83,7 +131,7 @@ font-size: 23px;
     width: 125px;
     height: 44px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1024px) {
     width: 136px;
     height: 44px;
   }
@@ -107,7 +155,7 @@ font-size: 23px;
   @media screen and (min-width: 768px) {
     width: 264px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1024px) {
     width: 396px;
   }
 }
@@ -155,7 +203,7 @@ font-size: 23px;
   padding-top: 5px;
   padding-bottom: 5px;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1024px) {
     width: 152px;
   }
 }
@@ -163,7 +211,7 @@ font-size: 23px;
 .movieModalContainerDataAboutHeader{
   margin-top: 15px;
   line-height: 16px;
-  }
+}
 
 .movieModalContainerDataH1{
   font-size: 20px;
@@ -174,9 +222,9 @@ font-size: 23px;
   text-align: left;
   margin-bottom: 15px;
   @media screen and (min-width: 768px) {
-     line-height: 23px;
+    line-height: 23px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1024px) {
     font-size: 30px;
     line-height: 35px;
   }
@@ -191,11 +239,10 @@ font-size: 23px;
     @media screen and (min-width: 768px) {
       height: 373px;
     }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1024px) {
       height: 477px;
     }
   }
 }
-
 
 
