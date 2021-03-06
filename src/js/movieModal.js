@@ -2,8 +2,13 @@ import movieModalTemplate from '../templates/movieModal.hbs';
 import modalVideoTemplate from '../templates/movieModalVideo.hbs';
 
 const refs = {
+<<<<<<< Updated upstream
   closeModalBtn: document.querySelector("[movieModalClose]"),
   modalBackdrop: document.querySelector("[js-movieModal]"),
+=======
+  closeModalBtn: document.querySelector('.movieModalClose'),
+  modalBackdrop: document.querySelector('.js-movieModal'),
+>>>>>>> Stashed changes
   modalContainer: document.querySelector('.movieModal'),
   allMovieList: document.querySelector('.products-list'),
   movieWrap: document.querySelector('.movieModalWrap'),
