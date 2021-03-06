@@ -1,0 +1,201 @@
+.movieBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+  opacity: 1;
+  overflow-y: scroll;
+
+  &.movieIsHidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+body.movieModalOpened {
+  overflow: hidden;
+}
+
+.movieModal {
+  background: $color_white;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+  0px 2px 1px rgba(0, 0, 0, 0.2);
+  border: 1px solid $color_black;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0) scale(1);
+  width: 280px;
+  height: 958px;
+  padding: 50px 20px 40px 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 618px;
+    height: 562px;
+    padding: 40px 30px 40px 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  @media screen and (min-width: 1280px) {
+    width: 882px;
+    height: 568px;
+    padding: 50px 30px 40px 30px;
+  }
+
+}
+
+.btn-close-movieModal {
+  padding: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: none;
+}
+
+.movieModalX{
+font-size: 23px;
+  color: $color_black;
+  &:hover {
+    color: $color_orange;
+  }
+}
+.movieModalContainerDataBtn{
+  width: 112px;
+  height: 44px;
+  background: none;
+  color: $color_black;
+  font-size: 12px;
+  border-color: $color_black;
+  &:hover, focus{
+    background: $color_orange;
+    color: $color_white;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 125px;
+    height: 44px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 136px;
+    height: 44px;
+  }
+}
+
+.movieModalContainerData > button:first-of-type{
+  margin-right: 10px;
+}
+.movieModalContainer{
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+}
+.movieModalContainerPoster, .movieModalContainerData{
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 264px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 396px;
+  }
+}
+.movieModalContainerData{
+  margin-top: 30px;
+  @media screen and (min-width: 768px) {
+    margin-top: 0px;
+  }
+
+}
+
+.movieModalContainerDataStatItemResult{
+  line-height: 14px;
+}
+.movieVotes{
+  background: $color_light_grey;
+  color: $color_black;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 36px;
+  height: 16px;
+  &:hover{
+    background: $color_orange;
+    color: $color_white;
+  }
+}
+
+
+.movieModalContainerDataAbout, movieModalContainerDataStatItemName, .movieModalContainerDataAboutHeader, movieModalContainerDataStatItemResult{
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.movieModalContainerDataAbout{
+  line-height: 20px;
+}
+
+.movieModalContainerDataStatItemName{
+  width: 108px;
+  line-height: 16px;
+  color: #8C8C8C;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  @media screen and (min-width: 1280px) {
+    width: 152px;
+  }
+}
+
+.movieModalContainerDataAboutHeader{
+  margin-top: 15px;
+  line-height: 16px;
+  }
+
+.movieModalContainerDataH1{
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 15px;
+  @media screen and (min-width: 768px) {
+     line-height: 23px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 30px;
+    line-height: 35px;
+  }
+}
+
+.movieModalContainerPoster{
+  img {
+    display: block;
+    max-width: 100%;
+    height: 356px;
+    margin: auto;
+    @media screen and (min-width: 768px) {
+      height: 373px;
+    }
+    @media screen and (min-width: 1280px) {
+      height: 477px;
+    }
+  }
+}
+
+
+
