@@ -1,0 +1,118 @@
+.products {
+  margin: 0px;
+
+  @media screen and (max-width: $tablet - 1px) {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  @media screen and (min-width: $tablet) {
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding-top: 60px;
+    padding-bottom: 46px;
+  }
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.imgFilm {
+  @media screen and (max-width: $tablet - 1px) {
+    width: 280px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 293px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 234px;
+  }
+}
+
+.products-name {
+  font-family: $font_roboto;
+  color: $color_black;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+
+  margin-top: 30px;
+  margin-bottom: 9px;
+}
+.products-style {
+  font-family: $font_roboto;
+  color: $color_orange;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.14;
+  margin: 0px;
+}
+
+.products-film {
+  @media screen and (max-width: $tablet - 1px) {
+    margin-bottom: 20px;
+    &:nth-last-child(-n + 1) {
+      margin-bottom: 0px;
+    }
+  }
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 30px;
+    &:nth-last-child(-n + 1) {
+      margin-bottom: 0px;
+    }
+  }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 30px;
+    &:nth-last-child(-n + 3) {
+      margin-bottom: 0px;
+    }
+  }
+  .products-film:last-child {
+    margin-right: 0px;
+  }
+}
+
+.products-list {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+
+  @media screen and (max-width: $tablet - 1px) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+// Разметка для рейтинга
+
+// .reyting {
+//   font-family: $font_roboto;
+//   color: $color_white;
+//   font-weight: 500;
+//   font-size: 12px;
+//   line-height: -2;
+//   margin: 0px 0px 0px 10px;
+
+//   width: 36px;
+//   height: 16px;
+//   border: none;
+//   border-radius: 5px;
+//   text-align: center;
+//   background-color: $color_orange;
+// }
+
+// .reyting-align {
+//   display: flex;
+//   align-items: center;
+// }
