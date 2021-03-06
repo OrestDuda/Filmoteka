@@ -32,7 +32,67 @@
   </head>
   <body>
     <header>
-      <div class="container"></div>
+      <div class="container header_main">
+        <nav>
+          <div class="menu-container">
+            <a href="./index.html" class="logo-link">
+              <i class="bi bi-film"></i>
+
+              <span class="logo">Filmoteka</span>
+            </a>
+            <div class="menu">
+              <a href="#" class="menu-user-link">
+                <div class="icon-user">
+                  <i class="bi bi-circle-fill"></i>
+                  <i class="bi bi-person-circle"></i>
+                </div>
+                <span class="user-name">Username </span></a
+              >
+              <div class="menu-list-container">
+                <div class="menu-highlited"></div>
+                <ul>
+                  <li class="menu-list-item">
+                    <a href="#" class="menu-list-link">my library</a>
+                  </li>
+                  <li class="menu-list-item">
+                    <a href="#" class="menu-list-link">theme</a>
+                  </li>
+                  <li class="menu-list-item">
+                    <a href="#" class="menu-list-link">sign out</a>
+                  </li>
+                </ul>
+              </div>
+              <a href="#" class="sign-in is-hidden">sign in</a>
+            </div>
+          </div>
+        </nav>
+        <div class="main-search">
+          <form class="search-form" id="search-form">
+            <input
+              type="text"
+              name="query"
+              autocomplete="off"
+              placeholder="Поиск фильмов"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              fill="currentColor"
+              class="bi bi-search"
+              viewbox="0 0 16 16"
+            >
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+              />
+            </svg>
+          </form>
+        </div>
+        <p class="error-text">
+          Sorry, we couldn't find any movies, that matches
+          <span class="error-match"> </span>
+        </p>
+      </div>
     </header>
 
     <section class="products">
@@ -40,27 +100,22 @@
     </section>
 
     <footer>
-      
-      <div class=“footer_container”>
-        <div class=“bottom__footer”>
-          <p class=“copyright”>© 2020 | All Rights Reserved |&nbsp;</p>
-          <div class=“developers”>
+      <div class="“footer_container”">
+        <div class="“bottom__footer”">
+          <p class="“copyright”">© 2020 | All Rights Reserved |&nbsp;</p>
+          <div class="“developers”">
             <p>Developed with</p>
-            <img
-              src="./images/heart-orange.svg"
-              class=“footer__image”
-            />
+            <img src="./images/heart-orange.svg" class="“footer__image”" />
             <p>by&nbsp;</p>
-            <p class=“team__modal”>GoIT Students</p>
+            <p class="“team__modal”">GoIT Students</p>
           </div>
         </div>
       </div>
-      
     </footer>
 
-    <div class="movieBackdrop movieIsHidden" js-movieModal>
+    <div class="movieBackdrop movieIsHidden js-movieModal">
       <div class="movieModal">
-        <button class="btn-close-movieModal" aria-label="close" movieModalClose>
+        <button class="btn-close-movieModal movieModalClose" aria-label="close">
           <i class="bi bi-x movieModalX"></i>
         </button>
       </div>
