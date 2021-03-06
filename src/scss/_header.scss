@@ -40,10 +40,17 @@ nav {
     align-items: center;
     color: $color_grey;
 
-    &:hover svg {
-      fill: $color_orange;
+    &:hover .bi-film {
+      color: $color_orange;
     }
   }
+}
+
+.bi-film {
+  color: color_grey;
+  font-size: 20px;
+  transition: 500ms;
+  transition-timing-function: ease;
 }
 
 .sign-in {
@@ -105,16 +112,13 @@ nav {
       color: $color_white;
     }
   }
-  & svg {
-    position: absolute;
-    right: 4px;
-    top: 26px;
-  }
-}
 
-.bi-film {
-  color: $color_orange;
-  font-size: 20px;
+  & i {
+    position: absolute;
+    font-size: 14px;
+    right: 4px;
+    top: 23px;
+  }
 }
 
 .is-hidden {
@@ -144,10 +148,6 @@ nav {
     color: $color_white;
     font-weight: 700;
   }
-
-  & svg {
-    fill: $color_orange;
-  }
 }
 
 .menu {
@@ -174,10 +174,15 @@ nav {
   position: relative;
 
   & .bi-circle-fill {
-    color: $color_white;
-    width: 20px;
-    height: 20px;
-    display: block;
+    color: $color_orange;
+    font-size: 20px;
+  }
+
+  & .bi-person-fill {
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    font-size: 15px;
   }
 }
 
