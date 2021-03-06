@@ -1,4 +1,5 @@
 import movieModalTemplate from '../templates/movieModal.hbs';
+import modalVideoTemplate from '../templates/movieModalVideo.hbs';
 
 const refs = {
   closeModalBtn: document.querySelector("[movieModalClose]"),
@@ -20,6 +21,8 @@ function onButtonClick(){
   toggleModal();
   refs.movieWrap.innerHTML = '';
   window.removeEventListener('keydown', onEscPress);
+  document.removeEventListener( "click", addToWatch);
+  document.removeEventListener('click', addToQueue);
 };
 function onOverlayClick(event){
   if(event.target === event.currentTarget){
@@ -37,9 +40,27 @@ function toggleModal() {
   refs.modalBackdrop.classList.toggle("movieIsHidden");
 };
 
+function fetchMovieModalVideo(movieID){
+  return fetch(`https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=cd745b1c38819d91d823e4d3c6c216e8&language=en-US`)
+    .then(response => response.json())
+    .then(({results}) => {
+      for(let i=0; i<results.length; i+=1){
+        if(results[i].type ==='Trailer' && results[i].site ==='YouTube'){
+          refs.movieWrap.insertAdjacentHTML('beforeend', modalVideoTemplate(results[i]));
+          break
+        }
+      }return;
+    })
+};
+
 function fetchMovieModalData(movieID){
   return fetch(`https://api.themoviedb.org/3/movie/${movieID}?api_key=cd745b1c38819d91d823e4d3c6c216e8&language=en-US`)
     .then(response => response.json()).then(data => generateHTML(data));
+};
+
+const getMovieAll = async (id)=>{
+  const data = await fetchMovieModalData(id);
+  const video = await fetchMovieModalVideo(id);
 };
 
 function onMovieClick(event){
@@ -50,10 +71,27 @@ function onMovieClick(event){
   const id = event.target.parentNode.dataset.id
   toggleModal();
   window.addEventListener('keydown', onEscPress);
-  fetchMovieModalData(id);
+  document.addEventListener( "click", addToWatch);
+  document.addEventListener('click', addToQueue);
+  getMovieAll(id);
 };
 
 
+function addToWatch(event){
+  event.preventDefault();
+  const elementClicked = event.target;  if (elementClicked.dataset.action ==='toWatch'){
+    const id = event.target.dataset.id;
+    console.log(id);
+  }
+}
 
+function addToQueue(event){
+  event.preventDefault();
+  const elementClicked = event.target;
+  if (elementClicked.dataset.action ==='toQueue'){
+    const id = event.target.dataset.id;
+    console.log(id);
+  }
+}
 
 
