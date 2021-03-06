@@ -28,20 +28,18 @@ body.movieModalOpened {
   top: 0;
   transform: translate(-50%, 0) scale(1);
   width: 280px;
-  height: 958px;
+  height: auto;
   padding: 50px 20px 40px 20px;
 
   @media screen and (min-width: 768px) {
     width: 618px;
-    height: 562px;
     padding: 40px 30px 40px 30px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1024px) {
     width: 882px;
-    height: 568px;
     padding: 50px 30px 40px 30px;
   }
 
@@ -83,7 +81,7 @@ font-size: 23px;
     width: 125px;
     height: 44px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1024px) {
     width: 136px;
     height: 44px;
   }
@@ -107,7 +105,7 @@ font-size: 23px;
   @media screen and (min-width: 768px) {
     width: 264px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1024px) {
     width: 396px;
   }
 }
@@ -155,7 +153,7 @@ font-size: 23px;
   padding-top: 5px;
   padding-bottom: 5px;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1024px) {
     width: 152px;
   }
 }
@@ -176,7 +174,7 @@ font-size: 23px;
   @media screen and (min-width: 768px) {
      line-height: 23px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1024px) {
     font-size: 30px;
     line-height: 35px;
   }
@@ -191,7 +189,7 @@ font-size: 23px;
     @media screen and (min-width: 768px) {
       height: 373px;
     }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1024px) {
       height: 477px;
     }
   }
