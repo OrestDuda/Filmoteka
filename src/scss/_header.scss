@@ -39,12 +39,8 @@
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
-  width: 167px;
-  height: 24px;
   color: $color_white;
-  font-size: 12px;
-  line-height: 1.17;
-  font-family: inherit;
+
   &:hover i {
     color: $color_orange;
   }
