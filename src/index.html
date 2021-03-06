@@ -32,6 +32,7 @@
   </head>
   <body>
     <header>
+<!--
       <div class="container"></div>
       <div class="header-library">
         <div class="header-nav">
@@ -39,10 +40,7 @@
           <a href="./index.html" class="logo-link">
             <i class="bi bi-film"></i>
             <span class="logo">Filmoteka</span>
-      
           </a>
-          
-      
           <div class="username">
             <i class="bi bi-person-circle"></i>
             <p>Username</p>
@@ -53,36 +51,186 @@
           <button type="button" class="library-button">Watched</button>
           <button type="button" class="library-button active">Queue</button>
         </div>
+-->
+      <div class="container header_main">
+        <nav>
+          <div class="menu-container">
+            <a href="./index.html" class="logo-link">
+              <i class="bi bi-film"></i>
+
+              <span class="logo">Filmoteka</span>
+            </a>
+            <div class="menu">
+              <a href="#" class="menu-user-link">
+                <div class="icon-user">
+                  <i class="bi bi-circle-fill"></i>
+                  <i class="bi bi-person-fill"></i>
+                </div>
+                <span class="user-name">Username </span></a
+              >
+              <div class="menu-list-container is-hidden">
+                <div class="menu-highlited"></div>
+                <ul>
+                  <li class="menu-list-item">
+                    <a href="#" class="menu-list-link">my library</a>
+                  </li>
+                  <li class="menu-list-item">
+                    <a href="#" class="menu-list-link">theme</a>
+                  </li>
+                  <li class="menu-list-item">
+                    <a href="#" class="menu-list-link">sign out</a>
+                  </li>
+                </ul>
+              </div>
+              <a href="#" class="sign-in is-hidden">sign in</a>
+            </div>
+          </div>
+        </nav>
+        <div class="main-search">
+          <form class="search-form" id="search-form">
+            <input
+              type="text"
+              name="query"
+              autocomplete="off"
+              placeholder="Поиск фильмов"
+            />
+            <i class="bi bi-search"></i>
+          </form>
+        </div>
+        <p class="error-text is-hidden">
+          Sorry, we couldn't find any movies, that matches
+          <span class="error-match"> </span>
+        </p>
+      </div>
     </header>
 
     <section class="products">
-      <div class="container"></div>
-    </section>
-
-    <footer>
-      
-      <div class=“footer_container”>
-        <div class=“bottom__footer”>
-          <p class=“copyright”>© 2020 | All Rights Reserved |&nbsp;</p>
-          <div class=“developers”>
-            <p>Developed with</p>
+      <div class="container">
+        <ul class="products-list">
+          <li class="products-film">
             <img
-              src="./images/heart-orange.svg"
-              class=“footer__image”
+              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
+              class="imgFilm"
+              src="./images/film1.jpg"
+              alt="Film"
             />
-            <p>by&nbsp;</p>
-            <p class=“team__modal”>GoIT Students</p>
-          </div>
+            <h3 class="products-name">GREYHOUND</h3>
+            <div class="reyting-align">
+              <p class="products-style">Drama, Action | 2020</p>
+              <!-- <p class="reyting">10.0</p> -->
+            </div>
+          </li>
+          <li class="products-film">
+            <img
+              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
+              class="imgFilm"
+              src="./images/film1.jpg"
+              alt="Film"
+            />
+            <h3 class="products-name">GREYHOUND</h3>
+            <p class="products-style">Drama, Action | 2020</p>
+            <!-- <p class="reyting">10.0</p> -->
+          </li>
+          <li class="products-film">
+            <img
+              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
+              class="imgFilm"
+              src="./images/film1.jpg"
+              alt="Film"
+            />
+            <h3 class="products-name">GREYHOUND</h3>
+            <p class="products-style">Drama, Action | 2020</p>
+            <!-- <p class="reyting">10.0</p> -->
+          </li>
+          <li class="products-film">
+            <img
+              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
+              class="imgFilm"
+              src="./images/film1.jpg"
+              alt="Film"
+            />
+            <h3 class="products-name">GREYHOUND</h3>
+            <p class="products-style">Drama, Action | 2020</p>
+            <!-- <p class="reyting">10.0</p> -->
+          </li>
+          <li class="products-film">
+            <img
+              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
+              class="imgFilm"
+              src="./images/film1.jpg"
+              alt="Film"
+            />
+            <h3 class="products-name">GREYHOUND</h3>
+            <p class="products-style">Drama, Action | 2020</p>
+            <!-- <p class="reyting">10.0</p> -->
+          </li>
+          <li class="products-film">
+            <img
+              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
+              class="imgFilm"
+              src="./images/film1.jpg"
+              alt="Film"
+            />
+            <h3 class="products-name">GREYHOUND</h3>
+            <p class="products-style">Drama, Action | 2020</p>
+            <!-- <p class="reyting">10.0</p> -->
+          </li>
+          <li class="products-film">
+            <img
+              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
+              class="imgFilm"
+              src="./images/film1.jpg"
+              alt="Film"
+            />
+            <h3 class="products-name">GREYHOUND</h3>
+            <p class="products-style">Drama, Action | 2020</p>
+            <!-- <p class="reyting">10.0</p> -->
+          </li>
+          <li class="products-film">
+            <img
+              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
+              class="imgFilm"
+              src="./images/film1.jpg"
+              alt="Film"
+            />
+            <h3 class="products-name">GREYHOUND</h3>
+            <p class="products-style">Drama, Action | 2020</p>
+            <!-- <p class="reyting">10.0</p> -->
+          </li>
+          <li class="products-film">
+            <img
+              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
+              class="imgFilm"
+              src="./images/film1.jpg"
+              alt="Film"
+            />
+            <h3 class="products-name">GREYHOUND</h3>
+            <p class="products-style">Drama, Action | 2020</p>
+            <!-- <p class="reyting">10.0</p> -->
+          </li>
+        </ul>
+      </div>
+    </section>
+    <footer>
+      <div class="container footer_container">
+        <div class="bottom__footer">
+          <p class="copyright">© 2020 | All Rights Reserved |&nbsp;</p>
+        </div>
+        <div class="developers">
+          <p>Developed with</p>
+          <i class="bi bi-suit-heart-fill footer__image"></i>
+          <p>by&nbsp;</p>
+          <p class="team__modal">GoIT Students</p>
         </div>
       </div>
-      
     </footer>
 
-    <div class="movieBackdrop movieIsHidden" js-movieModal>
+    <div class="movieBackdrop movieIsHidden js-movieModal">
       <div class="movieModal">
-        <button class="btn-close-movieModal" aria-label="close" movieModalClose>
+        <button class="btn-close-movieModal movieModalClose" aria-label="close">
           <i class="bi bi-x movieModalX"></i>
         </button>
+        <div class="movieModalWrap"></div>
       </div>
     </div>
   </body>
