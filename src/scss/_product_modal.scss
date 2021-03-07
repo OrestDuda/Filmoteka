@@ -122,6 +122,7 @@ body.movieModalOpened {
   color: $color_black;
   font-size: 12px;
   border-color: $color_black;
+  margin-top: 15px;
   &:hover, focus{
     background: $color_orange;
     color: $color_white;
@@ -169,6 +170,7 @@ body.movieModalOpened {
 
 .movieModalContainerDataStatItemResult{
   line-height: 14px;
+  padding-bottom: 10px;
 }
 .movieVotes{
   background: $color_light_grey;
@@ -200,9 +202,7 @@ body.movieModalOpened {
   width: 108px;
   line-height: 16px;
   color: #8C8C8C;
-  padding-top: 5px;
-  padding-bottom: 5px;
-
+  padding-bottom: 10px;
   @media screen and (min-width: 1024px) {
     width: 152px;
   }
