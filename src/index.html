@@ -32,7 +32,7 @@
   </head>
   <body>
     <header>
-<!--
+      <!--
       <div class="container"></div>
       <div class="header-library">
         <div class="header-nav">
@@ -82,7 +82,7 @@
                   </li>
                 </ul>
               </div>
-              <a href="#" class="sign-in is-hidden">sign in</a>
+              <a href="#" class="sign-in is-hidden js-SignIn">sign in</a>
             </div>
           </div>
         </nav>
@@ -224,6 +224,43 @@
         </div>
       </div>
     </footer>
+
+    <div class="loginBackdrop is-hidden js-loginBackdrop">
+      <div class="loginModal js-loginModal">
+        <button class="loginBtnClose js-loginBtnClose">
+          <svg class="loginBtnCloseIcon">
+            <use href="./images/symbol-defs.svg#icon-close-black"></use>
+          </svg>
+        </button>
+        <p class="loginModalText">Login to Filmoteka</p>
+        <form action="" method="post" class="loginForm">
+          <span class="loginFormText">Name</span>
+          <div class="loginFormUnit">
+            <input
+              type="text"
+              name="name"
+              id="loginFormName"
+              class="loginFormInput"
+              placeholder=" "
+            />
+          </div>
+          <span class="loginFormText">Password</span>
+          <div class="loginFormUnit">
+            <input
+              type="password"
+              name="password"
+              id="loginFormPassword"
+              class="loginFormInput"
+              placeholder=" "
+            />
+          </div>
+          <div class="buttonLocation">
+            <button class="logFormButtonOne" type="submit">Log In</button>
+            <button class="logFormButtonTwo" type="submit">Sign In</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <div class="movieBackdrop movieIsHidden js-movieModal">
       <div class="movieModal">
