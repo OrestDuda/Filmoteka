@@ -1,10 +1,14 @@
 {{#each this}}
 <li class="products-film" data-id='{{this.id}}'>
-    <img srcset="" class="imgFilm" src="{{}}" alt="{{}}" />
-    <h3 class="products-name">{{}}</h3>
+    <a href="">
+        <img srcset="" class="imgFilm" src="https://www.themoviedb.org/t/p/w300{{poster_path}}"
+            alt="{{title}} | {{original_title}}" title="{{title}}" /></a>
+    <a href="">
+        <h3 class="products-name">{{title}}</h3>
+    </a>
     <div class="reyting-align">
-        <p class="products-style">{{}}</p>
-        <!-- <p class="reyting">{{}}</p> -->
+        <p class="products-style">{{genres}} | {{release_date}}</p>
+        {{!-- <p class="reyting">{{vote_average}}</p> --}}
     </div>
 </li>
 {{/each}}
