@@ -108,12 +108,15 @@
       <div class="container">
         <ul class="products-list">
           <li class="products-film">
+            <!-- implement imgplaceholder for empty pic -->
             <img
               srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
               class="imgFilm"
               src="./images/film1.jpg"
               alt="Film"
+              onerror="this.onerror=null; this.src='./images/film1.jpg';"
             />
+
             <h3 class="products-name">GREYHOUND</h3>
             <div class="reyting-align">
               <p class="products-style">Drama, Action | 2020</p>
