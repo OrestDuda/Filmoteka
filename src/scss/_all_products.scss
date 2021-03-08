@@ -32,6 +32,11 @@ svg {
   @media screen and (min-width: $desktop) {
     width: 234px;
   }
+  &:before {
+    content: ' ';
+    display: block;
+    background-image: url('../images/movie_placeholder.svg');
+  }
 }
 
 .products-name {
