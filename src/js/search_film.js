@@ -1,4 +1,4 @@
-import tplFilmList from '../templates/products.hbs';
+import tplFilmList from '../templates/search.hbs';
 
 const refs = {
   galleryFilm: document.querySelector('.products-list'),
