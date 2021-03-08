@@ -8,3 +8,4 @@ import './js/loginModal';
 import './js/search_film';
 import './js/topFilms';
 import './js/wrong_input';
+import './js/team_Modal';
