@@ -36,7 +36,7 @@
       <div class="container"></div>
       <div class="header-library">
         <div class="header-nav">
-         
+
           <a href="./index.html" class="logo-link">
             <i class="bi bi-film"></i>
             <span class="logo">Filmoteka</span>
@@ -46,7 +46,7 @@
             <p>Username</p>
           </div>
         </div>
-      
+
         <div class="container-button">
           <button type="button" class="library-button">Watched</button>
           <button type="button" class="library-button active">Queue</button>
@@ -82,7 +82,7 @@
                   </li>
                 </ul>
               </div>
-              <a href="#" class="sign-in is-hidden">sign in</a>
+              <a href="#" class="sign-in is-hidden js-SignIn">sign in</a>
             </div>
           </div>
         </nav>
@@ -106,112 +106,7 @@
 
     <section class="products">
       <div class="container">
-        <ul class="products-list">
-          <li class="products-film">
-            <!-- implement imgplaceholder for empty pic -->
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-              onerror="this.onerror=null; this.src='./images/film1.jpg';"
-            />
-
-            <h3 class="products-name">GREYHOUND</h3>
-            <div class="reyting-align">
-              <p class="products-style">Drama, Action | 2020</p>
-              <!-- <p class="reyting">10.0</p> -->
-            </div>
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-        </ul>
+        <ul class="products-list" id="products-list-js"></ul>
       </div>
     </section>
     <footer>
@@ -227,6 +122,43 @@
         </div>
       </div>
     </footer>
+
+    <div class="loginBackdrop is-hidden js-loginBackdrop">
+      <div class="loginModal js-loginModal">
+        <button class="loginBtnClose js-loginBtnClose">
+          <svg class="loginBtnCloseIcon">
+            <use href="./images/symbol-defs.svg#icon-close-black"></use>
+          </svg>
+        </button>
+        <p class="loginModalText">Login to Filmoteka</p>
+        <form action="" method="post" class="loginForm">
+          <span class="loginFormText">Name</span>
+          <div class="loginFormUnit">
+            <input
+              type="text"
+              name="name"
+              id="loginFormName"
+              class="loginFormInput"
+              placeholder=" "
+            />
+          </div>
+          <span class="loginFormText">Password</span>
+          <div class="loginFormUnit">
+            <input
+              type="password"
+              name="password"
+              id="loginFormPassword"
+              class="loginFormInput"
+              placeholder=" "
+            />
+          </div>
+          <div class="buttonLocation">
+            <button class="logFormButtonOne" type="submit">Log In</button>
+            <button class="logFormButtonTwo" type="submit">Sign In</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <div class="movieBackdrop movieIsHidden js-movieModal">
       <div class="movieModal">

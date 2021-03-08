@@ -1,0 +1,23 @@
+<div class='movieModalReviewsContainer'>
+  <div class="accordion accordion-flush" id="accordionReviews">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          Read Reviews
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionReviews">
+        <div class="accordion-body">
+          {{#each this}}
+          <div class='movieModalReviews'>
+            <i class="bi bi-person"></i><h3 class='author'>{{author}}</h3>
+            <p class='dated'>Added on {{dateCut created_at}}</p>
+            <p class='reviewContent'>{{content}}</p><a href="#" class="moretoLoad">More...</a>
+          </div>
+            {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

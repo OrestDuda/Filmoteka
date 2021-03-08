@@ -1,17 +1,20 @@
 import movieModalTemplate from '../templates/movieModal.hbs';
 import modalVideoTemplate from '../templates/movieModalVideo.hbs';
+import modalReviewsTemplate from '../templates/movieModalReviews.hbs';
+import refs from './movieModalRefs';
+import movieModalAPI from './movieModalAPI';
 
-const refs = {
-  closeModalBtn: document.querySelector('.movieModalClose'),
-  modalBackdrop: document.querySelector('.js-movieModal'),
-  modalContainer: document.querySelector('.movieModal'),
-  allMovieList: document.querySelector('.products-list'),
-  movieWrap: document.querySelector('.movieModalWrap'),
+
+function generateMovieModalData(data) {
+  refs.movieWrap.insertAdjacentHTML('afterbegin', movieModalTemplate(data));
+};
+function generateMovieModalVideo(data){
+  refs.movieWrap.insertAdjacentHTML('beforeend', modalVideoTemplate(data));
 };
 
-function generateHTML(data) {
-  refs.movieWrap.insertAdjacentHTML('beforeend', movieModalTemplate(data));
-}
+function generateMovieModalReviews(data){
+  refs.movieWrap.insertAdjacentHTML('beforeend', modalReviewsTemplate(data));
+};
 
 refs.allMovieList.addEventListener('click', onMovieClick);
 refs.closeModalBtn.addEventListener('click', onButtonClick);
@@ -24,11 +27,13 @@ function onButtonClick() {
   document.removeEventListener('click', addToWatch);
   document.removeEventListener('click', addToQueue);
 }
+
 function onOverlayClick(event) {
   if (event.target === event.currentTarget) {
     onButtonClick();
   }
 }
+
 function onEscPress(event) {
   if (event.code === 'Escape') {
     onButtonClick();
@@ -38,54 +43,6 @@ function onEscPress(event) {
 function toggleModal() {
   document.body.classList.toggle('movieModalOpened');
   refs.modalBackdrop.classList.toggle('movieIsHidden');
-}
-
-function fetchMovieModalVideo(movieID) {
-  return fetch(
-    `https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=cd745b1c38819d91d823e4d3c6c216e8&language=en-US`,
-  )
-    .then(response => response.json())
-    .then(({ results }) => {
-      for (let i = 0; i < results.length; i += 1) {
-        if (results[i].type === 'Trailer' && results[i].site === 'YouTube') {
-          refs.movieWrap.insertAdjacentHTML(
-            'beforeend',
-            modalVideoTemplate(results[i]),
-          );
-          break;
-        }
-      }
-      return;
-    });
-}
-
-function fetchMovieModalData(movieID) {
-  return fetch(
-    `https://api.themoviedb.org/3/movie/${movieID}?api_key=cd745b1c38819d91d823e4d3c6c216e8&language=en-US`,
-  )
-    .then(response => response.json())
-    .then(data => generateHTML(data));
-}
-
-const getMovieAll = async id => {
-  const data = await fetchMovieModalData(id);
-  const video = await fetchMovieModalVideo(id);
-};
-
-function onMovieClick(event) {
-  event.preventDefault();
-  if (
-    event.target.parentNode.nodeName !== 'LI' &&
-    event.target.parentNode.className !== 'products-film'
-  ) {
-    return;
-  }
-  const id = event.target.parentNode.dataset.id;
-  toggleModal();
-  window.addEventListener('keydown', onEscPress);
-  document.addEventListener('click', addToWatch);
-  document.addEventListener('click', addToQueue);
-  getMovieAll(id);
 }
 
 function addToWatch(event) {
@@ -105,3 +62,34 @@ function addToQueue(event) {
     console.log(id);
   }
 }
+
+async function getAllModalDetails(){
+  await movieModalAPI.fetchMovieModalData().then(data=>generateMovieModalData(data));
+  await movieModalAPI.fetchMovieModalVideo().then(({ results }) => {
+    for (let i = 0; i < results.length; i += 1) {
+      if (results[i].type === 'Trailer' && results[i].site === 'YouTube') {
+        generateMovieModalVideo(results[i]);}
+      break;
+    }
+  });
+
+  await movieModalAPI.fetchMovieModalReviews().then(response => {
+  if(!response.total_results){
+    return;
+  } const {results} = response; generateMovieModalReviews(results);
+  })
+
+};
+
+function onMovieClick(event) {
+  if (event.target.dataset.onclick !== 'js-modal-onclick') {return;}
+   movieModalAPI.movieID = event.target.dataset.id;
+  toggleModal();
+  window.addEventListener('keydown', onEscPress);
+  document.addEventListener('click', addToWatch);
+  document.addEventListener('click', addToQueue);
+  getAllModalDetails();
+};
+
+
+
