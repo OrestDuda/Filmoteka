@@ -82,7 +82,7 @@ async function getAllModalDetails(){
 };
 
 function onMovieClick(event) {
-  if (event.target.dataset.onclick !== 'js-modal-onclick') {return;}
+  if (event.target.dataset.jsmodal !== 'js-modal-onclick') {return;}
    movieModalAPI.movieID = event.target.dataset.id;
   toggleModal();
   window.addEventListener('keydown', onEscPress);
