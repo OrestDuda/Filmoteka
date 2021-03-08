@@ -23,6 +23,12 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"
     />
+    <style>
+      a {
+        text-decoration: none;
+        /* Отменяем подчеркивание у ссылки */
+      }
+    </style>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
@@ -32,7 +38,7 @@
   </head>
   <body>
     <header>
-<!--
+      <!--
       <div class="container"></div>
       <div class="header-library">
         <div class="header-nav">
@@ -106,109 +112,7 @@
 
     <section class="products">
       <div class="container">
-        <ul class="products-list">
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <div class="reyting-align">
-              <p class="products-style">Drama, Action | 2020</p>
-              <!-- <p class="reyting">10.0</p> -->
-            </div>
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-          <li class="products-film">
-            <img
-              srcset="./images/film1.jpg 1x, ./images/film1.jpg 2x"
-              class="imgFilm"
-              src="./images/film1.jpg"
-              alt="Film"
-            />
-            <h3 class="products-name">GREYHOUND</h3>
-            <p class="products-style">Drama, Action | 2020</p>
-            <!-- <p class="reyting">10.0</p> -->
-          </li>
-        </ul>
+        <ul class="products-list" id="products-list-js"></ul>
       </div>
     </section>
     <footer>

@@ -35,14 +35,15 @@ svg {
 }
 
 .products-name {
+  text-transform: uppercase;
   font-family: $font_roboto;
   color: $color_black;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
 
-  margin-top: 30px;
-  margin-bottom: 9px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 .products-style {
   font-family: $font_roboto;
