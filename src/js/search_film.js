@@ -55,7 +55,7 @@ function createFilm(results) {
 
 function handlSearch(event) {
   if (event.type === 'keydown') {
-    if (event.keyCode != 13) {
+    if (event.keyCode !== 13) {
       return;
     }
   }
