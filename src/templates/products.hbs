@@ -1,4 +1,16 @@
 {{#each this}}
+//Search
+<li class="products-film" data-id='{{this.id}}' data-onclick='js-modal-onclick'>
+    <img srcset="" class="imgFilm" src="{{this.poster_path}}" alt="{{this.original_title}}"
+        data-onclick='js-modal-onclick' data-id='{{this.id}}' />
+    <h3 class="products-name" data-id='{{this.id}}' data-onclick='js-modal-onclick'>{{this.title}}</h3>
+    <div class="reyting-align" data-id='{{this.id}}' data-onclick='js-modal-onclick'>
+        <p class="products-style" data-id='{{this.id}}' data-onclick='js-modal-onclick'>{{this.genre_ids}}</p>
+        <p class="products-style" data-id='{{this.id}}' data-onclick='js-modal-onclick'>{{this.release_date}}</p>
+        <p class="reyting" data-id='{{this.id}}' data-onclick='js-modal-onclick'>{{vote_average}}</p>
+// Defafult
+
+
 <li class="products-film" data-id='{{this.id}}'>
     <a href="">
         <img srcset="" class="imgFilm" src="https://www.themoviedb.org/t/p/w300{{poster_path}}"
