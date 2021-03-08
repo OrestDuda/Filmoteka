@@ -47,7 +47,7 @@ nav {
 }
 
 .bi-film {
-  color: color_grey;
+  color: $color_grey;
   font-size: 20px;
   transition: 500ms;
   transition-timing-function: ease;
@@ -127,7 +127,7 @@ nav {
 
 .menu-user-link {
   z-index: 10;
-  display: flex;
+  display: none; // Замінити на флекс коли користувач авторизований
   align-items: center;
   text-align: center;
   border-radius: 4px;
@@ -152,6 +152,7 @@ nav {
 
 .menu {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;

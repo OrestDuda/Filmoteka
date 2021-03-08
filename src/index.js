@@ -5,6 +5,7 @@ import './js/menu';
 import './js/error_404';
 import './js/replace_empty_pic';
 import './js/loginModal';
+import './js/registerModal';
 import './js/search_film';
 import './js/topFilms';
 import './js/wrong_input';

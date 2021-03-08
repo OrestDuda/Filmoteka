@@ -1,5 +1,4 @@
 import filmsTpl from '../templates/products.hbs';
-
 const productslistRef = document.querySelector('#products-list-js');
 
 function fetchFilms() {
