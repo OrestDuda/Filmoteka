@@ -1,13 +1,19 @@
 import movieModalTemplate from '../templates/movieModal.hbs';
 import modalVideoTemplate from '../templates/movieModalVideo.hbs';
+import modalReviewsTemplate from '../templates/movieModalReviews.hbs';
 import refs from './movieModalRefs';
 import movieModalAPI from './movieModalAPI';
+
 
 function generateMovieModalData(data) {
   refs.movieWrap.insertAdjacentHTML('afterbegin', movieModalTemplate(data));
 };
 function generateMovieModalVideo(data){
   refs.movieWrap.insertAdjacentHTML('beforeend', modalVideoTemplate(data));
+};
+
+function generateMovieModalReviews(data){
+  refs.movieWrap.insertAdjacentHTML('beforeend', modalReviewsTemplate(data));
 };
 
 refs.allMovieList.addEventListener('click', onMovieClick);
@@ -66,6 +72,13 @@ async function getAllModalDetails(){
       break;
     }
   });
+
+  await movieModalAPI.fetchMovieModalReviews().then(response => {
+  if(!response.total_results){
+    return;
+  } const {results} = response; generateMovieModalReviews(results);
+  })
+
 };
 
 function onMovieClick(event) {
@@ -77,5 +90,6 @@ function onMovieClick(event) {
   document.addEventListener('click', addToQueue);
   getAllModalDetails();
 };
+
 
 
