@@ -10,3 +10,4 @@ import './js/search_film';
 import './js/topFilms';
 import './js/wrong_input';
 import './js/team_Modal';
+import './js/fb/main_fb';
