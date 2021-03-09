@@ -55,10 +55,12 @@ firebase.auth().onAuthStateChanged(function(user) {
 let newUserMail;
 let newUserPass;
 signinFormRef.addEventListener('submit', (event) => {
+    event.preventDefault();
     newUserMail = document.getElementById("registerFormName").value;
     newUserPass = document.getElementById("registerFormPassword").value;
     fbfn.createNewUserFn(newUserMail, newUserPass);
-    console.log('User created!', event.target);
+    console.log('User created!');
+    
 });
 //===============================================================================
 
@@ -66,16 +68,20 @@ signinFormRef.addEventListener('submit', (event) => {
 let currentUserMail;
 let currentUserPass;
 loginFormRef.addEventListener('submit', (event) => {
+    event.preventDefault();
     currentUserMail = document.getElementById("loginFormName").value;
     currentUserPass = document.getElementById("loginFormPassword").value;
     fbfn.loginUserFn(currentUserMail, currentUserPass);
-    console.log('User Entry', event.target);
+    console.log('User Entry');
+    
 });
-
 //===============================================================================
+
 //Прослуховування кнопки-посилання та відправка даних для Виходу через signOutUserFn()
 btnSignOutRef.addEventListener('click', (event) => {
     fbfn.signOutUserFn(curUser);
-    console.log('User Out!', event.target);
+    console.log('User Out!');
     document.location.reload();
 })
+
+//===============================================================================
