@@ -46,9 +46,17 @@ svg {
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-
   margin-top: 10px;
   margin-bottom: 5px;
+  @media screen and (max-width: $tablet - 1px) {
+    width: 280px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 293px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 234px;
+  }
 }
 .products-style {
   font-family: $font_roboto;
