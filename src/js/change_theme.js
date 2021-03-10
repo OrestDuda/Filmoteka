@@ -6,11 +6,10 @@ const refs = {
   footer: () => document.querySelector('footer'),
   footerText: () => document.querySelector('.footer_container'),
   footerTextTeam: () => document.querySelector('.team__modal'),
-
   theme: localStorage.getItem('theme'),
 };
 
-refs.themeTogglerLink().addEventListener('click', () => {
+refs.themeTogglerLink().addEventListener('click', function togglerClasses() {
   refs.body().classList.toggle('dark-background');
   refs.movieHeader().forEach(el => el.classList.toggle('white-text'));
   refs.allTheButtons().classList.toggle('white-text');
@@ -28,3 +27,18 @@ function deleteThemeIf() {
 }
 
 refs.themeTogglerLink().addEventListener('click', deleteThemeIf);
+
+function setSavedTheme() {
+  if (refs.theme === 'dark-theme') {
+    refs.body().classList.toggle('dark-background');
+    refs.movieHeader().forEach(el => el.classList.toggle('white-text'));
+    refs.allTheButtons().classList.toggle('white-text');
+    refs.footer().classList.toggle('footer-dark-background');
+    refs.footerText().classList.toggle('white-text');
+    refs.footerTextTeam().classList.toggle('white-text');
+  }
+}
+
+setSavedTheme();
+
+console.log(refs.theme);
