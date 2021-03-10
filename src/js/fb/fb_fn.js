@@ -4,7 +4,7 @@ import firebase from "firebase/app";
 import * as firebaseui from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css';
 import filmsTpl from '../../templates/products-fb.hbs';
-const renderListRef = document.querySelector('#products-list-js');
+const renderListRef = document.querySelector('.products-list-js');
 //===============================================================================
 
 let formMessageref = document.querySelector('.js-btn-reg');

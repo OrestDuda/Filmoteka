@@ -10,7 +10,7 @@ import * as fbfn from './fb_fn';
 
 
 import filmsTpl from '../../templates/products-fb.hbs';
-const renderListRef = document.querySelector('#products-list-js');
+//const renderListRef = document.querySelector('#products-list-js');
 
 //Firebase ініціалізація
 //firebase.initializeApp(fbfn.firebaseConfig);
@@ -108,7 +108,7 @@ BtnWatchRef.addEventListener('click', (event) => {
     fbfn.getUserCollection(col, arrayWatched);
     console.log(arrayWatched);
  
-    renderListRef.innerHTML = '';
+    //renderListRef.innerHTML = '';
    // Handlebars.registerHelper(filmsTpl,arrayWatched)
     //const markupWatched = filmsTpl(arrayWatched);
     //renderListRef.insertAdjacentHTML('beforeend', markupWatched);
@@ -124,7 +124,7 @@ BtnQueueRef.addEventListener('click', (event) => {
     fbfn.getUserCollection(col, arrayQueue);
     console.log(arrayQueue);
     
-    renderListRef.innerHTML = '';
+    //renderListRef.innerHTML = '';
     //const markupQueue = filmsTpl(arrayQueue);
     //console.log(markupQueue);
     //renderListRef.insertAdjacentHTML('beforeend', markupQueue);
