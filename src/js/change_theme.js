@@ -40,5 +40,3 @@ function setSavedTheme() {
 }
 
 setSavedTheme();
-
-console.log(refs.theme);
