@@ -1,4 +1,4 @@
-import filmsTpl from '../templates/products.hbs';
+import filmCard from '../templates/filmCard.hbs';
 import refs from './refs';
 import { apiKey, baseUrl } from './api';
 import initializePagination from './pagination';
@@ -11,13 +11,13 @@ function fetchFilms(pageNumber = 1) {
     .then(response => {
       // pagination.setTotalItems(total_results);
 
-      const markup = filmsTpl(response.results);
+      const markup = filmCard(response.results);
       refs.productsList.innerHTML = '';
       refs.productsList.insertAdjacentHTML('beforeend', markup);
 
       return response;
     })
-    .catch(error => console.log('error'));
+    .catch(error => error);
 }
 
 // Жанры
@@ -28,7 +28,7 @@ function getGenres() {
       console.log(genres);
       return genres;
     })
-    .catch(error => console.log('error'));
+    .catch(error => error);
 }
 getGenres();
 
