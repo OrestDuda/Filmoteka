@@ -77,34 +77,35 @@ async function getAllModalDetails() {
     }
   });
 
-const getComments = await movieModalAPI.fetchMovieModalReviews()
-    .then(response=>{if(!response.total_results){return;}
-      const {results} = response;
+  const getComments = await movieModalAPI
+    .fetchMovieModalReviews()
+    .then(response => {
+      if (!response.total_results) {
+        return;
+      }
+      const { results } = response;
       return results;
-    })
+    });
 
-  const adjusted = adjComment(getComments)
+  const adjusted = adjComment(getComments);
   generateMovieModalReviews(adjusted);
-};
-
+}
 
 function adjComment(objects) {
   const newObjects = [];
   for (let obj of objects) {
     const newObj = {};
     for (let key of Object.keys(obj)) {
-        if(key==='created_at'){
-          newObj[key] = obj[key].slice(0, 10);
-        }
-        else{
-          newObj[key] = obj[key]
-        }
+      if (key === 'created_at') {
+        newObj[key] = obj[key].slice(0, 10);
+      } else {
+        newObj[key] = obj[key];
+      }
     }
     newObjects.push(newObj);
   }
   return newObjects;
 }
-
 
 function onMovieClick(event) {
   if (event.target.dataset.jsmodal !== 'js-modal-onclick') {
@@ -118,34 +119,30 @@ function onMovieClick(event) {
   document.addEventListener('click', moreToRead);
   document.addEventListener('click', moreCommentsToRead);
   getAllModalDetails();
-};
+}
 
-function moreToRead(event){
+function moreToRead(event) {
   event.preventDefault();
   const elementClicked = event.target;
   if (elementClicked.dataset.jscomments === 'hideShow') {
-  const allCommentsContent = document.querySelectorAll('.reviewContent')
-    allCommentsContent.forEach(item =>{
-      if(item.clientHeight<item.scrollHeight){
+    const allCommentsContent = document.querySelectorAll('.reviewContent');
+    allCommentsContent.forEach(item => {
+      if (item.clientHeight < item.scrollHeight) {
         item.nextElementSibling.classList.add('moreNeeded');
       }
-    })
+    });
   }
 }
-
 
 function moreCommentsToRead(event) {
   event.preventDefault();
   const elementClicked = event.target;
   if (elementClicked.dataset.action === 'loadmore') {
-    event.target.previousElementSibling.classList.toggle('reviewContentAll')
-    if (event.target.innerText === "Read More...") {
-      event.target.innerText = "Read Less...";
+    event.target.previousElementSibling.classList.toggle('reviewContentAll');
+    if (event.target.innerText === 'Read More...') {
+      event.target.innerText = 'Read Less...';
     } else {
-      event.target.innerText = "Read More..."
+      event.target.innerText = 'Read More...';
     }
   }
-}
-
-
 }
