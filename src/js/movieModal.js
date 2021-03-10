@@ -25,6 +25,8 @@ function onButtonClick() {
   window.removeEventListener('keydown', onEscPress);
   document.removeEventListener('click', addToWatch);
   document.removeEventListener('click', addToQueue);
+  document.removeEventListener('click', moreToRead);
+  document.removeEventListener('click', moreCommentsToRead);
 }
 
 function onOverlayClick(event) {
@@ -75,14 +77,34 @@ async function getAllModalDetails() {
     }
   });
 
-  await movieModalAPI.fetchMovieModalReviews().then(response => {
-    if (!response.total_results) {
-      return;
+const getComments = await movieModalAPI.fetchMovieModalReviews()
+    .then(response=>{if(!response.total_results){return;}
+      const {results} = response;
+      return results;
+    })
+
+  const adjusted = adjComment(getComments)
+  generateMovieModalReviews(adjusted);
+};
+
+
+function adjComment(objects) {
+  const newObjects = [];
+  for (let obj of objects) {
+    const newObj = {};
+    for (let key of Object.keys(obj)) {
+        if(key==='created_at'){
+          newObj[key] = obj[key].slice(0, 10);
+        }
+        else{
+          newObj[key] = obj[key]
+        }
     }
-    const { results } = response;
-    generateMovieModalReviews(results);
-  });
+    newObjects.push(newObj);
+  }
+  return newObjects;
 }
+
 
 function onMovieClick(event) {
   if (event.target.dataset.jsmodal !== 'js-modal-onclick') {
@@ -93,5 +115,37 @@ function onMovieClick(event) {
   window.addEventListener('keydown', onEscPress);
   document.addEventListener('click', addToWatch);
   document.addEventListener('click', addToQueue);
+  document.addEventListener('click', moreToRead);
+  document.addEventListener('click', moreCommentsToRead);
   getAllModalDetails();
+};
+
+function moreToRead(event){
+  event.preventDefault();
+  const elementClicked = event.target;
+  if (elementClicked.dataset.jscomments === 'hideShow') {
+  const allCommentsContent = document.querySelectorAll('.reviewContent')
+    allCommentsContent.forEach(item =>{
+      if(item.clientHeight<item.scrollHeight){
+        item.nextElementSibling.classList.add('moreNeeded');
+      }
+    })
+  }
+}
+
+
+function moreCommentsToRead(event) {
+  event.preventDefault();
+  const elementClicked = event.target;
+  if (elementClicked.dataset.action === 'loadmore') {
+    event.target.previousElementSibling.classList.toggle('reviewContentAll')
+    if (event.target.innerText === "Read More...") {
+      event.target.innerText = "Read Less...";
+    } else {
+      event.target.innerText = "Read More..."
+    }
+  }
+}
+
+
 }
