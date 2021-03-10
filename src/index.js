@@ -3,3 +3,4 @@ import './js/movieModal';
 import './js/menu';
 import './js/wrong_input';
 import './js/team_Modal';
+import "./js/change_theme"
