@@ -23,6 +23,7 @@ svg {
 }
 
 .imgFilm {
+  border-radius: 7px;
   @media screen and (max-width: $tablet - 1px) {
     width: 280px;
   }
