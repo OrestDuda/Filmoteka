@@ -3,22 +3,20 @@ import refs from './refs';
 import { apiKey, baseUrl } from './api';
 
 const queryOptions = {
-  apiKey: 'cd745b1c38819d91d823e4d3c6c216e8',
   query: '',
   pathBasePoster: '',
   genresList: [],
+  pressEnter: 13,
 };
 
 function startQueryOptions() {
-  fetch(`https://api.themoviedb.org/3/configuration?api_key=${apiKey}`)
+  fetch(`${baseUrl}/3/configuration?api_key=${apiKey}`)
     .then(res => res.json())
     .then(result => {
       queryOptions.pathBasePoster =
         result.images.secure_base_url + result.images.poster_sizes[3];
     });
-  fetch(
-    `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`,
-  )
+  fetch(`${baseUrl}/3/genre/movie/list?api_key=${apiKey}&language=en-US`)
     .then(res => res.json())
     .then(result => {
       queryOptions.genresList = result.genres;
@@ -49,26 +47,30 @@ function createFilm(results) {
 
 function handlSearch(event) {
   if (event.type === 'keydown') {
-    if (event.keyCode !== 13) {
+    if (event.keyCode !== queryOptions.pressEnter) {
       return;
     }
   }
-
+  refs.errorText.classList.add('is-hidden');
   event.preventDefault();
 
   refs.productsList.innerHTML = '';
-  queryOptions.query = refs.searchForm[0].value;
+  queryOptions.query = refs.searchForm[0].value.trim();
 
-  fetchFilmList(
-    queryOptions.query,
-    queryOptions.page,
-    queryOptions.qOnPage,
-  ).then(response => createFilm(response.results));
+  if (queryOptions.query === '') {
+    refs.errorText.classList.remove('is-hidden');
+    return;
+  }
+  fetchFilmList(queryOptions.query, queryOptions.page).then(response => {
+    createFilm(response.results);
+    if (response.results.length === 0) {
+      refs.errorText.classList.remove('is-hidden');
+    }
+  });
 }
 
-function fetchFilmList(searchQuery, page = 1, qOnPage) {
-  const apiKey = 'cd745b1c38819d91d823e4d3c6c216e8';
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${queryOptions.apiKey}&query=${searchQuery}`;
+function fetchFilmList(searchQuery, page = 1) {
+  const url = `${baseUrl}/3/search/movie?api_key=${apiKey}&query=${searchQuery}`;
   return fetch(url)
     .then(res => res.json())
     .catch(err => Error(err));

@@ -16,6 +16,7 @@ const refs = {
   modalContainer: document.querySelector('.movieModal'),
   allMovieList: document.querySelector('.products-list'),
   movieWrap: document.querySelector('.movieModalWrap'),
+  errorText: document.querySelector('.error-text'),
 };
 
 export default refs;
