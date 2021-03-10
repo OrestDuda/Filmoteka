@@ -10,10 +10,7 @@ const refs = {
   theme: localStorage.getItem('theme'),
 };
 
-console.dir(refs.themeTogglerLink);
-refs.themeTogglerLink().addEventListener('click', themeToggler());
-
-function themeToggler() {
+refs.themeTogglerLink().addEventListener('click', () => {
   refs.body().classList.toggle('dark-background');
   refs.movieHeader().forEach(el => el.classList.toggle('white-text'));
   refs.allTheButtons().classList.toggle('white-text');
@@ -21,19 +18,13 @@ function themeToggler() {
   refs.footerText().classList.toggle('white-text');
   refs.footerTextTeam().classList.toggle('white-text');
 
-  //   localStorage.setItem('theme', 'dark-theme');
+  localStorage.setItem('theme', 'dark-theme');
+});
+
+function deleteThemeIf() {
+  if (refs.body().classList.contains('dark-background')) {
+    localStorage.removeItem('theme');
+  }
 }
 
-// function changeThemeIf() {
-//   if (!refs.checkbox.checked && refs.body.classList.contains('dark-theme')) {
-//     refs.body.classList.replace('dark-theme', 'light-theme');
-//     localStorage.setItem('theme', 'light-theme');
-//   }
-// }
-
-// refs.checkbox.addEventListener('change', changeThemeIf);
-
-// if (refs.theme === 'dark-theme') {
-//   toggler();
-//   refs.checkbox.checked = true;
-// }
+refs.themeTogglerLink().addEventListener('click', deleteThemeIf);
