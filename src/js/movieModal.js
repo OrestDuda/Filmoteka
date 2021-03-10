@@ -50,17 +50,34 @@ function addToWatch(event) {
   event.preventDefault();
   const elementClicked = event.target;
   if (elementClicked.dataset.action === 'toWatch') {
+<<<<<<< Updated upstream
     const id = event.target.dataset.id;
     console.log(id);
   }
+=======
+    //Код що додає фільм до колекції watched Firebase
+    currentFilmId = event.target.dataset.id;
+    collection = 'watched';
+    fbfn.fetchMovieDataFirebase(currentFilmId)
+      .then((res) => {fbfn.addToUserCollection(res, collection)});
+    }
+>>>>>>> Stashed changes
 }
 
 function addToQueue(event) {
   event.preventDefault();
   const elementClicked = event.target;
   if (elementClicked.dataset.action === 'toQueue') {
+<<<<<<< Updated upstream
     const id = event.target.dataset.id;
     console.log(id);
+=======
+    //Код що додає фільм до колекції watched Firebase
+    currentFilmId = event.target.dataset.id;
+    collection = 'queue';
+    fbfn.fetchMovieDataFirebase(currentFilmId)
+      .then((res) => {fbfn.addToUserCollection(res, collection)});
+>>>>>>> Stashed changes
   }
 }
 
