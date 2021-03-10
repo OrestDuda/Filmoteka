@@ -1,66 +1,31 @@
-const pagination = require('pagination');
-const params = new URLSearchParams(window.location.search);
-const pageNumber = params.get('page') || 1;
+import Pagination from 'tui-pagination';
 
-const boostrapPaginator = new pagination.TemplatePaginator({
-  prelink: '/',
-  current: pageNumber,
-  rowsPerPage: 20,
-  totalResult: 10020,
-  slashSeparator: false,
-  template: function (result) {
-    let i, len, prelink;
-    let html = '<ul class="pagination">';
-    if (result.pageCount < 2) {
-      html += '</ul>';
-      return html;
-    }
-    prelink = this.preparePreLink(result.prelink);
-    if (result.previous) {
-      html +=
-        '<li class="page-item"><a class="page-link" href="' +
-        prelink +
-        result.previous +
-        '">' +
-        this.options.translator('PREVIOUS') +
-        '</a></li>';
-    }
-    if (result.range.length) {
-      for (i = 0, len = result.range.length; i < len; i++) {
-        if (result.range[i] === result.current) {
-          html +=
-            '<li class="active page-item"><a class="page-link" href="' +
-            prelink +
-            result.range[i] +
-            '">' +
-            result.range[i] +
-            '</a></li>';
-        } else {
-          html +=
-            '<li class="page-item"><a class="page-link" href="' +
-            prelink +
-            result.range[i] +
-            '">' +
-            result.range[i] +
-            '</a></li>';
-        }
-      }
-    }
-    if (result.next) {
-      html +=
-        '<li class="page-item"><a class="page-link" href="' +
-        prelink +
-        result.next +
-        '" class="paginator-next">' +
-        this.options.translator('NEXT') +
-        '</a></li>';
-    }
-    html += '</ul></div>';
-    return html;
-  },
-});
-export default boostrapPaginator;
+function initializePagination(paginationCallback) {
+  const container = document.querySelector('.pagination');
 
-document
-  .querySelector('.pagination')
-  .insertAdjacentHTML('beforeend', boostrapPaginator.render());
+  const pagination = new Pagination(container, {
+    totalItems: 500,
+    itemsPerPage: 20,
+    visiblePages: 5,
+    centerAlign: true,
+  });
+
+  pagination.on('beforeMove', function (eventData) {
+    const params = new URLSearchParams(window.location.search);
+    params.set('page', eventData.page);
+    history.pushState(null, null, '?' + params.toString());
+  });
+
+  pagination.on('afterMove', function (eventData) {
+    const params = new URLSearchParams(window.location.search);
+    const currentPage = params.get('page') || 1;
+
+    paginationCallback(currentPage).then(totalItems =>
+      pagination.setTotalItems(totalItems),
+    );
+  });
+
+  return pagination;
+}
+
+export { initializePagination as default };

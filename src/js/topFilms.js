@@ -1,24 +1,24 @@
 import filmsTpl from '../templates/products.hbs';
-import boostrapPaginator from './pagination';
 import refs from './refs';
 import { apiKey, baseUrl } from './api';
-
-const params = new URLSearchParams(window.location.search);
-const currentPage = params.get('page') || 1;
+import initializePagination from './pagination';
 
 function fetchFilms(pageNumber = 1) {
-  fetch(`${baseUrl}/3/trending/movie/day?api_key=${apiKey}&page=${pageNumber}`)
+  return fetch(
+    `${baseUrl}/3/trending/movie/day?api_key=${apiKey}&page=${pageNumber}`,
+  )
     .then(response => response.json())
-    .then(({ results, total_results }) => {
-      const markup = filmsTpl(results);
+    .then(response => {
+      // pagination.setTotalItems(total_results);
+
+      const markup = filmsTpl(response.results);
+      refs.productsList.innerHTML = '';
       refs.productsList.insertAdjacentHTML('beforeend', markup);
-      boostrapPaginator.set('rowsPerPage', results.length);
-      boostrapPaginator.set('totalResult', total_results);
+
+      return response;
     })
     .catch(error => console.log('error'));
 }
-
-fetchFilms(currentPage);
 
 // Жанры
 function getGenres() {
@@ -31,3 +31,12 @@ function getGenres() {
     .catch(error => console.log('error'));
 }
 getGenres();
+
+const pagination = initializePagination(pageNumber =>
+  fetchFilms(pageNumber).then(response => response.total_results),
+);
+
+const params = new URLSearchParams(window.location.search);
+const currentPage = params.get('page') || 1;
+
+pagination.movePageTo(currentPage);

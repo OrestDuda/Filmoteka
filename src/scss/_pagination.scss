@@ -1,4 +1,6 @@
 .pagination {
+  display: flex;
+  justify-content: space-between;
   ul {
     margin-left: auto;
     margin-right: auto;
