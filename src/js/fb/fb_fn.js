@@ -3,7 +3,8 @@ import firebase from "firebase/app";
     require("firebase/firestore");
 import * as firebaseui from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css';
-
+import filmsTpl from '../../templates/products-fb.hbs';
+const renderListRef = document.querySelector('#products-list-js');
 //===============================================================================
 
 let formMessageref = document.querySelector('.js-btn-reg');
@@ -88,6 +89,7 @@ export function signOutUserFn(mail) {
       throw error;
     }
   }
+//===============================================================================
 
 //Додати фільм до колекції (collection) користувача Firebase
 export function addToUserCollection(params, collection) {
@@ -101,6 +103,7 @@ export function addToUserCollection(params, collection) {
       console.error("Error adding document: ", error);
     });
 }
+//===============================================================================
 
 //Отримати колекцію фільмів колекції(collection) користувача Firebase
 export function getUserCollection(collection, array) {
@@ -109,6 +112,12 @@ export function getUserCollection(collection, array) {
       //console.log(`${doc.id} => ${doc.data()}`);
       //console.log(doc.data());
       array.push(doc.data())
+      renderListRef.innerHTML = '';
+   //Handlebars.registerHelper(filmsTpl,arrayWatched)
+
+    const markupWatched = filmsTpl(array);
+    renderListRef.insertAdjacentHTML('beforeend', markupWatched);
     });
   })
 }
+//===============================================================================

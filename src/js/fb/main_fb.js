@@ -8,6 +8,10 @@ import 'firebaseui/dist/firebaseui.css';
 import * as fbfn from './fb_fn';
 //Файл конфігурації Firebase
 
+
+import filmsTpl from '../../templates/products-fb.hbs';
+const renderListRef = document.querySelector('#products-list-js');
+
 //Firebase ініціалізація
 //firebase.initializeApp(fbfn.firebaseConfig);
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -97,11 +101,17 @@ btnSignOutRef.addEventListener('click', (event) => {
 let col;
 //   !!!- arrayWatched  -  Масив фільмів з колекції Watched
 let arrayWatched;
+const Handlebars = require("handlebars");
 BtnWatchRef.addEventListener('click', (event) => {
     col = 'watched';
     arrayWatched = [];
     fbfn.getUserCollection(col, arrayWatched);
     console.log(arrayWatched);
+ 
+    renderListRef.innerHTML = '';
+   // Handlebars.registerHelper(filmsTpl,arrayWatched)
+    //const markupWatched = filmsTpl(arrayWatched);
+    //renderListRef.insertAdjacentHTML('beforeend', markupWatched);
 })
 //===============================================================================
 
@@ -113,5 +123,10 @@ BtnQueueRef.addEventListener('click', (event) => {
     arrayQueue = [];
     fbfn.getUserCollection(col, arrayQueue);
     console.log(arrayQueue);
+    
+    renderListRef.innerHTML = '';
+    //const markupQueue = filmsTpl(arrayQueue);
+    //console.log(markupQueue);
+    //renderListRef.insertAdjacentHTML('beforeend', markupQueue);
 })
 //===============================================================================
