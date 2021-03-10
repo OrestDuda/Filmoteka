@@ -4,12 +4,12 @@ import refs from './refs';
 //   refs.movieWrap.insertAdjacentHTML("beforeend", movieModalTemplate(data));
 // }
 
-refs.loginSignIn.addEventListener('click', onSignInClick);
-refs.loginCloseModalBtn.addEventListener('click', onButtonCloseClick);
-refs.loginModalBackdrop.addEventListener('click', onBackdropClick);
+refs.registerSignUp.addEventListener('click', onSignUpClick);
+refs.registerCloseModalBtn.addEventListener('click', onButtonCloseClick);
+refs.registerModalBackdrop.addEventListener('click', onBackdropClick);
 
 function onButtonCloseClick() {
-  loginToggleModal();
+  registerToggleModal();
   // refs.movieWrap.innerHTML = '';
   window.removeEventListener('keydown', pressEsc);
 }
@@ -24,12 +24,12 @@ function pressEsc(event) {
   }
 }
 
-function loginToggleModal() {
-  refs.loginModalBackdrop.classList.toggle('is-hidden');
+function registerToggleModal() {
+  refs.registerModalBackdrop.classList.toggle('is-hidden');
 }
 
-function onSignInClick(event) {
+function onSignUpClick(event) {
   event.preventDefault();
-  loginToggleModal();
+  registerToggleModal();
   window.addEventListener('keydown', pressEsc);
 }

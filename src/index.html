@@ -55,9 +55,8 @@
       <div class="container header_main">
         <nav>
           <div class="menu-container">
-            <a href="./index.html" class="logo-link">
+            <a href="index.html" class="logo-link">
               <i class="bi bi-film"></i>
-
               <span class="logo">Filmoteka</span>
             </a>
             <div class="menu">
@@ -82,7 +81,9 @@
                   </li>
                 </ul>
               </div>
-              <a href="#" class="sign-in is-hidden js-SignIn">sign in</a>
+              <a href="#" class="sign-in js-SignIn">sign in</a>
+              <a href="#" class="sign-in js-SignUp">sign up</a>
+              <a href="#" class="sign-in js-SignOut">sign out</a>
             </div>
           </div>
         </nav>
@@ -106,19 +107,90 @@
 
     <section class="products">
       <div class="container">
-        <ul class="products-list" id="products-list-js"></ul>
+        <ul class="products-list"></ul>
+        <div class="pagination"></div>
       </div>
     </section>
     <footer>
       <div class="container footer_container">
         <div class="bottom__footer">
-          <p class="copyright">© 2020 | All Rights Reserved |&nbsp;</p>
+          <p class="copyright">© 2021 | All Rights Reserved |&nbsp;</p>
         </div>
         <div class="developers">
           <p>Developed with</p>
           <i class="bi bi-suit-heart-fill footer__image"></i>
           <p>by&nbsp;</p>
-          <p class="team__modal">GoIT Students</p>
+          <a href="#~" class="team__modal">GoIT Students</a>
+          <!-- Team Names -->
+          <div class="team-faces is-hidden">
+            <h2 class="team-header">группа №5</h2>
+            <ul class="team-list">
+              <li class="team-name">
+                <a
+                  href="https://github.com/OrestDuda"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Orest Duda</a
+                >
+              </li>
+              <li class="team-name">
+                <a
+                  href="https://github.com/TMFV"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Denys Tymofieiev</a
+                >
+              </li>
+              <li class="team-name">
+                <a
+                  href="https://github.com/Zinaida-Razinkova"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Zinaida Razinkova</a
+                >
+              </li>
+              <li class="team-name">
+                <a
+                  href="https://github.com/OlhaNester"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Olha Nester</a
+                >
+              </li>
+              <li class="team-name">
+                <a
+                  href="https://github.com/Nikolay-Sk"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Nikolay Sk</a
+                >
+              </li>
+              <li class="team-name">
+                <a
+                  href="https://github.com/anastasyah86"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Nastya Boiko</a
+                >
+              </li>
+              <li class="team-name">
+                <a
+                  href="https://github.com/KaterynaBoikova"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Kateryna Boikova</a
+                >
+              </li>
+              <li class="team-name">
+                <a
+                  href="https://github.com/annabadritdinova"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  >Georges Ka</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
@@ -131,8 +203,8 @@
           </svg>
         </button>
         <p class="loginModalText">Login to Filmoteka</p>
-        <form action="" method="post" class="loginForm">
-          <span class="loginFormText">Name</span>
+        <form action="submit" method="post" class="loginForm">
+          <span class="loginFormText">Email</span>
           <div class="loginFormUnit">
             <input
               type="text"
@@ -154,7 +226,41 @@
           </div>
           <div class="buttonLocation">
             <button class="logFormButtonOne" type="submit">Log In</button>
-            <button class="logFormButtonTwo" type="submit">Sign In</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="registerBackdrop is-hidden js-registerBackdrop">
+      <div class="registerModal js-registerModal">
+        <button class="registerBtnClose js-registerBtnClose">
+          <svg class="registerBtnCloseIcon">
+            <use href="./images/symbol-defs.svg#icon-close-black"></use>
+          </svg>
+        </button>
+        <p class="registerModalText">Register to Filmoteka</p>
+        <form action="submit" method="post" class="registerForm">
+          <span class="registerFormText">Email</span>
+          <div class="registerFormUnit">
+            <input
+              type="text"
+              name="name"
+              id="registerFormName"
+              class="registerFormInput"
+              placeholder=" "
+            />
+          </div>
+          <span class="registerFormText">Password</span>
+          <div class="registerFormUnit">
+            <input
+              type="password"
+              name="password"
+              id="registerFormPassword"
+              class="registerFormInput"
+              placeholder=" "
+            />
+          </div>
+          <div class="buttonLocation">
+            <button class="logFormButtonOne" type="submit">Register</button>
           </div>
         </form>
       </div>

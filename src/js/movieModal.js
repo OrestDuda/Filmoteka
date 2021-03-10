@@ -1,20 +1,19 @@
 import movieModalTemplate from '../templates/movieModal.hbs';
 import modalVideoTemplate from '../templates/movieModalVideo.hbs';
 import modalReviewsTemplate from '../templates/movieModalReviews.hbs';
-import refs from './movieModalRefs';
+import refs from './refs';
 import movieModalAPI from './movieModalAPI';
-
 
 function generateMovieModalData(data) {
   refs.movieWrap.insertAdjacentHTML('afterbegin', movieModalTemplate(data));
-};
-function generateMovieModalVideo(data){
+}
+function generateMovieModalVideo(data) {
   refs.movieWrap.insertAdjacentHTML('beforeend', modalVideoTemplate(data));
-};
+}
 
-function generateMovieModalReviews(data){
+function generateMovieModalReviews(data) {
   refs.movieWrap.insertAdjacentHTML('beforeend', modalReviewsTemplate(data));
-};
+}
 
 refs.allMovieList.addEventListener('click', onMovieClick);
 refs.closeModalBtn.addEventListener('click', onButtonClick);
@@ -65,12 +64,15 @@ function addToQueue(event) {
   }
 }
 
-async function getAllModalDetails(){
-  await movieModalAPI.fetchMovieModalData().then(data=>generateMovieModalData(data));
+async function getAllModalDetails() {
+  await movieModalAPI
+    .fetchMovieModalData()
+    .then(data => generateMovieModalData(data));
   await movieModalAPI.fetchMovieModalVideo().then(({ results }) => {
     for (let i = 0; i < results.length; i += 1) {
       if (results[i].type === 'Trailer' && results[i].site === 'YouTube') {
-        generateMovieModalVideo(results[i]);}
+        generateMovieModalVideo(results[i]);
+      }
       break;
     }
   });
@@ -84,6 +86,7 @@ const getComments = await movieModalAPI.fetchMovieModalReviews()
   const adjusted = adjComment(getComments)
   generateMovieModalReviews(adjusted);
 };
+
 
 function adjComment(objects) {
   const newObjects = [];
@@ -104,8 +107,10 @@ function adjComment(objects) {
 
 
 function onMovieClick(event) {
-  if (event.target.dataset.jsmodal !== 'js-modal-onclick') {return;}
-   movieModalAPI.movieID = event.target.dataset.id;
+  if (event.target.dataset.jsmodal !== 'js-modal-onclick') {
+    return;
+  }
+  movieModalAPI.movieID = event.target.dataset.id;
   toggleModal();
   window.addEventListener('keydown', onEscPress);
   document.addEventListener('click', addToWatch);
@@ -143,19 +148,4 @@ function moreCommentsToRead(event) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

@@ -52,6 +52,10 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "handlebars": "^4.7.6"
+    "firebase": "^8.2.10",
+    "firebase-admin": "^9.5.0",
+    "firebaseui": "^4.7.3",
+    "handlebars": "^4.7.6",
+    "pagination": "^0.4.6"
   }
 }
