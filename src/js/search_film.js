@@ -1,10 +1,6 @@
 import tplFilmList from '../templates/search.hbs';
-
-const refs = {
-  galleryFilm: document.querySelector('.products-list'),
-  searchBtn: document.querySelector('.bi-search'),
-  searchForm: document.querySelector('.search-form'),
-};
+import refs from './refs';
+import { apiKey, baseUrl } from './api';
 
 const queryOptions = {
   apiKey: 'cd745b1c38819d91d823e4d3c6c216e8',
@@ -14,16 +10,14 @@ const queryOptions = {
 };
 
 function startQueryOptions() {
-  fetch(
-    `https://api.themoviedb.org/3/configuration?api_key=${queryOptions.apiKey}`,
-  )
+  fetch(`https://api.themoviedb.org/3/configuration?api_key=${apiKey}`)
     .then(res => res.json())
     .then(result => {
       queryOptions.pathBasePoster =
         result.images.secure_base_url + result.images.poster_sizes[3];
     });
   fetch(
-    `https://api.themoviedb.org/3/genre/movie/list?api_key=${queryOptions.apiKey}&language=en-US`,
+    `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`,
   )
     .then(res => res.json())
     .then(result => {
@@ -50,7 +44,7 @@ function prepareResults(results) {
 function createFilm(results) {
   prepareResults(results);
   const filmList = tplFilmList(results);
-  refs.galleryFilm.insertAdjacentHTML('beforeend', filmList);
+  refs.productsList.insertAdjacentHTML('beforeend', filmList);
 }
 
 function handlSearch(event) {
@@ -62,7 +56,7 @@ function handlSearch(event) {
 
   event.preventDefault();
 
-  refs.galleryFilm.innerHTML = '';
+  refs.productsList.innerHTML = '';
   queryOptions.query = refs.searchForm[0].value;
 
   fetchFilmList(

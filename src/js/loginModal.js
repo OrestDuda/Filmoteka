@@ -1,9 +1,4 @@
-const refs = {
-  loginCloseModalBtn: document.querySelector('.js-loginBtnClose'),
-  loginModalBackdrop: document.querySelector('.js-loginBackdrop'),
-  loginSignIn: document.querySelector('.js-SignIn'),
-  // movieWrap: document.querySelector(".movieModalWrap"),
-};
+import refs from './refs';
 
 // function generateHTML(data) {
 //   refs.movieWrap.insertAdjacentHTML("beforeend", movieModalTemplate(data));

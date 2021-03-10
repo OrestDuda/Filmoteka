@@ -10,9 +10,9 @@ const boostrapPaginator = new pagination.TemplatePaginator({
   slashSeparator: false,
   template: function (result) {
     let i, len, prelink;
-    let html = '<div><ul class="pagination">';
+    let html = '<ul class="pagination">';
     if (result.pageCount < 2) {
-      html += '</ul></div>';
+      html += '</ul>';
       return html;
     }
     prelink = this.preparePreLink(result.prelink);
@@ -60,6 +60,7 @@ const boostrapPaginator = new pagination.TemplatePaginator({
   },
 });
 export default boostrapPaginator;
+
 document
   .querySelector('.pagination')
   .insertAdjacentHTML('beforeend', boostrapPaginator.render());

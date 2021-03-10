@@ -1,9 +1,4 @@
-const refs = {
-  registerCloseModalBtn: document.querySelector('.js-registerBtnClose'),
-  registerModalBackdrop: document.querySelector('.js-registerBackdrop'),
-  registerSignUp: document.querySelector('.js-SignUp'),
-  // movieWrap: document.querySelector(".movieModalWrap"),
-};
+import refs from './refs';
 
 // function generateHTML(data) {
 //   refs.movieWrap.insertAdjacentHTML("beforeend", movieModalTemplate(data));
