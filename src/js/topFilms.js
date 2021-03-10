@@ -1,31 +1,30 @@
 import filmsTpl from '../templates/products.hbs';
-const productslistRef = document.querySelector('#products-list-js');
+import boostrapPaginator from './pagination';
+import { baseUrl } from './api';
+import { apiKey } from './api';
+import { productsList } from './refs';
 
-function fetchFilms() {
-  const url = 'https://api.themoviedb.org/3/trending/movie/day';
-  const keyApi = 'cd745b1c38819d91d823e4d3c6c216e8';
+const params = new URLSearchParams(window.location.search);
+const page = params.get('page') || 1;
 
-  fetch(`${url}?api_key=${keyApi}`)
+function fetchFilms(pageNumber = 1, pageSize) {
+  fetch(`${baseUrl}/3/trending/movie/day?api_key=${apiKey}&page=${pageNumber}`)
     .then(response => response.json())
-    .then(({ results }) => {
-      console.log(results);
+    .then(({ results, total_results }) => {
+      const markup = filmsTpl(results.slice(0, pageSize));
 
-      const markup = filmsTpl(results);
-      console.log(markup);
-
-      productslistRef.insertAdjacentHTML('beforeend', markup);
+      productsList.insertAdjacentHTML('beforeend', markup);
+      boostrapPaginator.set('rowsPerPage', results.length);
+      boostrapPaginator.set('totalResult', total_results);
     })
     .catch(error => console.log('error'));
 }
 
-fetchFilms();
+fetchFilms(page, 20);
 
 // Жанры
 function getGenres() {
-  const url = 'https://api.themoviedb.org/3/genre/movie/list';
-  const keyApi = 'cd745b1c38819d91d823e4d3c6c216e8';
-
-  fetch(`${url}?api_key=${keyApi}`)
+  fetch(`${baseUrl}/3/genre/movie/list?api_key=${apiKey}`)
     .then(response => response.json())
     .then(({ genres }) => {
       console.log(genres);
