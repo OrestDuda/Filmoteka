@@ -300,15 +300,29 @@ body.movieModalOpened {
     font-weight: 400;
     letter-spacing: 0em;
     text-align: left;
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
+    //display: -webkit-box;
+    //-webkit-line-clamp: 6;
+    //-webkit-box-orient: vertical;
     overflow: hidden;
-
+    height: 130px;
   }
+  //style to see all text of comment
+  .reviewContentAll{
+    height: auto;
+  }
+  //style to hide link if comment is short
   .moretoLoad{
     visibility: hidden;
   }
+  //link to be visible is content of comment is big
+  .moreNeeded{
+    visibility: visible;
+  }
+  .currentlyMoreIsOpen{
+
+  }
+
+
   .author {
     display: inline-block;
     font-size: 16px;

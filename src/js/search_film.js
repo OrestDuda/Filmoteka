@@ -1,10 +1,7 @@
 import tplFilmList from '../templates/search.hbs';
-
-const refs = {
-  galleryFilm: document.querySelector('.products-list'),
-  searchBtn: document.querySelector('.bi-search'),
-  searchForm: document.querySelector('.search-form'),
-};
+import refs from './refs';
+import { apiKey, baseUrl } from './api';
+import initializePagination from './pagination';
 
 const queryOptions = {
   apiKey: 'cd745b1c38819d91d823e4d3c6c216e8',
@@ -14,16 +11,14 @@ const queryOptions = {
 };
 
 function startQueryOptions() {
-  fetch(
-    `https://api.themoviedb.org/3/configuration?api_key=${queryOptions.apiKey}`,
-  )
+  fetch(`https://api.themoviedb.org/3/configuration?api_key=${apiKey}`)
     .then(res => res.json())
     .then(result => {
       queryOptions.pathBasePoster =
         result.images.secure_base_url + result.images.poster_sizes[3];
     });
   fetch(
-    `https://api.themoviedb.org/3/genre/movie/list?api_key=${queryOptions.apiKey}&language=en-US`,
+    `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`,
   )
     .then(res => res.json())
     .then(result => {
@@ -47,10 +42,11 @@ function prepareResults(results) {
   });
 }
 
-function createFilm(results) {
-  prepareResults(results);
-  const filmList = tplFilmList(results);
-  refs.galleryFilm.insertAdjacentHTML('beforeend', filmList);
+function createFilm(response) {
+  prepareResults(response.results);
+  const filmList = tplFilmList(response.results);
+  refs.productsList.insertAdjacentHTML('beforeend', filmList);
+  return response;
 }
 
 function handlSearch(event) {
@@ -62,22 +58,38 @@ function handlSearch(event) {
 
   event.preventDefault();
 
-  refs.galleryFilm.innerHTML = '';
-  queryOptions.query = refs.searchForm[0].value;
+  const pagination = initializePagination(pageNumber =>
+    fetchAndRenderFilmList(refs.searchForm[0].value, pageNumber).then(
+      response => response.total_results,
+    ),
+  );
 
-  fetchFilmList(
-    queryOptions.query,
-    queryOptions.page,
-    queryOptions.qOnPage,
-  ).then(response => createFilm(response.results));
+  const params = new URLSearchParams(window.location.search);
+  const currentPage = 1;
+
+  params.set('search', refs.searchForm[0].value);
+
+  history.pushState(null, null, '?' + params.toString());
+  pagination.movePageTo(currentPage);
 }
 
 function fetchFilmList(searchQuery, page = 1, qOnPage) {
-  const apiKey = 'cd745b1c38819d91d823e4d3c6c216e8';
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${queryOptions.apiKey}&query=${searchQuery}`;
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${queryOptions.apiKey}&query=${searchQuery}&page=${page}`;
   return fetch(url)
     .then(res => res.json())
     .catch(err => Error(err));
+}
+
+function fetchAndRenderFilmList(searchQuery, page) {
+  refs.productsList.innerHTML = '';
+  queryOptions.query = searchQuery;
+  queryOptions.page = page;
+
+  return fetchFilmList(
+    queryOptions.query,
+    queryOptions.page,
+    queryOptions.qOnPage,
+  ).then(response => createFilm(response));
 }
 
 startQueryOptions();
