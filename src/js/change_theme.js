@@ -1,21 +1,28 @@
 const refs = {
-  themeToggler: () => document.querySelector('#theme-toggler-link'),
+  themeTogglerLink: () => document.querySelector('#theme-toggler-link'),
   body: () => document.querySelector('body'),
-  novieHeader: () => document.querySelector('.products-name'),
+  movieHeader: () => document.querySelector('.products-name'),
+  allTheButtons: () => document.querySelector('button'),
+  footer: () => document.querySelector('footer'),
   theme: localStorage.getItem('theme'),
 };
 
 console.log(refs.themeToggler);
-// refs.checkbox.addEventListener('change', toggler);
 
-// function toggler() {
-//   refs.body.classList.add('dark-theme');
-//   localStorage.setItem('theme', 'dark-theme');
-// }
+refs.themeTogglerLink().addEventListener('click', themeToggler());
+
+function themeToggler() {
+  refs.body().classList.toggle('dark-background');
+  refs.movieHeader().classList.toggle('white-text');
+  refs.allTheButtons().classList.toggle('white-text');
+  refs.footer().classList.toggle('footer-dark-background');
+
+  //   localStorage.setItem('theme', 'dark-theme');
+}
 
 // function changeThemeIf() {
 //   if (!refs.checkbox.checked && refs.body.classList.contains('dark-theme')) {
-//     refs.body.classList.replace('dark-theme', 'light-theme');
+//     refs.body.c  lassList.replace('dark-theme', 'light-theme');
 //     localStorage.setItem('theme', 'light-theme');
 //   }
 // }
