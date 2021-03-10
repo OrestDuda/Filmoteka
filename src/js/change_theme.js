@@ -22,7 +22,7 @@ refs.themeTogglerLink().addEventListener('click', () => {
 });
 
 function deleteThemeIf() {
-  if (refs.body().classList.contains('dark-background')) {
+  if (!refs.body().classList.contains('dark-background')) {
     localStorage.removeItem('theme');
   }
 }
