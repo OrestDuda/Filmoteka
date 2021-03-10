@@ -3,6 +3,22 @@ import modalVideoTemplate from '../templates/movieModalVideo.hbs';
 import modalReviewsTemplate from '../templates/movieModalReviews.hbs';
 import refs from './refs';
 import movieModalAPI from './movieModalAPI';
+//=================================================================
+//For Firebase
+//=================================================================
+import * as fbfn from './fb/fb_fn';
+import firebase from "firebase/app";
+//firebase.initializeApp(fbfn.firebaseConfig);
+firebaseui.auth.AuthUI.getInstance();
+var db = firebase.firestore();
+    require("firebase/auth");
+    require("firebase/firestore");
+import * as firebaseui from 'firebaseui';
+import 'firebaseui/dist/firebaseui.css';
+import * as mainFb from './fb/main_fb'
+let collection;
+let currentFilmId;
+//=================================================================
 
 function generateMovieModalData(data) {
   refs.movieWrap.insertAdjacentHTML('afterbegin', movieModalTemplate(data));
@@ -45,14 +61,18 @@ function toggleModal() {
   document.body.classList.toggle('movieModalOpened');
   refs.modalBackdrop.classList.toggle('movieIsHidden');
 }
-
 function addToWatch(event) {
   event.preventDefault();
   const elementClicked = event.target;
   if (elementClicked.dataset.action === 'toWatch') {
     const id = event.target.dataset.id;
     console.log(id);
-  }
+    //Код що додає фільм до колекції watched Firebase
+    currentFilmId = event.target.dataset.id;
+    collection = 'watched';
+    fbfn.fetchMovieDataFirebase(currentFilmId)
+      .then((res) => {fbfn.addToUserCollection(res, collection)});
+    }
 }
 
 function addToQueue(event) {
@@ -61,6 +81,11 @@ function addToQueue(event) {
   if (elementClicked.dataset.action === 'toQueue') {
     const id = event.target.dataset.id;
     console.log(id);
+    //Код що додає фільм до колекції watched Firebase
+    currentFilmId = event.target.dataset.id;
+    collection = 'queue';
+    fbfn.fetchMovieDataFirebase(currentFilmId)
+      .then((res) => {fbfn.addToUserCollection(res, collection)});
   }
 }
 
