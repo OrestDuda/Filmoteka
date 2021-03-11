@@ -1,18 +1,19 @@
 {{#each this}}
-<li class="products-film" data-id='{{this.id}}' data-jsmodal='js-modal-onclick'>
-    <a href="" data-id='{{this.id}}' data-jsmodal='js-modal-onclick'>
+<li class="products-film" data-id='{{id}}' data-jsmodal='js-modal-onclick'>
+    <a href="" data-id='{{id}}' data-jsmodal='js-modal-onclick'>
         <img srcset="" class="imgFilm" src="https://www.themoviedb.org/t/p/w300{{poster_path}}"
-            alt="{{title}} | {{original_title}}" title="{{title}}" data-id='{{this.id}}'
+            alt="{{title}} | {{original_title}}" title="{{title}}" data-id='{{id}}'
             data-jsmodal='js-modal-onclick' /></a>
-    <a href="" data-id='{{this.id}}' data-jsmodal='js-modal-onclick'>
-        <h3 class="products-name" data-id='{{this.id}}' data-jsmodal='js-modal-onclick'>{{title}}</h3>
+    <a href="" data-id='{{id}}' data-jsmodal='js-modal-onclick'>
+        <h3 class="products-name" data-id='{{id}}' data-jsmodal='js-modal-onclick'>{{title}}</h3>
     </a>
-    <div class="reyting-align" data-id='{{this.id}}' data-jsmodal='js-modal-onclick'>
-        <p class="products-style" data-id='{{this.id}}' data-jsmodal='js-modal-onclick'>
+    <div class="reyting-align" data-id='{{id}}' data-jsmodal='js-modal-onclick'>
+        <p class="products-style" data-id='{{id}}' data-jsmodal='js-modal-onclick'>
             <!--{{genres}}--> | {{release_date}}
         </p>
+        <button class="products-style delFb" data-id="{{id}}" data-fb="1">Delete</button>
         {{!-- <p class="reyting">{{vote_average}}</p> --}}
     </div>
 </li>
 {{/each}}
-<!--onerror="this.onerror=null; this.src='./images/film1.jpg';" -->
+<!--onerror="this.onerror=null; this.src=' ./images/film1.jpg';" -->

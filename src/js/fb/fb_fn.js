@@ -3,8 +3,12 @@ import firebase from "firebase/app";
     require("firebase/firestore");
 import * as firebaseui from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css';
+import merge from "webpack-merge";
 import filmsTpl from '../../templates/products-fb.hbs';
 const renderListRef = document.querySelector('.products-list-js');
+const loginModalRef = document.querySelector('.js-loginBackdrop');
+const registrationModalRef = document.querySelector('.js-registerBackdrop');
+
 //===============================================================================
 
 let formMessageref = document.querySelector('.js-btn-reg');
@@ -29,6 +33,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
     curUser = user.email;
+    loginModalRef.classList.add("is-hidden");
   } else {
     // No user is signed in.
     console.log(user,'no signed');
@@ -42,6 +47,7 @@ export function createNewUserFn(mail, password) {
     .then(() => {
       formMessageref.insertAdjacentHTML("beforebegin",
         '<span>Ваша регистрация прошла успешно!</span>')
+          registrationModalRef.classList.add("is-hidden");
     })
       .catch(function (error) {
 	formMessageref.insertAdjacentHTML("beforebegin",
@@ -91,11 +97,13 @@ export function signOutUserFn(mail) {
   }
 //===============================================================================
 
+
+
 //Додати фільм до колекції (collection) користувача Firebase
 export function addToUserCollection(params, collection) {
-  db.collection(`${curUser}_${collection}`).add({
+   db.collection(`${curUser}_${collection}`).doc(`${params.id}`).set({
     ...params
-  })
+  }, { merge: false })
     .then((result) => {
       console.log("Document written with ID: ", params.id);
     })
@@ -106,18 +114,18 @@ export function addToUserCollection(params, collection) {
 //===============================================================================
 
 //Отримати колекцію фільмів колекції(collection) користувача Firebase
-export function getUserCollection(collection, array) {
+export function getUserCollection(collection) {
   db.collection(`${curUser}_${collection}`).get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      //console.log(`${doc.id} => ${doc.data()}`);
-      //console.log(doc.data());
-      array.push(doc.data())
-      renderListRef.innerHTML = '';
-   //Handlebars.registerHelper(filmsTpl,arrayWatched)
-
-    const markupWatched = filmsTpl(array);
-    renderListRef.insertAdjacentHTML('beforeend', markupWatched);
+    renderListRef.innerHTML = '';
+    let newArray;
+    newArray = [];
+    querySnapshot.docs.forEach((doc) => {
+      newArray.push(doc.data());
     });
+  const markupWatched = filmsTpl(newArray);
+  renderListRef.insertAdjacentHTML('beforeend', markupWatched);
   })
 }
 //===============================================================================
+
+

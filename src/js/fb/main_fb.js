@@ -47,7 +47,7 @@ export let curUser;
 
         } else {
             // No user is signed in.
-            btnSignInRef.insertAdjacentHTML('beforebegin', `<span class="sign-in js-userAuth">Авторизуйтесь или создайте аккаунт<span>`);
+            btnSignInRef.innerHTML(`<span class="sign-in js-userAuth">Авторизируйтесь или создайте аккаунт<span>`);
             if (userSpanRef) { userSpanRef.textContent = '' };
             console.log(curUser, ' - НЕ АВТОРИЗОВАНИЙ');
   
@@ -103,10 +103,11 @@ let col;
 let arrayWatched;
 const Handlebars = require("handlebars");
 BtnWatchRef.addEventListener('click', (event) => {
+    
     col = 'watched';
-    arrayWatched = [];
-    fbfn.getUserCollection(col, arrayWatched);
-    console.log(arrayWatched);
+    fbfn.getUserCollection(col);
+    //console.log(arrayWatched);
+   
  
     //renderListRef.innerHTML = '';
    // Handlebars.registerHelper(filmsTpl,arrayWatched)
@@ -117,12 +118,12 @@ BtnWatchRef.addEventListener('click', (event) => {
 
 //Отримати колекцію Queue
 //   !!!- arrayQueue  -  Масив фільмів з колекції Queue
-let arrayQueue;
+//let arrayQueue;
 BtnQueueRef.addEventListener('click', (event) => {
     col = 'queue';
-    arrayQueue = [];
-    fbfn.getUserCollection(col, arrayQueue);
-    console.log(arrayQueue);
+    fbfn.getUserCollection(col);
+    
+    //console.log(arrayQueue);
     
     //renderListRef.innerHTML = '';
     //const markupQueue = filmsTpl(arrayQueue);
@@ -130,3 +131,23 @@ BtnQueueRef.addEventListener('click', (event) => {
     //renderListRef.insertAdjacentHTML('beforeend', markupQueue);
 })
 //===============================================================================
+
+const ulColection = document.querySelector('.products-list-js');
+ulColection.addEventListener('click', event => {
+    console.log(event);
+    if (event.target.dataset.fb == 1) {
+        delDoc(event, col);
+        console.log(event);
+    }
+})
+
+//btnDeleteRef.addEventListener('click', event => { delDoc(event); })
+
+//===============================================================================
+    //Функція видалення фільму з колекції
+function delDoc (e, collect) {
+  console.log(deleteFilmID);
+  let deleteFilmID = e.target.dataset.id
+  console.log(deleteFilmID);
+  const res = db.collection(`${curUser}_${collect}`).doc(`${deleteFilmID}`).delete();
+}
