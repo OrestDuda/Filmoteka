@@ -33,21 +33,24 @@ const BtnQueueRef = document.querySelector('.js-queue-col');
 //Код для контролю чи авторизований користувач та виконання відповідних дій
 // Можна передати функції для авторизованого та не авторизованого користувача!!!
 
-function userLink (){
-    btnSignInRef.insertAdjacentHTML('beforebegin',`<span class="sign-in js-userSpan">User : ${curUser}<span>`);
-    btnSignInRef.classList.add("is-hidden");
-    btnSignUpRef.classList.add("is-hidden");
-    btnSignOutRef.classList.remove("is-hidden");
-    BtnWatchRef.classList.remove("is-hidden");
-    BtnQueueRef.classList.remove("is-hidden");
+function userLink() {
+  btnSignInRef.insertAdjacentHTML(
+    'beforebegin',
+    `<span class="sign-in js-userSpan">User : ${curUser}<span>`,
+  );
+  btnSignInRef.classList.add('is-hidden');
+  btnSignUpRef.classList.add('is-hidden');
+  btnSignOutRef.classList.remove('is-hidden');
+  BtnWatchRef.classList.remove('is-hidden');
+  BtnQueueRef.classList.remove('is-hidden');
 }
 function noUserLink() {
-  btnSignOutRef.classList.add("is-hidden");
-    BtnWatchRef.classList.add("is-hidden");
-    BtnQueueRef.classList.add("is-hidden");
+  btnSignOutRef.classList.add('is-hidden');
+  BtnWatchRef.classList.add('is-hidden');
+  BtnQueueRef.classList.add('is-hidden');
 
-    btnSignInRef.classList.remove("is-hidden");
-    btnSignUpRef.classList.remove("is-hidden");
+  btnSignInRef.classList.remove('is-hidden');
+  btnSignUpRef.classList.remove('is-hidden');
 }
 export let curUser;
 firebase.auth().onAuthStateChanged(function (user) {
@@ -57,9 +60,9 @@ firebase.auth().onAuthStateChanged(function (user) {
     let letUser = curUser;
 
     userLink();
-      if (userAuthRef) {
-        userAuthRef.textContent = '';
-      }
+    if (userAuthRef) {
+      userAuthRef.textContent = '';
+    }
 
     console.log(curUser, ` - користувач успішно пройшов авторизацію!`);
   } else {
@@ -142,7 +145,7 @@ const ulColection = document.querySelector('.products-list-js');
 ulColection.addEventListener('click', event => {
   console.log(event);
   let marK = event.target.dataset.fb;
-  if (marK == '1') {
+  if (marK === '1') {
     delDoc(event, col);
     console.log(event);
   }
@@ -154,10 +157,8 @@ ulColection.addEventListener('click', event => {
 
 //Функція видалення фільму з колекції
 
-async function delDoc (e, collect) {
-
-  let deleteFilmID = e.target.dataset.id
+async function delDoc(e, collect) {
+  let deleteFilmID = e.target.dataset.id;
   await db.collection(`${curUser}_${collect}`).doc(`${deleteFilmID}`).delete();
   fbfn.getUserCollection(collect);
-
 }
