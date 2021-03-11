@@ -102,17 +102,9 @@ let col;
 //   !!!- arrayWatched  -  Масив фільмів з колекції Watched
 let arrayWatched;
 const Handlebars = require("handlebars");
-BtnWatchRef.addEventListener('click', (event) => {
-    
+BtnWatchRef.addEventListener('click', (event) => {  
     col = 'watched';
     fbfn.getUserCollection(col);
-    //console.log(arrayWatched);
-   
- 
-    //renderListRef.innerHTML = '';
-   // Handlebars.registerHelper(filmsTpl,arrayWatched)
-    //const markupWatched = filmsTpl(arrayWatched);
-    //renderListRef.insertAdjacentHTML('beforeend', markupWatched);
 })
 //===============================================================================
 
@@ -122,13 +114,6 @@ BtnWatchRef.addEventListener('click', (event) => {
 BtnQueueRef.addEventListener('click', (event) => {
     col = 'queue';
     fbfn.getUserCollection(col);
-    
-    //console.log(arrayQueue);
-    
-    //renderListRef.innerHTML = '';
-    //const markupQueue = filmsTpl(arrayQueue);
-    //console.log(markupQueue);
-    //renderListRef.insertAdjacentHTML('beforeend', markupQueue);
 })
 //===============================================================================
 
@@ -147,9 +132,7 @@ ulColection.addEventListener('click', event => {
 
 //Функція видалення фільму з колекції
 function delDoc (e, collect) {
-  console.log(deleteFilmID);
   let deleteFilmID = e.target.dataset.id
-  console.log(deleteFilmID);
     const res = db.collection(`${curUser}_${collect}`).doc(`${deleteFilmID}`).delete();
     fbfn.getUserCollection(collect);
     
