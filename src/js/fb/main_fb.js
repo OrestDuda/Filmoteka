@@ -102,7 +102,6 @@ btnSignOutRef.addEventListener('click', event => {
 //Отримати колекцію Watched
 let col;
 //   !!!- arrayWatched  -  Масив фільмів з колекції Watched
-let arrayWatched;
 
 const Handlebars = require("handlebars");
 BtnWatchRef.addEventListener('click', (event) => {  
