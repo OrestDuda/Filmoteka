@@ -9,7 +9,7 @@ const refs = {
   theme: localStorage.getItem('theme'),
 };
 
-refs.themeTogglerLink().addEventListener('click', function togglerClasses() {
+refs.themeTogglerLink().addEventListener('click', () => {
   refs.body().classList.toggle('dark-background');
   refs.movieHeader().forEach(el => el.classList.toggle('white-text'));
   refs.allTheButtons().classList.toggle('white-text');
