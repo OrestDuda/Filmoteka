@@ -17,6 +17,10 @@ const refs = {
   allMovieList: document.querySelector('.products-list'),
   movieWrap: document.querySelector('.movieModalWrap'),
   spinner: document.querySelector('#spinner'),
+  teamModal: document.querySelector('.team_list'),
+  teamModalBtnOpen: document.querySelector('.team__modal'),
+  teamModalBtnClose:document.querySelector('.teamModalBtnClose'),
+  teamModalBackdrop: document.querySelector('.teamModalBack'),
 };
 
 export default refs;

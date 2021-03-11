@@ -65,7 +65,7 @@ footer {
     line-height: 19px;
   }
 }
-
+/*
 .team-faces {
   position: absolute;
   width: 146px;
@@ -115,3 +115,100 @@ footer {
   margin-bottom: 15px;
   text-align: center;
 }
+*/
+//////////
+
+.teamModalBack{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  overflow-y: scroll;
+  &.teamModalIsHidden{
+    opacity: 0;
+    pointer-events: none;
+  }
+
+}
+.teamModalBtnClose{
+  font-size: 30px;
+  margin-top: 10px;
+  margin-right: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  &:hover{
+    color: $color_orange;
+  }
+}
+.team_list{
+
+  @media screen and (max-width: $tablet - 1px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.teamModalContainer{
+  background: $color_light_grey;
+  position: absolute;
+  bottom: 84px;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 10px;
+  @media screen and (max-width: $tablet - 1px) {
+    bottom: 100px;
+  }
+
+}
+.teammate_name{
+  color: $color_black;
+  font-weight: 500;
+}
+.teammate_job{
+  color: $color_orange;
+  font-style: italic;
+  font-weight: 400;
+}
+.teammate_info{
+  text-align: center;
+  @media screen and (max-width: $tablet - 1px) {
+    width: 213px;
+    margin-bottom: 15px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 150px;
+    margin-bottom: 15px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 213px;
+    margin-bottom: 15px;
+  }
+}
+.teammate_img{
+  font-size: 70px;
+  color: $color_dark_theme_gray;
+
+}
+
+
+
+
+
+
+
+

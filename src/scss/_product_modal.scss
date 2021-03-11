@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
   opacity: 1;
   overflow-y: scroll;
 
@@ -43,7 +43,7 @@ body.movieModalOpened {
   }
 }
 
-.movieModalVideoContainer{
+.movieModalVideoContainer {
   background: $color_white;
   margin-right: -20px;
   margin-left: -20px;
@@ -73,7 +73,7 @@ body.movieModalOpened {
 .accordion-button::after {
   content: none;
 }
-.accordion-button{
+.accordion-button {
   display: inline-block;
   text-align: center;
 }
@@ -81,7 +81,7 @@ body.movieModalOpened {
   padding-left: 30px;
   padding-right: 30px;
 }
-.trailer{
+.trailer {
   width: 80%;
   margin: auto;
   display: block;
@@ -104,14 +104,14 @@ body.movieModalOpened {
   background: none;
 }
 
-.movieModalX{
+.movieModalX {
   font-size: 23px;
   color: $color_black;
   &:hover {
     color: $color_orange;
   }
 }
-.movieModalContainerDataBtn{
+.movieModalContainerDataBtn {
   width: 112px;
   height: 44px;
   background: none;
@@ -119,7 +119,8 @@ body.movieModalOpened {
   font-size: 12px;
   border-color: $color_black;
   margin-top: 15px;
-  &:hover, focus{
+  &:hover,
+  focus {
     background: $color_orange;
     color: $color_white;
   }
@@ -134,19 +135,19 @@ body.movieModalOpened {
   }
 }
 
-.movieModalContainerData > button:first-of-type{
+.movieModalContainerData > button:first-of-type {
   margin-right: 10px;
 }
-.movieModalContainer{
+.movieModalContainer {
   display: flex;
   flex-direction: column;
   @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
   }
-
 }
-.movieModalContainerPoster, .movieModalContainerData{
+.movieModalContainerPoster,
+.movieModalContainerData {
   width: 100%;
 
   @media screen and (min-width: 768px) {
@@ -156,19 +157,18 @@ body.movieModalOpened {
     width: 396px;
   }
 }
-.movieModalContainerData{
+.movieModalContainerData {
   margin-top: 30px;
   @media screen and (min-width: 768px) {
     margin-top: 0px;
   }
-
 }
 
-.movieModalContainerDataStatItemResult{
+.movieModalContainerDataStatItemResult {
   line-height: 14px;
   padding-bottom: 10px;
 }
-.movieVotes{
+.movieVotes {
   background: $color_light_grey;
   color: $color_black;
   border-radius: 5px;
@@ -176,40 +176,42 @@ body.movieModalOpened {
   padding-right: 10px;
   width: 36px;
   height: 16px;
-  &:hover{
+  &:hover {
     background: $color_orange;
     color: $color_white;
   }
 }
 
-
-.movieModalContainerDataAbout, movieModalContainerDataStatItemName, .movieModalContainerDataAboutHeader, movieModalContainerDataStatItemResult{
+.movieModalContainerDataAbout,
+movieModalContainerDataStatItemName,
+.movieModalContainerDataAboutHeader,
+movieModalContainerDataStatItemResult {
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
   letter-spacing: 0em;
   text-align: left;
 }
-.movieModalContainerDataAbout{
+.movieModalContainerDataAbout {
   line-height: 20px;
 }
 
-.movieModalContainerDataStatItemName{
+.movieModalContainerDataStatItemName {
   width: 108px;
   line-height: 16px;
-  color: #8C8C8C;
+  color: #8c8c8c;
   padding-bottom: 10px;
   @media screen and (min-width: 1024px) {
     width: 152px;
   }
 }
 
-.movieModalContainerDataAboutHeader{
+.movieModalContainerDataAboutHeader {
   margin-top: 15px;
   line-height: 16px;
 }
 
-.movieModalContainerDataH1{
+.movieModalContainerDataH1 {
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -226,8 +228,9 @@ body.movieModalOpened {
   }
 }
 
-.movieModalContainerPoster{
+.movieModalContainerPoster {
   img {
+    border-radius: 5px;
     display: block;
     max-width: 100%;
     height: 356px;
@@ -241,7 +244,8 @@ body.movieModalOpened {
   }
 }
 
-.movieModalVideoContainer, .movieModalReviewsContainer{
+.movieModalVideoContainer,
+.movieModalReviewsContainer {
   background: $color_white;
   margin-right: -20px;
   margin-left: -20px;
@@ -271,7 +275,7 @@ body.movieModalOpened {
 .accordion-button::after {
   content: none;
 }
-.accordion-button{
+.accordion-button {
   display: inline-block;
   text-align: center;
 }
@@ -279,7 +283,7 @@ body.movieModalOpened {
   padding-left: 30px;
   padding-right: 30px;
 }
-.trailer{
+.trailer {
   width: 80%;
   margin: auto;
   display: block;
@@ -288,13 +292,13 @@ body.movieModalOpened {
     height: 300px;
   }
 }
-.accordion{
-    border-bottom: 1px solid $color_light_grey;
+.accordion {
+  border-bottom: 1px solid $color_light_grey;
 }
 
-.movieModalReviewsContainer{
+.movieModalReviewsContainer {
   margin-top: 0px;
-  .reviewContent{
+  .reviewContent {
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -307,41 +311,38 @@ body.movieModalOpened {
     height: 130px;
   }
   //style to see all text of comment
-  .reviewContentAll{
+  .reviewContentAll {
     height: auto;
   }
   //style to hide link if comment is short
-  .moretoLoad{
+  .moretoLoad {
     visibility: hidden;
   }
   //link to be visible is content of comment is big
-  .moreNeeded{
+  .moreNeeded {
     visibility: visible;
   }
-  .currentlyMoreIsOpen{
-
+  .currentlyMoreIsOpen {
   }
-
 
   .author {
     display: inline-block;
     font-size: 16px;
     margin-left: 10px;
   }
-  .bi-person{
+  .bi-person {
     font-size: 25px;
     color: $color_orange;
   }
-  .dated{
+  .dated {
     font-style: italic;
     margin-bottom: 5px;
     font-size: 14px;
     color: $color_grey;
   }
-  .reviewAvatar{
+  .reviewAvatar {
     width: 35px;
     height: 40px;
     display: inline-block;
   }
 }
-
