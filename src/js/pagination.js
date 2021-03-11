@@ -26,3 +26,5 @@ function initializePagination() {
 }
 
 export { initializePagination as default };
+
+
