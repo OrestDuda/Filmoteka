@@ -102,34 +102,24 @@ btnSignOutRef.addEventListener('click', event => {
 //Отримати колекцію Watched
 let col;
 //   !!!- arrayWatched  -  Масив фільмів з колекції Watched
-let arrayWatched;
-const Handlebars = require('handlebars');
-BtnWatchRef.addEventListener('click', event => {
-  col = 'watched';
-  fbfn.getUserCollection(col);
-  //console.log(arrayWatched);
 
-  //renderListRef.innerHTML = '';
-  // Handlebars.registerHelper(filmsTpl,arrayWatched)
-  //const markupWatched = filmsTpl(arrayWatched);
-  //renderListRef.insertAdjacentHTML('beforeend', markupWatched);
-});
+const Handlebars = require("handlebars");
+BtnWatchRef.addEventListener('click', (event) => {  
+    col = 'watched';
+    fbfn.getUserCollection(col);
+})
+
 //===============================================================================
 
 //Отримати колекцію Queue
 //   !!!- arrayQueue  -  Масив фільмів з колекції Queue
 //let arrayQueue;
-BtnQueueRef.addEventListener('click', event => {
-  col = 'queue';
-  fbfn.getUserCollection(col);
 
-  //console.log(arrayQueue);
+BtnQueueRef.addEventListener('click', (event) => {
+    col = 'queue';
+    fbfn.getUserCollection(col);
+})
 
-  //renderListRef.innerHTML = '';
-  //const markupQueue = filmsTpl(arrayQueue);
-  //console.log(markupQueue);
-  //renderListRef.insertAdjacentHTML('beforeend', markupQueue);
-});
 //===============================================================================
 
 const ulColection = document.querySelector('.products-list-js');
@@ -146,13 +136,11 @@ ulColection.addEventListener('click', event => {
 //===============================================================================
 
 //Функція видалення фільму з колекції
-function delDoc(e, collect) {
-  console.log(deleteFilmID);
-  let deleteFilmID = e.target.dataset.id;
-  console.log(deleteFilmID);
-  const res = db
-    .collection(`${curUser}_${collect}`)
-    .doc(`${deleteFilmID}`)
-    .delete();
-  fbfn.getUserCollection(collect);
+function delDoc (e, collect) {
+
+  let deleteFilmID = e.target.dataset.id
+
+    const res = db.collection(`${curUser}_${collect}`).doc(`${deleteFilmID}`).delete();
+    fbfn.getUserCollection(collect);
 }
+
