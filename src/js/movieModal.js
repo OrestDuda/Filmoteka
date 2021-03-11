@@ -68,9 +68,9 @@ function addToWatch(event) {
     const id = event.target.dataset.id;
     console.log(id);
     //Код що додає фільм до колекції watched Firebase
-    currentFilmId = event.target.dataset.id;
+    
     collection = 'watched';
-    fbfn.fetchMovieDataFirebase(currentFilmId)
+    fbfn.fetchMovieDataFirebase(id)
       .then((res) => {fbfn.addToUserCollection(res, collection)});
     }
 }
@@ -82,9 +82,9 @@ function addToQueue(event) {
     const id = event.target.dataset.id;
     console.log(id);
     //Код що додає фільм до колекції watched Firebase
-    currentFilmId = event.target.dataset.id;
+    
     collection = 'queue';
-    fbfn.fetchMovieDataFirebase(currentFilmId)
+    fbfn.fetchMovieDataFirebase(id)
       .then((res) => {fbfn.addToUserCollection(res, collection)});
   }
 }
