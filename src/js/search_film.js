@@ -46,14 +46,19 @@ function createFilm(response) {
 }
 
 function handlSearch(event) {
-  event.preventDefault();
   if (event.type === 'keydown') {
     if (event.keyCode !== 13) {
       return;
     }
   }
 
-  if (!refs.searchForm[0].value || refs.searchForm[0].value === '') {
+  event.preventDefault();
+
+  if (
+    !refs.searchForm[0].value ||
+    refs.searchForm[0].value === '' ||
+    !/\S/.test(refs.searchForm[0].value)
+  ) {
     return;
   }
 
