@@ -103,7 +103,7 @@ export function signOutUserFn(mail) {
 export function addToUserCollection(params, collection) {
    db.collection(`${curUser}_${collection}`).doc(`${params.id}`).set({
     ...params
-  }, { merge: false })
+  })
     .then((result) => {
       console.log("Document written with ID: ", params.id);
     })
@@ -113,18 +113,22 @@ export function addToUserCollection(params, collection) {
 }
 //===============================================================================
 
-//Отримати колекцію фільмів колекції(collection) користувача Firebase
-export function getUserCollection(collection) {
-  db.collection(`${curUser}_${collection}`).get().then((querySnapshot) => {
+//Отримати колекцію фільмів колекції(collection) користувача Firebase та рендер сторінки
+export async function getUserCollection(collection) {
+  let newArray;
+  await db.collection(`${curUser}_${collection}`).get().then((querySnapshot) => {
     renderListRef.innerHTML = '';
-    let newArray;
+    
     newArray = [];
     querySnapshot.docs.forEach((doc) => {
       newArray.push(doc.data());
+      
     });
   const markupWatched = filmsTpl(newArray);
   renderListRef.insertAdjacentHTML('beforeend', markupWatched);
   })
+  
+  console.log(newArray);
 }
 //===============================================================================
 
