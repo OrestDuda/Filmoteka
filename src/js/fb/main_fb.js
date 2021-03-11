@@ -125,7 +125,8 @@ BtnQueueRef.addEventListener('click', (event) => {
 const ulColection = document.querySelector('.products-list-js');
 ulColection.addEventListener('click', event => {
   console.log(event);
-  if (event.target.dataset.fb == 1) {
+  let marK = event.target.dataset.fb;
+  if (marK == '1') {
     delDoc(event, col);
     console.log(event);
   }
@@ -136,10 +137,9 @@ ulColection.addEventListener('click', event => {
 //===============================================================================
 
 //Функція видалення фільму з колекції
-function delDoc (e, collect) {
-
-  let deleteFilmID = e.target.dataset.id
-
-    const res = db.collection(`${curUser}_${collect}`).doc(`${deleteFilmID}`).delete();
-    fbfn.getUserCollection(collect);
+async function  delDoc (e, collect) {
+  let deleteFilmID = e.target.dataset.id;
+   await db.collection(`${curUser}_${collect}`).doc(`${deleteFilmID}`).delete(); 
+  fbfn.getUserCollection(collect);
+  console.log("delete", e);
 }
