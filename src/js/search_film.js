@@ -25,7 +25,7 @@ function startQueryOptions() {
 
 function prepareResults(results) {
   results = results.map(result => {
-    result.release_date = result.release_date.slice(0, 4);
+    result.release_date = result.release_date?.slice(0, 4);
     result.genre_ids = result.genre_ids.map(
       idg => ' ' + queryOptions.genresList.find(genre => genre.id === idg).name,
     );
@@ -34,6 +34,11 @@ function prepareResults(results) {
 }
 
 function createFilm(response) {
+  if (response.total_results === 0) {
+    document.querySelector('.error-text').classList.remove('is-hidden');
+  } else {
+    document.querySelector('.error-text').classList.add('is-hidden');
+  }
   prepareResults(response.results);
   const filmList = filmCard(response.results);
   refs.productsList.insertAdjacentHTML('beforeend', filmList);
@@ -41,19 +46,29 @@ function createFilm(response) {
 }
 
 function handlSearch(event) {
+  event.preventDefault();
   if (event.type === 'keydown') {
     if (event.keyCode !== 13) {
       return;
     }
   }
 
-  event.preventDefault();
+  if (!refs.searchForm[0].value || refs.searchForm[0].value === '') {
+    return;
+  }
 
-  const pagination = initializePagination(pageNumber =>
-    fetchAndRenderFilmList(refs.searchForm[0].value, pageNumber).then(
-      response => response.total_results,
-    ),
-  );
+  const pagination = initializePagination();
+
+  pagination.on('afterMove', function (eventData) {
+    const params = new URLSearchParams(window.location.search);
+    const currentPage = params.get('page') || 1;
+
+    fetchAndRenderFilmList(refs.searchForm[0].value, currentPage).then(
+      response => {
+        pagination.setTotalItems(response.total_results);
+      },
+    );
+  });
 
   const params = new URLSearchParams(window.location.search);
   const currentPage = 1;
@@ -61,7 +76,12 @@ function handlSearch(event) {
   params.set('search', refs.searchForm[0].value);
 
   history.pushState(null, null, '?' + params.toString());
-  pagination.movePageTo(currentPage);
+  fetchAndRenderFilmList(refs.searchForm[0].value, currentPage).then(
+    response => {
+      pagination.setTotalItems(response.total_results);
+      pagination.movePageTo(currentPage);
+    },
+  );
 }
 
 function fetchFilmList(searchQuery, page = 1, qOnPage) {
