@@ -140,7 +140,7 @@ function delDoc (e, collect) {
 
   let deleteFilmID = e.target.dataset.id
 
-    const res = db.collection(`${curUser}_${collect}`).doc(`${deleteFilmID}`).delete();
+    db.collection(`${curUser}_${collect}`).doc(`${deleteFilmID}`).delete();
     fbfn.getUserCollection(collect);
 }
 
