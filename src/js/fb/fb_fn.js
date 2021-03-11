@@ -120,6 +120,16 @@ export function addToUserCollection(params, collection) {
 }
 //===============================================================================
 
+
+//Отримати колекцію фільмів колекції(collection) користувача Firebase
+export function getUserCollection(collection) {
+  db.collection(`${curUser}_${collection}`).get().then((querySnapshot) => {
+    renderListRef.innerHTML = '';
+    let newArray;
+    newArray = [];
+    querySnapshot.docs.forEach((doc) => {
+      newArray.push(doc.data());
+
 //Отримати колекцію фільмів колекції(collection) користувача Firebase та рендер сторінки
 export async function getUserCollection(collection) {
   let newArray;
@@ -132,7 +142,9 @@ export async function getUserCollection(collection) {
       newArray = [];
       querySnapshot.docs.forEach(doc => {
         let item = doc.data();
-        item.genres = item.genres.map(g => g.name);
+        item.genres = item.genres.map(g => ' ' + g.name);
+        item.release_date = item.release_date.slice(0, 4);
+
         newArray.push(item);
       });
       const markupWatched = filmsTpl(newArray);
