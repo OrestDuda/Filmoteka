@@ -1,20 +1,67 @@
 .pagination {
   display: flex;
   justify-content: space-between;
+  margin-top: 40px;
   .tui-page-btn {
-    background-color: $color_grey;
+    background-color: $color_white;
     border: none;
-    color: white;
+    color: $color_black;
     padding: 10px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
+    border-radius: 10px;
+    @media screen and (min-width: 480px) {
+      padding: 5px 15px;
+    }
+    @media screen and (min-width: 768px) {
+      padding: 7px 18px;
+    }
+    @media screen and (min-width: 1024px) {
+      padding: 10px 25px;
+    }
   }
   .tui-is-selected {
     font-size: 18px;
-    color: $color_orange;
+    color: white;
+    background: $color_orange;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+    @media screen and (min-width: 480px) {
+      font-size: 16px;
+    }
+    @media screen and (min-width: 768px) {
+      font-size: 18px;
+    }
+
   }
   .tui-is-disabled {
+    color: $color_grey;
+    cursor: not-allowed;
+  }
+}
+
+
+div.pagination > span.tui-page-btn.tui-first,
+div.pagination > a.tui-page-btn.tui-first,
+div.pagination > a.tui-page-btn.tui-prev-is-ellip,
+div.pagination > a.tui-page-btn.tui-next-is-ellip,
+body > section > div > div.pagination > a.tui-page-btn.tui-last,
+body > section > div > div.pagination > span.tui-page-btn.tui-last {
+  @media screen and (min-width: 480px) {
+  display: none;
+  }
+  @media screen and (min-width: 768px) {
+    display: initial;
+  }
+}
+
+div.pagination > span.tui-page-btn.tui-first,
+div.pagination > a.tui-page-btn.tui-first,
+body > section > div > div.pagination > a.tui-page-btn.tui-last,
+body > section > div > div.pagination > span.tui-page-btn.tui-last {
+  @media screen and (min-width: 768px) {
+    background: $color_light_grey;
   }
 }

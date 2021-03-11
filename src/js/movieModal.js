@@ -68,7 +68,7 @@ function addToWatch(event) {
     const id = event.target.dataset.id;
     console.log(id);
     //Код що додає фільм до колекції watched Firebase
-    
+
     collection = 'watched';
     fbfn.fetchMovieDataFirebase(id)
       .then((res) => {fbfn.addToUserCollection(res, collection)});
@@ -82,7 +82,7 @@ function addToQueue(event) {
     const id = event.target.dataset.id;
     console.log(id);
     //Код що додає фільм до колекції watched Firebase
-    
+
     collection = 'queue';
     fbfn.fetchMovieDataFirebase(id)
       .then((res) => {fbfn.addToUserCollection(res, collection)});
@@ -109,28 +109,14 @@ async function getAllModalDetails() {
         return;
       }
       const { results } = response;
-      return results;
+     return results.slice(0, 5);
+
     });
 
-  const adjusted = adjComment(getComments);
-  generateMovieModalReviews(adjusted);
+  getComments.map(comment=>{comment.created_at=comment.created_at.slice(0, 10)})
+  generateMovieModalReviews(getComments);
 }
 
-function adjComment(objects) {
-  const newObjects = [];
-  for (let obj of objects) {
-    const newObj = {};
-    for (let key of Object.keys(obj)) {
-      if (key === 'created_at') {
-        newObj[key] = obj[key].slice(0, 10);
-      } else {
-        newObj[key] = obj[key];
-      }
-    }
-    newObjects.push(newObj);
-  }
-  return newObjects;
-}
 
 function onMovieClick(event) {
   if (event.target.dataset.jsmodal !== 'js-modal-onclick') {
@@ -171,3 +157,9 @@ function moreCommentsToRead(event) {
     }
   }
 }
+
+
+
+
+
+
