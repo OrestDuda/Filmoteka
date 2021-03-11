@@ -42,6 +42,8 @@ firebase.auth().onAuthStateChanged(function (user) {
       'beforebegin',
       `<span class="sign-in js-userSpan">User : ${curUser}<span>`,
     );
+
+    sign;
     if (userAuthRef) {
       userAuthRef.textContent = '';
     }
@@ -103,11 +105,12 @@ btnSignOutRef.addEventListener('click', event => {
 let col;
 //   !!!- arrayWatched  -  Масив фільмів з колекції Watched
 
-const Handlebars = require("handlebars");
-BtnWatchRef.addEventListener('click', (event) => {  
-    col = 'watched';
-    fbfn.getUserCollection(col);
-})
+const Handlebars = require('handlebars');
+BtnWatchRef.addEventListener('click', event => {
+  col = 'watched';
+  fbfn.getUserCollection(col);
+  document.querySelector('.pagination').innerHTML = '';
+});
 
 //===============================================================================
 
@@ -115,10 +118,11 @@ BtnWatchRef.addEventListener('click', (event) => {
 //   !!!- arrayQueue  -  Масив фільмів з колекції Queue
 //let arrayQueue;
 
-BtnQueueRef.addEventListener('click', (event) => {
-    col = 'queue';
-    fbfn.getUserCollection(col);
-})
+BtnQueueRef.addEventListener('click', event => {
+  col = 'queue';
+  fbfn.getUserCollection(col);
+  document.querySelector('.pagination').innerHTML = '';
+});
 
 //===============================================================================
 
@@ -143,5 +147,5 @@ async function  delDoc (e, collect) {
    await db.collection(`${curUser}_${collect}`).doc(`${deleteFilmID}`).delete(); 
   fbfn.getUserCollection(collect);
   console.log("delete", e);
-}
 
+}

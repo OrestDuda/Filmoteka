@@ -1,4 +1,5 @@
 import './scss/base.scss';
+import './js/fetchDecorator';
 import './js/refs';
 import './js/pagination';
 import './js/movieModal';
