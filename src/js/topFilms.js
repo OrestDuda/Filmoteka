@@ -4,12 +4,11 @@ import { apiKey, baseUrl } from './api';
 import initializePagination from './pagination';
 
 const fetchFilms = async (pageNumber = 1) => {
-  const films = await fetch(
+  const response = await fetch(
     `${baseUrl}/3/trending/movie/day?api_key=${apiKey}&page=${pageNumber}`,
-  )
-    .then(response => response.json())
-    .then(({ results }) => results);
+  ).then(response => response.json());
 
+  const films = response.results;
   const fetchAllGenres = await fetch(
     `${baseUrl}/3/genre/movie/list?api_key=${apiKey}`,
   )
@@ -28,6 +27,8 @@ const fetchFilms = async (pageNumber = 1) => {
 
   refs.productsList.innerHTML = '';
   refs.productsList.insertAdjacentHTML('beforeend', filmCard(films));
+
+  return response;
 };
 
 const pagination = initializePagination(pageNumber =>
@@ -41,5 +42,9 @@ pagination.movePageTo(currentPage);
 
 refs.logoLink.addEventListener('click', event => {
   event.preventDefault();
-  fetchFilms(1);
+
+  const pagination = initializePagination(pageNumber =>
+    fetchFilms(pageNumber).then(response => response.total_results),
+  );
+  pagination.movePageTo(1);
 });

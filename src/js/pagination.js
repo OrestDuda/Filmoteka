@@ -20,9 +20,12 @@ function initializePagination(paginationCallback) {
     const params = new URLSearchParams(window.location.search);
     const currentPage = params.get('page') || 1;
 
-    paginationCallback(currentPage).then(totalItems =>
-      pagination.setTotalItems(totalItems),
-    );
+    paginationCallback(currentPage).then(totalItems => {
+      pagination.setTotalItems(totalItems);
+      if (totalItems === 0) {
+        container.innerHTML = '';
+      }
+    });
   });
 
   return pagination;
