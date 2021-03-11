@@ -1,8 +1,20 @@
 .pagination {
   display: flex;
   justify-content: space-between;
-  ul {
-    margin-left: auto;
-    margin-right: auto;
+  .tui-page-btn {
+    background-color: $color_grey;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+  }
+  .tui-is-selected {
+    font-size: 18px;
+    color: $color_orange;
+  }
+  .tui-is-disabled {
   }
 }
