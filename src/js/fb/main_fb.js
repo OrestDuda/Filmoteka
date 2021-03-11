@@ -21,6 +21,7 @@ var db = firebase.firestore();
 
 //Посолання на HTML-elements
 const btnSignInRef = document.querySelector('.js-SignIn');
+const btnSignUpRef = document.querySelector('.js-SignUp');
 const signinFormRef = document.querySelector('.registerForm');
 const userSpanRef = document.querySelector('.js-userSpan');
 const userAuthRef = document.querySelector('.js-userAuth');
@@ -32,27 +33,38 @@ const BtnQueueRef = document.querySelector('.js-queue-col');
 //Код для контролю чи авторизований користувач та виконання відповідних дій
 // Можна передати функції для авторизованого та не авторизованого користувача!!!
 
+function userLink (){
+    btnSignInRef.insertAdjacentHTML('beforebegin',`<span class="sign-in js-userSpan">User : ${curUser}<span>`);
+    btnSignInRef.classList.add("is-hidden");
+    btnSignUpRef.classList.add("is-hidden");
+    btnSignOutRef.classList.remove("is-hidden");
+    BtnWatchRef.classList.remove("is-hidden");
+    BtnQueueRef.classList.remove("is-hidden");
+}
+function noUserLink() {
+  btnSignOutRef.classList.add("is-hidden");
+    BtnWatchRef.classList.add("is-hidden");
+    BtnQueueRef.classList.add("is-hidden");
+
+    btnSignInRef.classList.remove("is-hidden");
+    btnSignUpRef.classList.remove("is-hidden");
+}
 export let curUser;
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
     curUser = user.email;
     let letUser = curUser;
-    btnSignInRef.insertAdjacentHTML(
-      'beforebegin',
-      `<span class="sign-in js-userSpan">User : ${curUser}<span>`,
-    );
 
-    sign;
-    if (userAuthRef) {
-      userAuthRef.textContent = '';
-    }
+    userLink();
+      if (userAuthRef) {
+        userAuthRef.textContent = '';
+      }
+
     console.log(curUser, ` - користувач успішно пройшов авторизацію!`);
   } else {
     // No user is signed in.
-    btnSignInRef.innerHTML(
-      `<span class="sign-in js-userAuth">Авторизируйтесь или создайте аккаунт<span>`,
-    );
+    noUserLink();
     if (userSpanRef) {
       userSpanRef.textContent = '';
     }
@@ -142,10 +154,10 @@ ulColection.addEventListener('click', event => {
 
 //Функція видалення фільму з колекції
 
-async function  delDoc (e, collect) {
-  let deleteFilmID = e.target.dataset.id;
-   await db.collection(`${curUser}_${collect}`).doc(`${deleteFilmID}`).delete(); 
+async function delDoc (e, collect) {
+
+  let deleteFilmID = e.target.dataset.id
+  await db.collection(`${curUser}_${collect}`).doc(`${deleteFilmID}`).delete();
   fbfn.getUserCollection(collect);
-  console.log("delete", e);
 
 }
