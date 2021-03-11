@@ -38,3 +38,8 @@ const params = new URLSearchParams(window.location.search);
 const currentPage = params.get('page') || 1;
 
 pagination.movePageTo(currentPage);
+
+refs.logoLink.addEventListener('click', event => {
+  event.preventDefault();
+  fetchFilms(1);
+});
