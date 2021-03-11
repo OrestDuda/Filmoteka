@@ -143,8 +143,7 @@ function delDoc (e, collect) {
     const res = db.collection(`${curUser}_${collect}`).doc(`${deleteFilmID}`).delete();
     fbfn.getUserCollection(collect);
     
-  const res = db
-    .collection(`${curUser}_${collect}`)
+  const res = db.collection(`${curUser}_${collect}`)
     .doc(`${deleteFilmID}`)
     .delete();
 }
