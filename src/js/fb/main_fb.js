@@ -136,11 +136,10 @@ ulColection.addEventListener('click', event => {
 //===============================================================================
 
 //Функція видалення фільму з колекції
-function delDoc (e, collect) {
+async function delDoc (e, collect) {
 
   let deleteFilmID = e.target.dataset.id
-
-    db.collection(`${curUser}_${collect}`).doc(`${deleteFilmID}`).delete();
-    fbfn.getUserCollection(collect);
+  await db.collection(`${curUser}_${collect}`).doc(`${deleteFilmID}`).delete();
+  fbfn.getUserCollection(collect);
 }
 
