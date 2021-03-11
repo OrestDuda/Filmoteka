@@ -15,11 +15,6 @@
   }
 }
 
-#spinner {
-  margin-left: 0;
-  margin-right: 0;
-}
-
 img,
 svg {
   display: block;
@@ -27,6 +22,7 @@ svg {
 }
 
 .imgFilm {
+  border-radius: 5px;
   @media screen and (max-width: $tablet - 1px) {
     width: 280px;
     height: 398px;
