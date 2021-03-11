@@ -1,10 +1,10 @@
 import Pagination from 'tui-pagination';
 
-function initializePagination(paginationCallback) {
+function initializePagination() {
   const container = document.querySelector('.pagination');
 
   const pagination = new Pagination(container, {
-    totalItems: 500,
+    totalItems: 60,
     itemsPerPage: 20,
     visiblePages: 5,
     centerAlign: true,
@@ -17,12 +17,9 @@ function initializePagination(paginationCallback) {
   });
 
   pagination.on('afterMove', function (eventData) {
-    const params = new URLSearchParams(window.location.search);
-    const currentPage = params.get('page') || 1;
-
-    paginationCallback(currentPage).then(totalItems =>
-      pagination.setTotalItems(totalItems),
-    );
+    if (pagination._options.totalItems <= 20) {
+      container.innerHTML = '';
+    }
   });
 
   return pagination;

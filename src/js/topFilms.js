@@ -3,13 +3,16 @@ import refs from './refs';
 import { apiKey, baseUrl } from './api';
 import initializePagination from './pagination';
 
-const fetchFilms = async (pageNumber = 1) => {
-  const films = await fetch(
-    `${baseUrl}/3/trending/movie/day?api_key=${apiKey}&page=${pageNumber}`,
-  )
-    .then(response => response.json())
-    .then(({ results }) => results);
+const pagination = initializePagination();
 
+const fetchFilms = async (pageNumber = 1) => {
+  const response = await fetch(
+    `${baseUrl}/3/trending/movie/day?api_key=${apiKey}&page=${pageNumber}`,
+  ).then(response => response.json());
+
+  pagination.setTotalItems(response.total_results);
+
+  const films = response.results;
   const fetchAllGenres = await fetch(
     `${baseUrl}/3/genre/movie/list?api_key=${apiKey}`,
   )
@@ -28,13 +31,31 @@ const fetchFilms = async (pageNumber = 1) => {
 
   refs.productsList.innerHTML = '';
   refs.productsList.insertAdjacentHTML('beforeend', filmCard(films));
+
+  return response;
 };
 
-const pagination = initializePagination(pageNumber =>
-  fetchFilms(pageNumber).then(response => response.total_results),
-);
+const fetchFilmsAndUpdatePage = async (pageNumber = 1) => {
+  await fetchFilms();
+  pagination.movePageTo(pageNumber);
+};
 
 const params = new URLSearchParams(window.location.search);
 const currentPage = params.get('page') || 1;
 
-pagination.movePageTo(currentPage);
+fetchFilmsAndUpdatePage(currentPage);
+//pagination.movePageTo(currentPage);
+
+refs.logoLink.addEventListener('click', event => {
+  event.preventDefault();
+  fetchFilmsAndUpdatePage(1);
+  // const pagination = initializePagination();
+  // pagination.movePageTo(1);
+});
+
+pagination.on('afterMove', function (eventData) {
+  const params = new URLSearchParams(window.location.search);
+  const currentPage = params.get('page') || 1;
+
+  fetchFilms(currentPage);
+});

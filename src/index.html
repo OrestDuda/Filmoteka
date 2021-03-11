@@ -89,7 +89,7 @@
 
     <section class="products">
       <div class="containerX">
-        <div class="spinner-border is-hidden" role="status" id="spinner"></div>
+        <div class="loading" role="status"></div>
         <ul class="products-list products-list-js"></ul>
         <div class="pagination"></div>
       </div>
@@ -104,128 +104,56 @@
           <i class="bi bi-suit-heart-fill footer__image"></i>
           <p>by&nbsp;</p>
           <a href="#~" class="team__modal">GoIT Students</a>
-          <!-- Team Names -->
-      <!--    <div class="team-faces is-hidden">
-            <h2 class="team-header">группа №5</h2>
-            <ul class="team-list">
-              <li class="team-name">
-                <a
-                  href="https://github.com/OrestDuda"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  >Orest Duda</a
-                >
-              </li>
-              <li class="team-name">
-                <a
-                  href="https://github.com/TMFV"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  >Denys Tymofieiev</a
-                >
-              </li>
-              <li class="team-name">
-                <a
-                  href="https://github.com/Zinaida-Razinkova"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  >Zinaida Razinkova</a
-                >
-              </li>
-              <li class="team-name">
-                <a
-                  href="https://github.com/OlhaNester"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  >Olha Nester</a
-                >
-              </li>
-              <li class="team-name">
-                <a
-                  href="https://github.com/Nikolay-Sk"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  >Nikolay Sk</a
-                >
-              </li>
-              <li class="team-name">
-                <a
-                  href="https://github.com/anastasyah86"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  >Nastya Boiko</a
-                >
-              </li>
-              <li class="team-name">
-                <a
-                  href="https://github.com/KaterynaBoikova"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  >Kateryna Boikova</a
-                >
-              </li>
-              <li class="team-name">
-                <a
-                  href="https://github.com/annabadritdinova"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  >Georges Ka</a
-                >
-              </li>
-            </ul>
+        </div>
+      </div>
+    </footer>
+    <div class="teamModalBack teamModalIsHidden">
+      <div class="teamModalContainer containerX">
+        <i class="bi bi-x-diamond teamModalBtnClose"></i>
+        <div class="team_list">
+          <div class="teammate_info">
+            <i class="bi bi bi-person teammate_img" id="tm1"></i>
+            <p class="teammate_name">Orest Duda</p>
+            <p class="teammate_job">Team Leader</p>
+          </div>
+          <div class="teammate_info">
+            <i class="bi bi bi-person teammate_img" id="tm2"></i>
+            <p class="teammate_name">Zinaida Razinkova</p>
+            <p class="teammate_job">Scrum Master</p>
+          </div>
+          <div class="teammate_info">
+            <i class="bi bi bi-person teammate_img" id="tm3"></i>
+            <p class="teammate_name">Kateryna Boikova</p>
+            <p class="teammate_job">Developer</p>
+          </div>
+          <div class="teammate_info">
+            <i class="bi bi bi-person teammate_img" id="tm4"></i>
+            <p class="teammate_name">Nastya Boiko</p>
+            <p class="teammate_job">Developer</p>
+          </div>
+          <div class="teammate_info">
+            <i class="bi bi bi-person teammate_img" id="tm5"></i>
+            <p class="teammate_name">Olga Nesterenko</p>
+            <p class="teammate_job">Developer</p>
+          </div>
+          <div class="teammate_info">
+            <i class="bi bi bi-person teammate_img" id="tm6"></i>
+            <p class="teammate_name">Nikolay Vladimirovich</p>
+            <p class="teammate_job">Developer</p>
+          </div>
+          <div class="teammate_info">
+            <i class="bi bi bi-person teammate_img" id="tm7"></i>
+            <p class="teammate_name">Denys Tymofieiev</p>
+            <p class="teammate_job">Developer</p>
+          </div>
+          <div class="teammate_info">
+            <i class="bi bi bi-person teammate_img" id="tm8"></i>
+            <p class="teammate_name">Georges Kassissia</p>
+            <p class="teammate_job">Developer</p>
           </div>
         </div>
-      </div>-->
-
-
-    </footer>
-<div class='teamModalBack teamModalIsHidden'>
-  <div class='teamModalContainer containerX'>
-  <i class="bi bi-x-diamond teamModalBtnClose"></i>
-    <div class="team_list">
-      <div class="teammate_info">
-        <i class="bi bi bi-person teammate_img" id='tm1'></i>
-        <p class="teammate_name">Orest Duda</p>
-        <p class="teammate_job">Team Leader</p>
-      </div>
-      <div class="teammate_info">
-        <i class="bi bi bi-person teammate_img" id='tm2'></i>
-        <p class="teammate_name">Zinaida Razinkova</p>
-        <p class="teammate_job">Scrum Master</p>
-      </div>
-      <div class="teammate_info">
-        <i class="bi bi bi-person teammate_img" id='tm3'></i>
-        <p class="teammate_name">Kateryna Boikova</p>
-        <p class="teammate_job">Developer</p>
-      </div>
-      <div class="teammate_info">
-        <i class="bi bi bi-person teammate_img" id='tm4'></i>
-        <p class="teammate_name">Nastya Boiko</p>
-        <p class="teammate_job">Developer</p>
-      </div>
-      <div class="teammate_info">
-        <i class="bi bi bi-person teammate_img" id='tm5'></i>
-        <p class="teammate_name">Olga Nesterenko</p>
-        <p class="teammate_job">Developer</p>
-      </div>
-      <div class="teammate_info">
-        <i class="bi bi bi-person teammate_img" id='tm6'></i>
-        <p class="teammate_name">Nikolay Vladimirovich</p>
-        <p class="teammate_job">Developer</p>
-      </div>
-      <div class="teammate_info">
-        <i class="bi bi bi-person teammate_img" id='tm7'></i>
-        <p class="teammate_name">Denys Tymofieiev</p>
-        <p class="teammate_job">Developer</p>
-      </div>
-      <div class="teammate_info">
-        <i class="bi bi bi-person teammate_img" id='tm8'></i>
-        <p class="teammate_name">Georges Kassissia</p>
-        <p class="teammate_job">Developer</p>
       </div>
     </div>
-    </div>
-</div>
     <div class="loginBackdrop is-hidden js-loginBackdrop">
       <div class="loginModal js-loginModal">
         <button class="loginBtnClose js-loginBtnClose">
