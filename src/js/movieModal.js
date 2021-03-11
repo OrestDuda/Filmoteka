@@ -85,6 +85,7 @@ async function getAllModalDetails() {
   await movieModalAPI
     .fetchMovieModalData()
     .then(data => generateMovieModalData(data));
+
   await movieModalAPI.fetchMovieModalVideo().then(({ results }) => {
     for (let i = 0; i < results.length; i += 1) {
       if (results[i].type === 'Trailer' && results[i].site === 'YouTube') {
@@ -103,25 +104,8 @@ async function getAllModalDetails() {
       const { results } = response;
       return results;
     });
-
-  const adjusted = adjComment(getComments);
-  generateMovieModalReviews(adjusted);
-}
-
-function adjComment(objects) {
-  const newObjects = [];
-  for (let obj of objects) {
-    const newObj = {};
-    for (let key of Object.keys(obj)) {
-      if (key === 'created_at') {
-        newObj[key] = obj[key].slice(0, 10);
-      } else {
-        newObj[key] = obj[key];
-      }
-    }
-    newObjects.push(newObj);
-  }
-  return newObjects;
+  getComments.map(comment => comment.created_at=comment.created_at.slice(0, 10));
+  generateMovieModalReviews(getComments);
 }
 
 function onMovieClick(event) {
