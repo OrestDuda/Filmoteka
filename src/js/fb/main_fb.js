@@ -51,14 +51,14 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (refs.userAuthRef) {
       refs.userAuthRef.textContent = '';
     }
-  
+
   } else {
     // No user is signed in.
     noUserLink();
     if (refs.userSpanRef) {
       refs.userSpanRef.textContent = '';
     }
-    
+
 
   }
 });
