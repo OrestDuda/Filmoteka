@@ -88,7 +88,8 @@ refs.signinFormRef.addEventListener('submit', event => {
 //Прослуховування кнопки-посилання та відправка даних для Виходу через signOutUserFn()
 refs.btnSignOutRef.addEventListener('click', event => {
   fbfn.signOutUserFn(curUser);
-  document.location.reload();
+  document.querySelector('.js-userSpan').innerHTML = '';
+  //document.location.reload();
 });
 
 //===============================================================================
