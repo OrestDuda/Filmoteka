@@ -23,10 +23,10 @@ const db = firebase.firestore();
 function userLink() {
   refs.loginSignIn.insertAdjacentHTML(
     'beforebegin',
-    `<span class="sign-in js-userSpan"><div class="icon-user">
+    `<span class="sign-in js-userSpan"> ${curUser} <div class="icon-user">
                   <i class="bi bi-circle-fill"></i>
                   <i class="bi bi-person-fill"></i>
-                </div> ${curUser}<span>`,
+                </div><span>`,
   );
   refs.loginSignIn.classList.add('is-hidden');
   refs.registerSignUp.classList.add('is-hidden');

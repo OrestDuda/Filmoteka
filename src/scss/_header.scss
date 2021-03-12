@@ -67,7 +67,7 @@ nav {
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 23px;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
@@ -78,6 +78,10 @@ nav {
   &:hover {
     color: $color_orange;
   }
+}
+
+.js-userSpan {
+  margin-right: 26px;
 }
 
 .main-search {
@@ -190,7 +194,7 @@ nav {
   padding-left: 8px;
   margin-right: 8px;
   position: absolute;
-  right: 149px;
+  right: -29px;
   bottom: -1px;
 
   & .bi-circle-fill {
