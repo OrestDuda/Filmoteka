@@ -130,10 +130,12 @@ footer {
   @media screen and (min-width: $tablet) {
     width: 150px;
     margin-bottom: 15px;
+    display: grid;
   }
   @media screen and (min-width: $desktop) {
     width: 213px;
     margin-bottom: 15px;
+    display: grid;
   }
 }
 .teammate_img {
