@@ -65,37 +65,53 @@ footer {
     line-height: 19px;
   }
 }
-.teamModalBack {
-  position: relative;
+
+.teamModalBack{
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
   opacity: 1;
-  &.teamModalIsHidden {
+  overflow-y: scroll;
+  &.teamModalIsHidden{
     opacity: 0;
     pointer-events: none;
   }
+
 }
-.teamModalBtnClose {
-  font-size: 22px;
-  z-index: 30;
+.teamModalBtnClose{
+  font-size: 30px;
+  margin-top: 10px;
+  margin-right: 10px;
   position: absolute;
-  right: 3%;
-  bottom: 94%;
-  &:hover {
+  right: 0;
+  top: 0;
+  &:hover{
     color: $color_orange;
   }
 }
-.team_list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 20px;
+.team_list{
+
+  @media screen and (max-width: $tablet - 1px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }
 
-.teamModalContainer {
+.teamModalContainer{
   background: $color_light_grey;
   position: absolute;
   bottom: 84px;
@@ -105,43 +121,40 @@ footer {
   @media screen and (max-width: $tablet - 1px) {
     bottom: 100px;
   }
+
 }
-.teammate_name {
+.teammate_name{
   color: $color_black;
   font-weight: 500;
-  &:hover {
-    color: $color_orange;
-  }
 }
-.teammate_job {
+.teammate_job{
   color: $color_orange;
   font-style: italic;
   font-weight: 400;
-  & i {
-    display: block;
-  }
 }
-.teammate_info {
+.teammate_info{
   text-align: center;
-  @media screen and (max-width: $tablet - 1px) {
+  @media screen and (max-width: $mobile_l - 1px) {
+    width: 120px;
+  }
+  @media screen and (min-width: $mobile_l) {
     width: 213px;
     margin-bottom: 15px;
   }
   @media screen and (min-width: $tablet) {
     width: 150px;
     margin-bottom: 15px;
-    display: grid;
   }
   @media screen and (min-width: $desktop) {
     width: 213px;
     margin-bottom: 15px;
-    display: grid;
   }
 }
-.teammate_img {
-  font-size: 25px;
+.teammate_img{
+  font-size: 70px;
   color: $color_dark_theme_gray;
+  @media screen and (max-width: $mobile_l - 1px) {
+    font-size: 50px;
+  }
 }
-.relative-for-teammodal {
-  position: relative;
-}
+
