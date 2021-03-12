@@ -92,21 +92,9 @@ footer {
   }
 }
 .team_list {
-  @media screen and (max-width: $tablet - 1px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  @media screen and (min-width: $tablet) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  @media screen and (min-width: $desktop) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .teamModalContainer {
