@@ -72,7 +72,7 @@ function addToWatch(event) {
     fbfn.fetchMovieDataFirebase(id).then(res => {
     fbfn.addToUserCollection(res, collection);
     });
-  }
+ 
       firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
@@ -84,9 +84,10 @@ function addToWatch(event) {
     refs.movieWrap.innerHTML = '';
     bd.click();
     linkRef.click();
-    
+     
   }
-});
+      });
+     }
 }
 
 function addToQueue(event) {
@@ -98,7 +99,7 @@ function addToQueue(event) {
     fbfn.fetchMovieDataFirebase(id).then(res => {
     fbfn.addToUserCollection(res, collection)
     });
-  }
+  
      firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
@@ -113,7 +114,7 @@ function addToQueue(event) {
     
   }
 });
-    
+    }
   
 }
 

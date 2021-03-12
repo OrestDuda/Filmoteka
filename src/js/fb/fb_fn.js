@@ -65,8 +65,10 @@ export async function loginUserFn(mail, password) {
     .catch(function (error) {
       console.log(error);
       document.querySelector('.login-error').textContent = `${error}`
+      return error;
     });
-  document.location.reload()
+  document.location.reload();
+  
 }
 //===============================================================================
 
