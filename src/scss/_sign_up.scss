@@ -6,8 +6,8 @@
   width: 100%;
   height: 100%;
   background-color: #ffffff;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
+    0 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1) 100ms;
 }
@@ -88,7 +88,7 @@
   padding-top: 57px;
   padding-bottom: 6px;
   text-align: center;
-  font-family: Roboto;
+  font-family: $font_roboto;
   font-weight: 700;
   font-size: 20px;
   line-height: 1.5;
@@ -118,7 +118,7 @@
   display: block;
   padding-top: 20px;
   padding-bottom: 4px;
-  font-family: Roboto;
+  font-family: $font_roboto;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.2;
@@ -149,18 +149,16 @@
   justify-content: center;
   padding-top: 40px;
   padding-bottom: 30px;
-  padding-left: auto;
-  padding-right: auto;
 }
 .logFormButtonOne {
   margin-right: 15px;
   width: 110px;
   height: 40px;
 
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   border: 0;
-  font-family: Roboto;
+  font-family: $font_roboto;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.875;
@@ -177,10 +175,10 @@
   width: 110px;
   height: 40px;
   background: #ff6b08;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   border: 0;
-  font-family: Roboto;
+  font-family: $font_roboto;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.875;

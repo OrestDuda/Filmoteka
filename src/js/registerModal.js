@@ -1,16 +1,11 @@
 import refs from './refs';
 
-// function generateHTML(data) {
-//   refs.movieWrap.insertAdjacentHTML("beforeend", movieModalTemplate(data));
-// }
-
 refs.registerSignUp.addEventListener('click', onSignUpClick);
 refs.registerCloseModalBtn.addEventListener('click', onButtonCloseClick);
 refs.registerModalBackdrop.addEventListener('click', onBackdropClick);
 
 function onButtonCloseClick() {
   registerToggleModal();
-  // refs.movieWrap.innerHTML = '';
   window.removeEventListener('keydown', pressEsc);
 }
 function onBackdropClick(event) {

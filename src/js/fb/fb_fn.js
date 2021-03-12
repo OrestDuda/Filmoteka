@@ -1,19 +1,15 @@
 import firebase from 'firebase/app';
-require('firebase/auth');
-require('firebase/firestore');
 import * as firebaseui from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css';
-import merge from 'webpack-merge';
 import filmsTpl from '../../templates/products-fb.hbs';
-const renderListRef = document.querySelector('.products-list-js');
-const loginModalRef = document.querySelector('.js-loginBackdrop');
-const registrationModalRef = document.querySelector('.js-registerBackdrop');
+import refs from '../refs';
+
+require('firebase/auth');
+require('firebase/firestore');
 
 //===============================================================================
 
-let formMessageref = document.querySelector('.js-btn-reg');
-
-export var firebaseConfig = {
+export const firebaseConfig = {
   apiKey: 'AIzaSyBDE8RHhZUtci4pZgH8gOTkUij72_Eyfyo',
   authDomain: 'filmotekateamproject.firebaseapp.com',
   projectId: 'filmotekateamproject',
@@ -24,17 +20,16 @@ export var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 firebaseui.auth.AuthUI.getInstance();
-var db = firebase.firestore();
+const db = firebase.firestore();
 
 let curUser;
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
     curUser = user.email;
-    loginModalRef.classList.add('is-hidden');
+    refs.loginModalBackdrop.classList.add('is-hidden');
   } else {
     // No user is signed in.
-    console.log(user, 'no signed');
   }
 });
 
@@ -44,14 +39,17 @@ export function createNewUserFn(mail, password) {
     .auth()
     .createUserWithEmailAndPassword(mail, password)
     .then(() => {
-      formMessageref.insertAdjacentHTML(
+      refs.formMessageref.insertAdjacentHTML(
         'beforebegin',
         '<span>Ваша регистрация прошла успешно!</span>',
       );
-      registrationModalRef.classList.add('is-hidden');
+      refs.registerModalBackdrop.classList.add('is-hidden');
     })
     .catch(function (error) {
-      formMessageref.insertAdjacentHTML('beforebegin', `<span>${error}</span>`);
+      refs.formMessageref.insertAdjacentHTML(
+        'beforebegin',
+        `<span>${error}</span>`,
+      );
     });
 }
 //===============================================================================
@@ -95,9 +93,7 @@ export async function fetchMovieDataFirebase(movieID) {
     const responseModal = await fetch(
       `https://api.themoviedb.org/3/movie/${movieID}?api_key=cd745b1c38819d91d823e4d3c6c216e8&language=en-US`,
     );
-    const movieDetail = responseModal.json();
-    console.log(movieDetail);
-    return movieDetail;
+    return responseModal.json();
   } catch (error) {
     throw error;
   }
@@ -112,23 +108,14 @@ export function addToUserCollection(params, collection) {
       ...params,
     })
     .then(result => {
-      console.log('Document written with ID: ', params.id);
+      document.querySelector('.movie-modal-span').innerHTML =
+        'added Successful!';
     })
     .catch(error => {
-      console.error('Error adding document: ', error);
+      document.querySelector('.movie-modal-span').innerHTML = `${error}`;
     });
 }
 //===============================================================================
-
-
-//Отримати колекцію фільмів колекції(collection) користувача Firebase
-export function getUserCollection(collection) {
-  db.collection(`${curUser}_${collection}`).get().then((querySnapshot) => {
-    renderListRef.innerHTML = '';
-    let newArray;
-    newArray = [];
-    querySnapshot.docs.forEach((doc) => {
-      newArray.push(doc.data());
 
 //Отримати колекцію фільмів колекції(collection) користувача Firebase та рендер сторінки
 export async function getUserCollection(collection) {
@@ -137,20 +124,16 @@ export async function getUserCollection(collection) {
     .collection(`${curUser}_${collection}`)
     .get()
     .then(querySnapshot => {
-      renderListRef.innerHTML = '';
+      refs.renderListRef.innerHTML = '';
 
       newArray = [];
       querySnapshot.docs.forEach(doc => {
         let item = doc.data();
         item.genres = item.genres.map(g => ' ' + g.name);
-        item.release_date = item.release_date.slice(0, 4);
-
         newArray.push(item);
       });
       const markupWatched = filmsTpl(newArray);
-      renderListRef.insertAdjacentHTML('beforeend', markupWatched);
+      refs.renderListRef.insertAdjacentHTML('beforeend', markupWatched);
     });
-
-  console.log(newArray);
 }
 //===============================================================================

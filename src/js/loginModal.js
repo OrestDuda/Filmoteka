@@ -10,7 +10,6 @@ refs.loginModalBackdrop.addEventListener('click', onBackdropClick);
 
 function onButtonCloseClick() {
   loginToggleModal();
-  // refs.movieWrap.innerHTML = '';
   window.removeEventListener('keydown', pressEsc);
 }
 function onBackdropClick(event) {

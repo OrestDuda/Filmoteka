@@ -7,17 +7,15 @@ import movieModalAPI from './movieModalAPI';
 //For Firebase
 //=================================================================
 import * as fbfn from './fb/fb_fn';
-import firebase from "firebase/app";
+import firebase from 'firebase/app';
 //firebase.initializeApp(fbfn.firebaseConfig);
 firebaseui.auth.AuthUI.getInstance();
-var db = firebase.firestore();
-    require("firebase/auth");
-    require("firebase/firestore");
+const db = firebase.firestore();
+require('firebase/auth');
+require('firebase/firestore');
 import * as firebaseui from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css';
-import * as mainFb from './fb/main_fb'
 let collection;
-let currentFilmId;
 //=================================================================
 
 function generateMovieModalData(data) {
@@ -31,7 +29,7 @@ function generateMovieModalReviews(data) {
   refs.movieWrap.insertAdjacentHTML('beforeend', modalReviewsTemplate(data));
 }
 
-refs.allMovieList.addEventListener('click', onMovieClick);
+refs.productsList.addEventListener('click', onMovieClick);
 refs.closeModalBtn.addEventListener('click', onButtonClick);
 refs.modalBackdrop.addEventListener('click', onOverlayClick);
 
@@ -66,13 +64,13 @@ function addToWatch(event) {
   const elementClicked = event.target;
   if (elementClicked.dataset.action === 'toWatch') {
     const id = event.target.dataset.id;
-    console.log(id);
     //Код що додає фільм до колекції watched Firebase
 
     collection = 'watched';
-    fbfn.fetchMovieDataFirebase(id)
-      .then((res) => {fbfn.addToUserCollection(res, collection)});
-    }
+    fbfn.fetchMovieDataFirebase(id).then(res => {
+      fbfn.addToUserCollection(res, collection);
+    });
+  }
 }
 
 function addToQueue(event) {
@@ -80,12 +78,11 @@ function addToQueue(event) {
   const elementClicked = event.target;
   if (elementClicked.dataset.action === 'toQueue') {
     const id = event.target.dataset.id;
-    console.log(id);
-    //Код що додає фільм до колекції watched Firebase
 
     collection = 'queue';
-    fbfn.fetchMovieDataFirebase(id)
-      .then((res) => {fbfn.addToUserCollection(res, collection)});
+    fbfn.fetchMovieDataFirebase(id).then(res => {
+      fbfn.addToUserCollection(res, collection);
+    });
   }
 }
 
@@ -109,14 +106,16 @@ async function getAllModalDetails() {
         return;
       }
       const { results } = response;
-     return results.slice(0, 5);
-
+      return results.slice(0, 5);
     });
-
-  getComments.map(comment=>{comment.created_at=comment.created_at.slice(0, 10)})
+  if (getComments === undefined) {
+    return;
+  }
+  getComments.map(comment => {
+    comment.created_at = comment.created_at.slice(0, 10);
+  });
   generateMovieModalReviews(getComments);
 }
-
 
 function onMovieClick(event) {
   if (event.target.dataset.jsmodal !== 'js-modal-onclick') {
@@ -157,9 +156,3 @@ function moreCommentsToRead(event) {
     }
   }
 }
-
-
-
-
-
-

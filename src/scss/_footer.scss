@@ -65,60 +65,7 @@ footer {
     line-height: 19px;
   }
 }
-/*
-.team-faces {
-  position: absolute;
-  width: 146px;
-  height: 272px;
-  background: #e5e5e5;
-  box-shadow: 3px 4px 11px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  left: 128px;
-  top: -279px;
-}
-
-.team-header {
-  font-family: $font_roboto;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  color: $color_orange;
-  margin-top: 13px;
-}
-
-.team-name {
-  &:not(:first-child) {
-    margin-top: 4px;
-  }
-  & a {
-    text-decoration: none;
-    font-family: $font_roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 15px;
-    color: $color_grey;
-    text-align: center;
-    transition: 500ms;
-
-    &:hover {
-      color: $color_orange;
-      font-weight: 700;
-    }
-  }
-}
-
-.team-list {
-  padding-left: 0;
-  margin-bottom: 15px;
-  text-align: center;
-}
-*/
-//////////
-
-.teamModalBack{
+.teamModalBack {
   position: fixed;
   top: 0;
   left: 0;
@@ -127,25 +74,23 @@ footer {
   background: rgba(0, 0, 0, 0.2);
   opacity: 1;
   overflow-y: scroll;
-  &.teamModalIsHidden{
+  &.teamModalIsHidden {
     opacity: 0;
     pointer-events: none;
   }
-
 }
-.teamModalBtnClose{
+.teamModalBtnClose {
   font-size: 30px;
   margin-top: 10px;
   margin-right: 10px;
   position: absolute;
   right: 0;
   top: 0;
-  &:hover{
+  &:hover {
     color: $color_orange;
   }
 }
-.team_list{
-
+.team_list {
   @media screen and (max-width: $tablet - 1px) {
     display: flex;
     flex-wrap: wrap;
@@ -163,7 +108,7 @@ footer {
   }
 }
 
-.teamModalContainer{
+.teamModalContainer {
   background: $color_light_grey;
   position: absolute;
   bottom: 84px;
@@ -173,18 +118,17 @@ footer {
   @media screen and (max-width: $tablet - 1px) {
     bottom: 100px;
   }
-
 }
-.teammate_name{
+.teammate_name {
   color: $color_black;
   font-weight: 500;
 }
-.teammate_job{
+.teammate_job {
   color: $color_orange;
   font-style: italic;
   font-weight: 400;
 }
-.teammate_info{
+.teammate_info {
   text-align: center;
   @media screen and (max-width: $tablet - 1px) {
     width: 213px;
@@ -199,16 +143,7 @@ footer {
     margin-bottom: 15px;
   }
 }
-.teammate_img{
+.teammate_img {
   font-size: 70px;
   color: $color_dark_theme_gray;
-
 }
-
-
-
-
-
-
-
-

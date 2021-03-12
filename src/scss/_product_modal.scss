@@ -26,11 +26,11 @@ body.movieModalOpened {
   transform: translate(-50%, 0) scale(1);
   width: 280px;
   height: auto;
-  padding: 50px 20px 0px 20px;
+  padding: 50px 20px 0 20px;
 
   @media screen and (min-width: 768px) {
     width: 618px;
-    padding: 40px 30px 0px 30px;
+    padding: 40px 30px 0 30px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
@@ -39,7 +39,7 @@ body.movieModalOpened {
   @media screen and (min-width: 1024px) {
     width: 882px;
     height: auto;
-    padding: 50px 30px 0px 30px;
+    padding: 50px 30px 0 30px;
   }
 }
 
@@ -120,7 +120,7 @@ body.movieModalOpened {
   border-color: $color_black;
   margin-top: 15px;
   &:hover,
-  focus {
+  &:focus {
     background: $color_orange;
     color: $color_white;
   }
@@ -145,7 +145,6 @@ body.movieModalOpened {
   @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
-
   }
 }
 .movieModalContainerPoster,
@@ -162,7 +161,7 @@ body.movieModalOpened {
 .movieModalContainerData {
   margin-top: 30px;
   @media screen and (min-width: 768px) {
-    margin-top: 0px;
+    margin-top: 0;
   }
 }
 
@@ -185,9 +184,9 @@ body.movieModalOpened {
 }
 
 .movieModalContainerDataAbout,
-movieModalContainerDataStatItemName,
+.movieModalContainerDataStatItemName,
 .movieModalContainerDataAboutHeader,
-movieModalContainerDataStatItemResult {
+.movieModalContainerDataStatItemResult {
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -218,7 +217,7 @@ movieModalContainerDataStatItemResult {
   font-style: normal;
   font-weight: 500;
   line-height: 23px;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   text-align: left;
   margin-bottom: 15px;
   @media screen and (min-width: 768px) {
@@ -251,7 +250,7 @@ movieModalContainerDataStatItemResult {
   background: $color_white;
   margin-right: -20px;
   margin-left: -20px;
- margin-top: 0px;
+  margin-top: 0;
   @media screen and (min-width: 768px) {
     margin-right: -30px;
     margin-left: -30px;
@@ -303,7 +302,7 @@ movieModalContainerDataStatItemResult {
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    letter-spacing: 0em;
+    letter-spacing: 0;
     text-align: left;
     overflow: hidden;
     height: 40px;
@@ -318,7 +317,6 @@ movieModalContainerDataStatItemResult {
     color: $color_orange;
     font-size: 14px;
     text-decoration: none;
-
   }
   //link to be visible is content of comment is big
   .moreNeeded {
@@ -345,4 +343,6 @@ movieModalContainerDataStatItemResult {
     display: inline-block;
   }
 }
-
+.movie-modal-span {
+  color: green;
+}

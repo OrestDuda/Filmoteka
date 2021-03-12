@@ -26,7 +26,7 @@
     font-size: 18px;
     color: white;
     background: $color_orange;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
     border-radius: 10px;
     @media screen and (min-width: 480px) {
       font-size: 16px;
@@ -34,14 +34,12 @@
     @media screen and (min-width: 768px) {
       font-size: 18px;
     }
-
   }
   .tui-is-disabled {
     color: $color_grey;
     cursor: not-allowed;
   }
 }
-
 
 div.pagination > span.tui-page-btn.tui-first,
 div.pagination > a.tui-page-btn.tui-first,
@@ -50,7 +48,7 @@ div.pagination > a.tui-page-btn.tui-next-is-ellip,
 body > section > div > div.pagination > a.tui-page-btn.tui-last,
 body > section > div > div.pagination > span.tui-page-btn.tui-last {
   @media screen and (min-width: 480px) {
-  display: none;
+    display: none;
   }
   @media screen and (min-width: 768px) {
     display: initial;

@@ -21,6 +21,7 @@ module.exports = env => ({
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
+      favicon: './images/Filmoteka.svg',
     }),
   ],
   devServer: {

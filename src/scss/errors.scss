@@ -1,5 +1,5 @@
 .error-404 {
-  font-family: Roboto;
+  font-family: $font_roboto;
   font-style: normal;
   font-weight: 700;
   font-size: 74px;
@@ -8,7 +8,7 @@
   text-align: center;
 
   &-text {
-    font-family: Roboto;
+    font-family: $font_roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
@@ -18,7 +18,7 @@
 }
 
 .error-text {
-  font-family: Roboto;
+  font-family: $font_roboto;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;

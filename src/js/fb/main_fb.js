@@ -3,75 +3,57 @@ require('firebase/auth');
 require('firebase/firestore');
 import * as firebaseui from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css';
+import refs from '../refs';
 //===============================================================================
 
 import * as fbfn from './fb_fn';
 //Файл конфігурації Firebase
 
-import filmsTpl from '../../templates/products-fb.hbs';
-//const renderListRef = document.querySelector('#products-list-js');
-
 //Firebase ініціалізація
 //firebase.initializeApp(fbfn.firebaseConfig);
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
-var db = firebase.firestore();
+const ui = new firebaseui.auth.AuthUI(firebase.auth());
+const db = firebase.firestore();
 
 //Вище файл конфігурації та імпорт бібліотек
 //===============================================================================
-
-//Посолання на HTML-elements
-const btnSignInRef = document.querySelector('.js-SignIn');
-const btnSignUpRef = document.querySelector('.js-SignUp');
-const signinFormRef = document.querySelector('.registerForm');
-const userSpanRef = document.querySelector('.js-userSpan');
-const userAuthRef = document.querySelector('.js-userAuth');
-const loginFormRef = document.querySelector('.loginForm');
-const btnSignOutRef = document.querySelector('.js-SignOut');
-const BtnWatchRef = document.querySelector('.js-watched-col');
-const BtnQueueRef = document.querySelector('.js-queue-col');
 
 //Код для контролю чи авторизований користувач та виконання відповідних дій
 // Можна передати функції для авторизованого та не авторизованого користувача!!!
 
 function userLink() {
-  btnSignInRef.insertAdjacentHTML(
+  refs.loginSignIn.insertAdjacentHTML(
     'beforebegin',
     `<span class="sign-in js-userSpan">User : ${curUser}<span>`,
   );
-  btnSignInRef.classList.add('is-hidden');
-  btnSignUpRef.classList.add('is-hidden');
-  btnSignOutRef.classList.remove('is-hidden');
-  BtnWatchRef.classList.remove('is-hidden');
-  BtnQueueRef.classList.remove('is-hidden');
+  refs.loginSignIn.classList.add('is-hidden');
+  refs.registerSignUp.classList.add('is-hidden');
+  refs.btnSignOutRef.classList.remove('is-hidden');
+  refs.BtnWatchRef.classList.remove('is-hidden');
+  refs.BtnQueueRef.classList.remove('is-hidden');
 }
 function noUserLink() {
-  btnSignOutRef.classList.add('is-hidden');
-  BtnWatchRef.classList.add('is-hidden');
-  BtnQueueRef.classList.add('is-hidden');
+  refs.btnSignOutRef.classList.add('is-hidden');
+  refs.BtnWatchRef.classList.add('is-hidden');
+  refs.BtnQueueRef.classList.add('is-hidden');
 
-  btnSignInRef.classList.remove('is-hidden');
-  btnSignUpRef.classList.remove('is-hidden');
+  refs.loginSignIn.classList.remove('is-hidden');
+  refs.registerSignUp.classList.remove('is-hidden');
 }
 export let curUser;
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
     curUser = user.email;
-    let letUser = curUser;
-
     userLink();
-    if (userAuthRef) {
-      userAuthRef.textContent = '';
+    if (refs.userAuthRef) {
+      refs.userAuthRef.textContent = '';
     }
-
-    console.log(curUser, ` - користувач успішно пройшов авторизацію!`);
   } else {
     // No user is signed in.
     noUserLink();
-    if (userSpanRef) {
-      userSpanRef.textContent = '';
+    if (refs.userSpanRef) {
+      refs.userSpanRef.textContent = '';
     }
-    console.log(curUser, ' - НЕ АВТОРИЗОВАНИЙ');
   }
 });
 
@@ -80,31 +62,28 @@ firebase.auth().onAuthStateChanged(function (user) {
 //Прослуховування форми та відправка дани для Реєстрації через createNewUserFn()
 let newUserMail;
 let newUserPass;
-signinFormRef.addEventListener('submit', event => {
+refs.signinFormRef.addEventListener('submit', event => {
   event.preventDefault();
   newUserMail = document.getElementById('registerFormName').value;
   newUserPass = document.getElementById('registerFormPassword').value;
   fbfn.createNewUserFn(newUserMail, newUserPass);
-  console.log('User created!');
 });
 //===============================================================================
 
 //Прослуховування форми та відправка дани для Авторизації через loginUserFn()
 let currentUserMail;
 let currentUserPass;
-loginFormRef.addEventListener('submit', event => {
+refs.loginFormRef.addEventListener('submit', event => {
   event.preventDefault();
   currentUserMail = document.getElementById('loginFormName').value;
   currentUserPass = document.getElementById('loginFormPassword').value;
   fbfn.loginUserFn(currentUserMail, currentUserPass);
-  console.log('User Entry');
 });
 //===============================================================================
 
 //Прослуховування кнопки-посилання та відправка даних для Виходу через signOutUserFn()
-btnSignOutRef.addEventListener('click', event => {
+refs.btnSignOutRef.addEventListener('click', event => {
   fbfn.signOutUserFn(curUser);
-  console.log('User Out!');
   document.location.reload();
 });
 
@@ -121,7 +100,7 @@ let col;
 //   !!!- arrayWatched  -  Масив фільмів з колекції Watched
 
 const Handlebars = require('handlebars');
-BtnWatchRef.addEventListener('click', event => {
+refs.BtnWatchRef.addEventListener('click', event => {
   col = 'watched';
   fbfn.getUserCollection(col);
   document.querySelector('.pagination').innerHTML = '';
@@ -133,7 +112,7 @@ BtnWatchRef.addEventListener('click', event => {
 //   !!!- arrayQueue  -  Масив фільмів з колекції Queue
 //let arrayQueue;
 
-BtnQueueRef.addEventListener('click', event => {
+refs.BtnQueueRef.addEventListener('click', event => {
   col = 'queue';
   fbfn.getUserCollection(col);
   document.querySelector('.pagination').innerHTML = '';
@@ -143,11 +122,9 @@ BtnQueueRef.addEventListener('click', event => {
 
 const ulColection = document.querySelector('.products-list-js');
 ulColection.addEventListener('click', event => {
-  console.log(event);
   let marK = event.target.dataset.fb;
   if (marK === '1') {
     delDoc(event, col);
-    console.log(event);
   }
 });
 
