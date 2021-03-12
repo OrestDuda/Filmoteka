@@ -3,6 +3,8 @@ import modalVideoTemplate from '../templates/movieModalVideo.hbs';
 import modalReviewsTemplate from '../templates/movieModalReviews.hbs';
 import refs from './refs';
 import movieModalAPI from './movieModalAPI';
+
+import * as mainfb from './fb/main_fb';
 //=================================================================
 //For Firebase
 //=================================================================
@@ -59,31 +61,60 @@ function toggleModal() {
   document.body.classList.toggle('movieModalOpened');
   refs.modalBackdrop.classList.toggle('movieIsHidden');
 }
+
 function addToWatch(event) {
   event.preventDefault();
   const elementClicked = event.target;
-  if (elementClicked.dataset.action === 'toWatch') {
+  if (elementClicked.dataset.action == 'toWatch') {
     const id = event.target.dataset.id;
     //Код що додає фільм до колекції watched Firebase
-
     collection = 'watched';
     fbfn.fetchMovieDataFirebase(id).then(res => {
-      fbfn.addToUserCollection(res, collection);
+    fbfn.addToUserCollection(res, collection);
     });
   }
+      firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    // User is signed in.
+  } else {
+    // No user is signed in.
+   
+    let bd = document.querySelector('.movieBackdrop')
+    let linkRef = document.querySelector("#s-btn")
+    refs.movieWrap.innerHTML = '';
+    bd.click();
+    linkRef.click();
+    
+  }
+});
 }
 
 function addToQueue(event) {
   event.preventDefault();
   const elementClicked = event.target;
-  if (elementClicked.dataset.action === 'toQueue') {
+  if (elementClicked.dataset.action == 'toQueue') {
     const id = event.target.dataset.id;
-
     collection = 'queue';
     fbfn.fetchMovieDataFirebase(id).then(res => {
-      fbfn.addToUserCollection(res, collection);
+    fbfn.addToUserCollection(res, collection)
     });
   }
+     firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    // User is signed in.
+  } else {
+    // No user is signed in.
+   
+    let bd = document.querySelector('.movieBackdrop')
+    let linkRef = document.querySelector("#s-btn")
+    refs.movieWrap.innerHTML = '';
+    bd.click();
+    linkRef.click();
+    
+  }
+});
+    
+  
 }
 
 async function getAllModalDetails() {
