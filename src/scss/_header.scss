@@ -1,7 +1,15 @@
-header {
+.header {
   background-color: $color_black;
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(../images/header_default_bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100%;
+  height: 230px;
+}
+.headerlog {
+  background-color: $color_black;
+  background-image: url(../images/header_logged_bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   max-width: 100%;
