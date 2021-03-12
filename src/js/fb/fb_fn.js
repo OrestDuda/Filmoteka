@@ -3,6 +3,7 @@ import * as firebaseui from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css';
 import filmsTpl from '../../templates/products-fb.hbs';
 import refs from '../refs';
+import fetchFilms from '../topFilms';
 
 require('firebase/auth');
 require('firebase/firestore');
@@ -51,11 +52,7 @@ export function createNewUserFn(mail, password) {
     })
     .catch(function (error) {
       console.log(error);
-      document.querySelector('.reg-error').textContent = `${error}`
-      //refs.formMessageref.insertAdjacentHTML(
-      //  'beforebegin',
-      //  `<span>${error}</span>`,
-      //);
+      document.querySelector('.reg-error').textContent = `${error}`;
     });
 }
 //===============================================================================
@@ -64,15 +61,16 @@ export function createNewUserFn(mail, password) {
 export async function loginUserFn(mail, password) {
   await firebase
     .auth()
-    .signInWithEmailAndPassword(mail, password).then((r)=>{document.location.reload()})
-    
+    .signInWithEmailAndPassword(mail, password)
+    .then(r => {
+      fetchFilms(1);
+    })
+
     .catch(function (error) {
       console.log(error);
-      document.querySelector('.login-error').textContent = `${error}`
+      document.querySelector('.login-error').textContent = `${error}`;
       return error;
     });
-  
-  
 }
 //===============================================================================
 

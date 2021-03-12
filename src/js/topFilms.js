@@ -56,3 +56,5 @@ pagination.on('afterMove', function (eventData) {
 
   fetchFilms(currentPage);
 });
+
+export { fetchFilms as default };
