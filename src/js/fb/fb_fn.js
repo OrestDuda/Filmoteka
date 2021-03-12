@@ -130,6 +130,7 @@ export async function getUserCollection(collection) {
       querySnapshot.docs.forEach(doc => {
         let item = doc.data();
         item.genres = item.genres.map(g => ' ' + g.name);
+        item.release_date = item.release_date.slice(0, 4);
         newArray.push(item);
       });
       const markupWatched = filmsTpl(newArray);
