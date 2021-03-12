@@ -60,14 +60,14 @@ export function createNewUserFn(mail, password) {
 export async function loginUserFn(mail, password) {
   await firebase
     .auth()
-    .signInWithEmailAndPassword(mail, password)
+    .signInWithEmailAndPassword(mail, password).then((r)=>{document.location.reload()})
     
     .catch(function (error) {
       console.log(error);
       document.querySelector('.login-error').textContent = `${error}`
       return error;
     });
-  document.location.reload();
+  
   
 }
 //===============================================================================

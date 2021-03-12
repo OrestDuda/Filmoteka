@@ -59,15 +59,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       refs.userSpanRef.textContent = '';
     }
     
-    refs.loginFormRef.addEventListener('submit', event => {
-    let currentUserMail;
-    let currentUserPass;
-    event.preventDefault();
-    currentUserMail = document.getElementById('loginFormName').value;
-    currentUserPass = document.getElementById('loginFormPassword').value;
-      fbfn.loginUserFn(currentUserMail, currentUserPass);
-      console.log(event);
-  });
+
   }
 });
 
