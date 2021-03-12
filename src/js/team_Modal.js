@@ -6,7 +6,7 @@ refs.teamModalBackdrop.addEventListener('click', onTeamModalBackClick);
 
 function onTeamModalClose() {
   toggleTeam();
-  window.removeEventListener('keydown', onEscPress);
+  window.removeEventListener('keydown', onPressingESC);
 }
 
 function onTeamModalBackClick(event) {
@@ -15,7 +15,7 @@ function onTeamModalBackClick(event) {
   }
 }
 
-function onEscPress(event) {
+function onPressingESC(event) {
   if (event.code === 'Escape') {
     onTeamModalClose();
   }
@@ -27,5 +27,5 @@ function toggleTeam() {
 
 function onDevelopersClick(event) {
   toggleTeam();
-  window.addEventListener('keydown', onEscPress);
+  window.addEventListener('keydown', onPressingESC);
 }
