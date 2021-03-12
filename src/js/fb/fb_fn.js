@@ -46,22 +46,27 @@ export function createNewUserFn(mail, password) {
       refs.registerModalBackdrop.classList.add('is-hidden');
     })
     .catch(function (error) {
-      refs.formMessageref.insertAdjacentHTML(
-        'beforebegin',
-        `<span>${error}</span>`,
-      );
+      console.log(error);
+      document.querySelector('.reg-error').textContent = `${error}`
+      //refs.formMessageref.insertAdjacentHTML(
+      //  'beforebegin',
+      //  `<span>${error}</span>`,
+      //);
     });
 }
 //===============================================================================
 
 //Функція, що реалізує Авторизацію - можна прописати необхідні дії тут
-export function loginUserFn(mail, password) {
-  firebase
+export async function loginUserFn(mail, password) {
+  await firebase
     .auth()
     .signInWithEmailAndPassword(mail, password)
+    
     .catch(function (error) {
       console.log(error);
+      document.querySelector('.login-error').textContent = `${error}`
     });
+  document.location.reload()
 }
 //===============================================================================
 
@@ -125,7 +130,6 @@ export async function getUserCollection(collection) {
     .get()
     .then(querySnapshot => {
       refs.renderListRef.innerHTML = '';
-
       newArray = [];
       querySnapshot.docs.forEach(doc => {
         let item = doc.data();

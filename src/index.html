@@ -30,7 +30,7 @@
     ></script>
     <title>Filmoteka Team 5</title>
   </head>
-  <body>
+  <body id="body">
     <header>
       <div class="containerX header_main">
         <nav>
@@ -61,7 +61,7 @@
                   </li>
                 </ul>
               </div>
-              <a href="#" class="sign-in js-SignIn">sign in</a>
+              <a href="#" class="sign-in js-SignIn" id="s-btn">sign in</a>
               <a href="#" class="sign-in js-SignUp">sign up</a>
               <a href="#" class="sign-in js-SignOut">sign out</a>
               <a href="#" class="sign-in js-watched-col">Watched</a>
@@ -183,6 +183,7 @@
               class="loginFormInput"
               placeholder=" "
             />
+            <span class="login-error"></span>
           </div>
           <div class="buttonLocation">
             <button class="logFormButtonOne" type="submit">Log In</button>
@@ -222,6 +223,7 @@
               class="registerFormInput"
               placeholder=" "
             />
+            <span class="reg-error"></span>
           </div>
           <div class="buttonLocation">
             <button class="logFormButtonOne js-btn-reg" type="submit">
