@@ -28,8 +28,12 @@ firebase.auth().onAuthStateChanged(function (user) {
     // User is signed in.
     curUser = user.email;
     refs.loginModalBackdrop.classList.add('is-hidden');
+    document.querySelector('header').classList.remove('header');
+    document.querySelector('header').classList.add('headerlog');
   } else {
     // No user is signed in.
+    document.querySelector('header').classList.add('header');
+    document.querySelector('header').classList.remove('headerlog');
   }
 });
 
