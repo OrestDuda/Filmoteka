@@ -7,9 +7,9 @@ refs.registerModalBackdrop.addEventListener('click', onBackdropClick);
 function onButtonCloseClick() {
   registerToggleModal();
   window.removeEventListener('keydown', pressEsc);
-    document.querySelector('.reg-error').textContent = '';
-  document.getElementById('registerFormName').value = '';
-  document.getElementById('registerFormPassword').value = '';
+  refs.regError.textContent = '';
+  refs.registerFormName.value = '';
+  refs.registerFormPassword.value = '';
 }
 function onBackdropClick(event) {
   if (event.target === event.currentTarget) {

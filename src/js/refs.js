@@ -38,6 +38,9 @@ const refs = {
   footerText: document.querySelector('.footer_container'),
   footerTextTeam: document.querySelector('.team__modal'),
   registerFromLogin: document.querySelector('.registerFromLogin'),
+  regError: document.querySelector('.reg-error'),
+  registerFormName: document.getElementById('registerFormName'),
+  registerFormPassword: document.getElementById('registerFormPassword'),
   theme: localStorage.getItem('theme'),
 };
 
