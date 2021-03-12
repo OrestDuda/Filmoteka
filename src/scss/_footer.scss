@@ -82,11 +82,16 @@ footer {
 .teamModalBtnClose {
   z-index: 30;
   font-size: 22px;
-  margin-top: 10px;
-  margin-right: 10px;
+
   position: absolute;
-  right: 348px;
-  bottom: 368px;
+  right: 3%;
+  bottom: 94%;
+
+  @media screen and (min-width: 767px) {
+    right: 3%;
+    bottom: 90%;
+  }
+
   &:hover {
     color: $color_orange;
   }
@@ -95,6 +100,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding: 20px;
 }
 
 .teamModalContainer {
@@ -111,7 +117,6 @@ footer {
 .teammate_name {
   color: $color_black;
   font-weight: 500;
-  padding: 10px;
 
   &:hover {
     color: $color_orange;
