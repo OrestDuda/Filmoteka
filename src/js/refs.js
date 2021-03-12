@@ -37,6 +37,7 @@ const refs = {
   footer: document.querySelector('footer'),
   footerText: document.querySelector('.footer_container'),
   footerTextTeam: document.querySelector('.team__modal'),
+  registerFromLogin: document.querySelector('.registerFromLogin'),
   theme: localStorage.getItem('theme'),
 };
 

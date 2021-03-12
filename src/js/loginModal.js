@@ -1,12 +1,12 @@
 import refs from './refs';
 
-// function generateHTML(data) {
-//   refs.movieWrap.insertAdjacentHTML("beforeend", movieModalTemplate(data));
-// }
-
 refs.loginSignIn.addEventListener('click', onSignInClick);
 refs.loginCloseModalBtn.addEventListener('click', onButtonCloseClick);
 refs.loginModalBackdrop.addEventListener('click', onBackdropClick);
+refs.registerFromLogin.addEventListener('click', () => {
+  onButtonCloseClick();
+  refs.registerModalBackdrop.classList.toggle('is-hidden');
+});
 
 function onButtonCloseClick() {
   loginToggleModal();

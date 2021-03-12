@@ -12,12 +12,12 @@ refs.themeTogglerLink.addEventListener('click', () => {
 });
 
 function deleteThemeIf() {
-  if (!refs.body().classList.contains('dark-background')) {
+  if (!refs.body.classList.contains('dark-background')) {
     localStorage.removeItem('theme');
   }
 }
 
-refs.themeTogglerLink().addEventListener('click', deleteThemeIf);
+refs.themeTogglerLink.addEventListener('click', deleteThemeIf);
 
 function setSavedTheme() {
   if (refs.theme === 'dark-theme') {
