@@ -1,16 +1,14 @@
 {{#each this}}
 <li class="products-film" data-id='{{id}}' data-jsmodal='js-modal-onclick'>
-    <a href="" data-id='{{id}}' data-jsmodal='js-modal-onclick'>
         <img srcset="" class="imgFilm" src="https://www.themoviedb.org/t/p/w300{{poster_path}}"
             alt="{{title}} | {{original_title}}" title="{{title}}" data-id='{{id}}'
-            data-jsmodal='js-modal-onclick' /></a>
-    <a href="" data-id='{{id}}' data-jsmodal='js-modal-onclick'>
+            data-jsmodal='js-modal-onclick' />
         <h3 class="products-name" data-id='{{id}}' data-jsmodal='js-modal-onclick'>{{title}}</h3>
-    </a>
     <div class="reyting-align" data-id='{{id}}' data-jsmodal='js-modal-onclick'>
         <p class="products-style" data-id='{{id}}' data-jsmodal='js-modal-onclick'>
             {{this.genres}} | {{release_date}}
-        </p>
+      <p class="reyting" data-id='{{this.id}}' data-jsmodal='js-modal-onclick'>{{vote_average}}</p>
+      </p>
     </div>
         <button class="products-style delFb" data-id="{{id}}" data-fb="1">Delete</button>
 </li>

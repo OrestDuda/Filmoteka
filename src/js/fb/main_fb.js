@@ -51,12 +51,23 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (refs.userAuthRef) {
       refs.userAuthRef.textContent = '';
     }
+  
   } else {
     // No user is signed in.
     noUserLink();
     if (refs.userSpanRef) {
       refs.userSpanRef.textContent = '';
     }
+    
+    refs.loginFormRef.addEventListener('submit', event => {
+    let currentUserMail;
+    let currentUserPass;
+    event.preventDefault();
+    currentUserMail = document.getElementById('loginFormName').value;
+    currentUserPass = document.getElementById('loginFormPassword').value;
+      fbfn.loginUserFn(currentUserMail, currentUserPass);
+      console.log(event);
+  });
   }
 });
 
@@ -74,14 +85,15 @@ refs.signinFormRef.addEventListener('submit', event => {
 //===============================================================================
 
 //Прослуховування форми та відправка дани для Авторизації через loginUserFn()
-let currentUserMail;
-let currentUserPass;
-refs.loginFormRef.addEventListener('submit', event => {
-  event.preventDefault();
-  currentUserMail = document.getElementById('loginFormName').value;
-  currentUserPass = document.getElementById('loginFormPassword').value;
-  fbfn.loginUserFn(currentUserMail, currentUserPass);
-});
+    refs.loginFormRef.addEventListener('submit', event => {
+    let currentUserMail;
+    let currentUserPass;
+    event.preventDefault();
+    currentUserMail = document.getElementById('loginFormName').value;
+    currentUserPass = document.getElementById('loginFormPassword').value;
+      fbfn.loginUserFn(currentUserMail, currentUserPass);
+
+  });
 //===============================================================================
 
 //Прослуховування кнопки-посилання та відправка даних для Виходу через signOutUserFn()

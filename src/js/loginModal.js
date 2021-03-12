@@ -11,6 +11,10 @@ refs.registerFromLogin.addEventListener('click', () => {
 function onButtonCloseClick() {
   loginToggleModal();
   window.removeEventListener('keydown', pressEsc);
+  document.querySelector('.login-error').textContent = '';
+  document.getElementById('loginFormName').value = '';
+  document.getElementById('loginFormPassword').value = '';
+
 }
 function onBackdropClick(event) {
   if (event.target === event.currentTarget) {
@@ -32,3 +36,4 @@ function onSignInClick(event) {
   loginToggleModal();
   window.addEventListener('keydown', pressEsc);
 }
+ 
