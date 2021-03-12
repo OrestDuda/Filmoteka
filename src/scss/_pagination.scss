@@ -2,6 +2,8 @@
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
+  flex-wrap: wrap;
+
   .tui-page-btn {
     background-color: $color_white;
     border: none;
@@ -12,11 +14,13 @@
     display: inline-block;
     font-size: 14px;
     border-radius: 10px;
+
     @media screen and (min-width: 480px) {
       padding: 5px 15px;
     }
     @media screen and (min-width: 768px) {
       padding: 7px 18px;
+      flex-wrap: nowrap;
     }
     @media screen and (min-width: 1024px) {
       padding: 10px 25px;
